@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="">	
+<head>
+	<meta charset="utf-8"/>
+	<title>Instalación de NetBSD con Arranque desde Red (PXE) - Grupo de Usuarios de NetBSD en México</title>	
+	<meta name="author" content="">
+	
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
+	
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:700,400|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+		
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	
+	
+	
+	<link href="./" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México ATOM Feed" />
+	
+	<link href="./feeds/all.rss.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México RSS Feed" />
+	
+</head>
+	
+<body>		
+	<header class="clearfix" role="banner">
+		<div class="wrapper">
+			<h1 class="huge"><a href=".">Grupo de Usuarios de NetBSD en México</a></h1>
+		</div>
+	</header>
+	
+	
+<div role="main" class="content clearfix">	
+	<article>
+		<div class="post wrapper">
+			<h1>Instalación de NetBSD con Arranque desde Red (PXE)</h1>
+			<p><a class="reference external" href="http://www.netbsd.org">NetBSD</a> es un Sistema Operativo bastante flexible; en algunos escenarios, tenemos la necesidad de instalar el Sistema Operativo desde red, dentro de un equipo destino que no cuenta con disquetera ni puede arrancar por USB. El CD-ROM de <a class="reference external" href="http://www.netbsd.org">NetBSD</a> cuenta con los archivos necesarios para poder instalarse desde red. En éste artículo explicaremos lo necesario para un arranque usando <a class="reference external" href="http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf">PXE</a> (Preboot eXecution Environment); el cual es muy usado en la actualidad.</p>
+<div class="section" id="servidor-de-arranque">
+<h2>Servidor de Arranque</h2>
+<p>El servidor de arranque necesita tener activado los servicios de <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a>, <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a> y de manera opcional el servicio de HTTP o FTP donde contendrá los componentes para su instalación.</p>
+<div class="section" id="servicio-de-dhcp">
+<h3>Servicio de DHCP</h3>
+<p>En el servicio de <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a>, se deberá de dar de alta una dirección IP fija que será asignada al equipo destino y se indicará la dirección IP del Servidor que tenga el servicio de TFTP en la variable <tt class="docutils literal"><span class="pre">next-server</span></tt>. Si se usa el servidor <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a> de ISC la configuración sería similar a la que sigue:</p>
+<pre class="literal-block">
+host MiServidor {
+  hardware ethernet 00:AA:11:BB:22:CC;
+  fixed-address 192.168.1.105;
+  filename &quot;pxeboot_ia32.bin&quot;;
+  next-server 192.168.1.101;
+  option host-name &quot;nbsd-server&quot;;
+  option routers 192.168.1.254;
+}
+</pre>
+</div>
+<div class="section" id="servicio-de-tftp">
+<h3>Servicio de TFTP</h3>
+<p>Para el servidor <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a> se puede usar la opción que les sea más cómoda, y no requiere de una configuración especial, lo importante aqui es obtener los siguientes archivos del CD-ROM de <a class="reference external" href="http://www.netbsd.org">NetBSD</a> y colocarlos en el directorio raíz que provee el servicio de <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a>:</p>
+<ul class="simple">
+<li><tt class="docutils literal">amd64/installation/misc/pxeboot_ia32.bin</tt></li>
+<li><tt class="docutils literal"><span class="pre">amd64/binary/kernel/netbsd-INSTALL.gz</span></tt></li>
+</ul>
+<p>En el caso del kernel de instalación llamado <tt class="docutils literal"><span class="pre">netbsd-INSTALL.gz</span></tt>; hay que descomprimirlo usando <tt class="docutils literal">gunzip</tt> o  <tt class="docutils literal">zcat</tt> y nombrarlo como <tt class="docutils literal">netbsd</tt>, aunque el nombre de <tt class="docutils literal"><span class="pre">netbsd-INSTALL</span></tt> puede quedarse si gustan.</p>
+</div>
+<div class="section" id="servicio-de-http-o-ftp">
+<h3>Servicio de HTTP o FTP</h3>
+<p>Pueden usar el servidor de su elección y éste servicio es opcional, ya que el asistente de instalación de <a class="reference external" href="http://www.netbsd.org">NetBSD</a> preguntará en donde se encuentran los sets de instalación. Para usarlo es colocar en el directorio que provee los archivos del servicio, todo el árbol del CD-ROM de <a class="reference external" href="http://www.netbsd.org">NetBSD</a> en el mismo orden.</p>
+</div>
+</div>
+<div class="section" id="equipo-destino">
+<h2>Equipo Destino</h2>
+<p>El equipo destino debe de tener en el ROM de su tarjeta de red el soporte para arranque por <a class="reference external" href="http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf">PXE</a>, ésto puede verse en la interfaz de la ROM de la terjeta de red o en el Firmware (BIOS) del equipo. Al equipo le indicaremos que el dispositivo de arranque será la tarjeta de red. Una vez que obtenga los datos del servidor <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a>, le indicamos que el kernel de <a class="reference external" href="http://www.netbsd.org">NetBSD</a> se encuentra en <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a>, tecleando <tt class="docutils literal">boot tftp:netbsd</tt>:</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><p class="first">CLIENT MAC ADDR: 00 AA 11 BB 22 CC  GUID: 564DAF7F-7E8A.0CDE-A2A6-FB54233D2014
+CLIENT IP: 192.168.1.105  MASK: 255.255.255.0  DHCP IP: 192.168.1.101
+GATEWAY IP: 192.168.1.254;</p>
+<p class="last">&gt;&gt; NetBSD/x86 PXE boot, Revision 5.1 (from NetBSD 6.0)
+&gt;&gt; Memory: 572/260032 k
+Press return to boot now, any other key for boot menu
+booting netbsd - starting in 0 seconds.
+type &quot;?&quot; or &quot;help&quot; for help.
+&gt; boot <a class="reference external" href="tftp:netbsd">tftp:netbsd</a></p>
+</dd>
+</dl>
+<p>Descargará el kernel del servidor <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a>, y una vez arrancado llegará al asistente de instalación.</p>
+<p>Esperemos que éste pequeño artículo les sea de utilidad.</p>
+</div>
+
+			
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="netbsdmx" data-lang="en" data-size="large" data-related="netbsdmx">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						
+						
+		</div>
+	
+	<div class="meta wrapper">
+	<time datetime="2012-11-02T09:28:00" pubdate>Friday, 02 de November de 2012</time>
+	<ul class="tag clearfix">
+		<li><a href="./category/netbsd.html">NetBSD</a></li>
+
+	
+		<li><a href="./tag/redes.html">Redes</a></li>
+	
+		<li><a href="./tag/pxe.html">PXE</a></li>
+	
+		<li><a href="./tag/dhcp.html">DHCP</a></li>
+	
+		<li><a href="./tag/tftp.html">TFTP</a></li>
+	
+
+	</ul>
+	
+</div>
+	</article>	
+</div>
+
+	
+		
+<footer class="clearfix">
+	<div class="wrapper pages">
+		<ul class="nav">
+		
+			<li><a href="./archives.html">Archive</a></li>
+		</ul>
+	</div>
+	
+	<div class="copy wrapper">
+		<ul class="social">
+			
+			<li><a href="http://twitter.com/netbsdmx">twitter</a></li>
+			
+		</ul>
+	
+		<p role="contentinfo">© 2012 <br>
+		Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">Pelican</a>.</p>
+	</div>
+</footer>
+	
+	<script>
+	  var _gaq=[['_setAccount',''],['_trackPageview']];
+	  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	  s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+</body>
+</html>
