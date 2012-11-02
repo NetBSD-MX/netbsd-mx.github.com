@@ -72,19 +72,18 @@ host MiServidor {
 <div class="section" id="equipo-destino">
 <h2>Equipo Destino</h2>
 <p>El equipo destino debe de tener en el ROM de su tarjeta de red el soporte para arranque por <a class="reference external" href="http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf">PXE</a>, ésto puede verse en la interfaz de la ROM de la terjeta de red o en el Firmware (BIOS) del equipo. Al equipo le indicaremos que el dispositivo de arranque será la tarjeta de red. Una vez que obtenga los datos del servidor <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a>, le indicamos que el kernel de <a class="reference external" href="http://www.netbsd.org">NetBSD</a> se encuentra en <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a>, tecleando <tt class="docutils literal">boot tftp:netbsd</tt>:</p>
-<dl class="docutils">
-<dt>::</dt>
-<dd><p class="first">CLIENT MAC ADDR: 00 AA 11 BB 22 CC  GUID: 564DAF7F-7E8A.0CDE-A2A6-FB54233D2014
+<pre class="literal-block">
+CLIENT MAC ADDR: 00 AA 11 BB 22 CC  GUID: 564DAF7F-7E8A.0CDE-A2A6-FB54233D2014
 CLIENT IP: 192.168.1.105  MASK: 255.255.255.0  DHCP IP: 192.168.1.101
-GATEWAY IP: 192.168.1.254;</p>
-<p class="last">&gt;&gt; NetBSD/x86 PXE boot, Revision 5.1 (from NetBSD 6.0)
+GATEWAY IP: 192.168.1.254;
+
+&gt;&gt; NetBSD/x86 PXE boot, Revision 5.1 (from NetBSD 6.0)
 &gt;&gt; Memory: 572/260032 k
 Press return to boot now, any other key for boot menu
 booting netbsd - starting in 0 seconds.
 type &quot;?&quot; or &quot;help&quot; for help.
-&gt; boot <a class="reference external" href="tftp:netbsd">tftp:netbsd</a></p>
-</dd>
-</dl>
+&gt; boot tftp:netbsd
+</pre>
 <p>Descargará el kernel del servidor <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a>, y una vez arrancado llegará al asistente de instalación.</p>
 <p>Esperemos que éste pequeño artículo les sea de utilidad.</p>
 </div>

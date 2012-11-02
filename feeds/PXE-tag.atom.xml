@@ -34,19 +34,18 @@ host MiServidor {
 &lt;div class="section" id="equipo-destino"&gt;
 &lt;h2&gt;Equipo Destino&lt;/h2&gt;
 &lt;p&gt;El equipo destino debe de tener en el ROM de su tarjeta de red el soporte para arranque por &lt;a class="reference external" href="http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf"&gt;PXE&lt;/a&gt;, ésto puede verse en la interfaz de la ROM de la terjeta de red o en el Firmware (BIOS) del equipo. Al equipo le indicaremos que el dispositivo de arranque será la tarjeta de red. Una vez que obtenga los datos del servidor &lt;a class="reference external" href="http://www.isc.org/sw/dhcp"&gt;DHCP&lt;/a&gt;, le indicamos que el kernel de &lt;a class="reference external" href="http://www.netbsd.org"&gt;NetBSD&lt;/a&gt; se encuentra en &lt;a class="reference external" href="https://tools.ietf.org/html/rfc1350"&gt;TFTP&lt;/a&gt;, tecleando &lt;tt class="docutils literal"&gt;boot tftp:netbsd&lt;/tt&gt;:&lt;/p&gt;
-&lt;dl class="docutils"&gt;
-&lt;dt&gt;::&lt;/dt&gt;
-&lt;dd&gt;&lt;p class="first"&gt;CLIENT MAC ADDR: 00 AA 11 BB 22 CC  GUID: 564DAF7F-7E8A.0CDE-A2A6-FB54233D2014
+&lt;pre class="literal-block"&gt;
+CLIENT MAC ADDR: 00 AA 11 BB 22 CC  GUID: 564DAF7F-7E8A.0CDE-A2A6-FB54233D2014
 CLIENT IP: 192.168.1.105  MASK: 255.255.255.0  DHCP IP: 192.168.1.101
-GATEWAY IP: 192.168.1.254;&lt;/p&gt;
-&lt;p class="last"&gt;&amp;gt;&amp;gt; NetBSD/x86 PXE boot, Revision 5.1 (from NetBSD 6.0)
+GATEWAY IP: 192.168.1.254;
+
+&amp;gt;&amp;gt; NetBSD/x86 PXE boot, Revision 5.1 (from NetBSD 6.0)
 &amp;gt;&amp;gt; Memory: 572/260032 k
 Press return to boot now, any other key for boot menu
 booting netbsd - starting in 0 seconds.
 type &amp;quot;?&amp;quot; or &amp;quot;help&amp;quot; for help.
-&amp;gt; boot &lt;a class="reference external" href="tftp:netbsd"&gt;tftp:netbsd&lt;/a&gt;&lt;/p&gt;
-&lt;/dd&gt;
-&lt;/dl&gt;
+&amp;gt; boot tftp:netbsd
+&lt;/pre&gt;
 &lt;p&gt;Descargará el kernel del servidor &lt;a class="reference external" href="https://tools.ietf.org/html/rfc1350"&gt;TFTP&lt;/a&gt;, y una vez arrancado llegará al asistente de instalación.&lt;/p&gt;
 &lt;p&gt;Esperemos que éste pequeño artículo les sea de utilidad.&lt;/p&gt;
 &lt;/div&gt;
