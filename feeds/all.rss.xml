@@ -6,34 +6,40 @@
 &lt;h1&gt;Instalando &lt;code&gt;modular-xorg&lt;/code&gt; desde &lt;em&gt;pkgsrc&lt;/em&gt;&lt;/h1&gt;
 &lt;p&gt;Estoy usando &lt;a href="http://www.pkgsrc.org/" title="pkgsrc"&gt;pkgsrc&lt;/a&gt; &lt;strong&gt;-current&lt;/strong&gt; para aprovechar algunas novedades, las instrucciones para compilar &lt;code&gt;modular-xorg&lt;/code&gt; desde &lt;a href="http://www.pkgsrc.org/" title="pkgsrc"&gt;pkgsrc&lt;/a&gt; son las siguientes:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Editar &lt;code&gt;/etc/mk.conf&lt;/code&gt; e incluir:
-&lt;code&gt;X11_TYPE=modular&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Los paquetes necesarios son los siguientes:
-&lt;code&gt;# cd /usr/pkgsrc/x11/modular-xorg-server&lt;/code&gt;
-&lt;code&gt;# make install clean&lt;/code&gt;
-&lt;code&gt;# cd /usr/pkgsrc/meta-pkgs/modular-xorg-apps&lt;/code&gt;
-&lt;code&gt;# make install clean&lt;/code&gt;
-&lt;code&gt;# cd /usr/pkgsrc/meta-pkgs/modular-xorg-fonts&lt;/code&gt;
-&lt;code&gt;# make install clean&lt;/code&gt;
-&lt;code&gt;# cd /usr/pkgsrc/x11/xf86-input-keyboard&lt;/code&gt;
-&lt;code&gt;# make install clean&lt;/code&gt;
-&lt;code&gt;# cd /usr/pkgsrc/x11/xf86-input-mouse&lt;/code&gt;
-&lt;code&gt;# make install clean&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Esta es la parte interesante, elegir el controlador de video (&lt;em&gt;video driver&lt;/em&gt;) que estés usando en tu computadora o &lt;em&gt;laptop&lt;/em&gt;, en mi caso estoy usando ATI, para ello:
-&lt;code&gt;# cd /usr/pkgsrc/x11/xf86-video-ati&lt;/code&gt;
-&lt;code&gt;# make install clean&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Editar &lt;code&gt;/etc/mk.conf&lt;/code&gt; e incluir:
+&lt;code&gt;X11_TYPE=modular&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Los paquetes necesarios son los siguientes:&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;# cd /usr/pkgsrc/x11/modular-xorg-server&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# make install clean&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# cd /usr/pkgsrc/meta-pkgs/modular-xorg-apps&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# make install clean&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# cd /usr/pkgsrc/meta-pkgs/modular-xorg-fonts&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# make install clean&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# cd /usr/pkgsrc/x11/xf86-input-keyboard&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# make install clean&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# cd /usr/pkgsrc/x11/xf86-input-mouse&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# make install clean&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Esta es la parte interesante, elegir el controlador de video (&lt;em&gt;video driver&lt;/em&gt;) que estés usando en tu computadora o &lt;em&gt;laptop&lt;/em&gt;, en mi caso estoy usando ATI, para ello:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;# cd /usr/pkgsrc/x11/xf86-video-ati&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# make install clean&lt;/code&gt;&lt;/p&gt;
 &lt;h1&gt;Configurar &lt;em&gt;Xorg&lt;/em&gt;&lt;/h1&gt;
 &lt;p&gt;Si todo va bien, proseguimos a configurar &lt;a href="http://www.x.org/" title="X.Org Foundation"&gt;Xorg&lt;/a&gt; de dos formas.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;# xorgcfg&lt;/code&gt;
-El comando anterior inicia el programa de configuración de &lt;a href="http://www.x.org/" title="X.Org Foundation"&gt;Xorg&lt;/a&gt; en modo gráfico y el siguiente en modo texto.
-&lt;code&gt;# xorgconfig&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# xorgcfg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;El comando anterior inicia el programa de configuración de &lt;a href="http://www.x.org/" title="X.Org Foundation"&gt;Xorg&lt;/a&gt; en modo gráfico y el siguiente en modo texto.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# xorgconfig&lt;/code&gt;&lt;/p&gt;
 &lt;h1&gt;Configurando lo básico en &lt;code&gt;~/.xinitrc&lt;/code&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;xclock -geometry 50x50-1-1 &amp;amp;&lt;/code&gt;
-&lt;code&gt;xterm -geometry 80x34-1+1 -bg OldLace &amp;amp;&lt;/code&gt;
-&lt;code&gt;xsetroot -solid Bisque4 &amp;amp;&lt;/code&gt;
-&lt;code&gt;xterm -geometry 80x44+0+0 -bg AntiqueWhite -name login&lt;/code&gt;
-&lt;code&gt;twm&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;xclock -geometry 50x50-1-1 &amp;amp;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;xterm -geometry 80x34-1+1 -bg OldLace &amp;amp;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;xsetroot -solid Bisque4 &amp;amp;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;xterm -geometry 80x44+0+0 -bg AntiqueWhite -name login&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;twm&lt;/code&gt;&lt;/p&gt;
 &lt;h1&gt;Iniciando &lt;em&gt;Xorg&lt;/em&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;# xinit&lt;/code&gt;&lt;/p&gt;
 &lt;h1&gt;Referencias&lt;/h1&gt;

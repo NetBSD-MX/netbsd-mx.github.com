@@ -30,34 +30,40 @@
 <h1>Instalando <code>modular-xorg</code> desde <em>pkgsrc</em></h1>
 <p>Estoy usando <a href="http://www.pkgsrc.org/" title="pkgsrc">pkgsrc</a> <strong>-current</strong> para aprovechar algunas novedades, las instrucciones para compilar <code>modular-xorg</code> desde <a href="http://www.pkgsrc.org/" title="pkgsrc">pkgsrc</a> son las siguientes:</p>
 <ul>
-<li>Editar <code>/etc/mk.conf</code> e incluir:
-<code>X11_TYPE=modular</code></li>
-<li>Los paquetes necesarios son los siguientes:
-<code># cd /usr/pkgsrc/x11/modular-xorg-server</code>
-<code># make install clean</code>
-<code># cd /usr/pkgsrc/meta-pkgs/modular-xorg-apps</code>
-<code># make install clean</code>
-<code># cd /usr/pkgsrc/meta-pkgs/modular-xorg-fonts</code>
-<code># make install clean</code>
-<code># cd /usr/pkgsrc/x11/xf86-input-keyboard</code>
-<code># make install clean</code>
-<code># cd /usr/pkgsrc/x11/xf86-input-mouse</code>
-<code># make install clean</code></li>
-<li>Esta es la parte interesante, elegir el controlador de video (<em>video driver</em>) que estés usando en tu computadora o <em>laptop</em>, en mi caso estoy usando ATI, para ello:
-<code># cd /usr/pkgsrc/x11/xf86-video-ati</code>
-<code># make install clean</code></li>
+<li>
+<p>Editar <code>/etc/mk.conf</code> e incluir:
+<code>X11_TYPE=modular</code></p>
+</li>
+<li>
+<p>Los paquetes necesarios son los siguientes:</p>
+</li>
 </ul>
+<p><code># cd /usr/pkgsrc/x11/modular-xorg-server</code></p>
+<p><code># make install clean</code></p>
+<p><code># cd /usr/pkgsrc/meta-pkgs/modular-xorg-apps</code></p>
+<p><code># make install clean</code></p>
+<p><code># cd /usr/pkgsrc/meta-pkgs/modular-xorg-fonts</code></p>
+<p><code># make install clean</code></p>
+<p><code># cd /usr/pkgsrc/x11/xf86-input-keyboard</code></p>
+<p><code># make install clean</code></p>
+<p><code># cd /usr/pkgsrc/x11/xf86-input-mouse</code></p>
+<p><code># make install clean</code></p>
+<ul>
+<li>Esta es la parte interesante, elegir el controlador de video (<em>video driver</em>) que estés usando en tu computadora o <em>laptop</em>, en mi caso estoy usando ATI, para ello:</li>
+</ul>
+<p><code># cd /usr/pkgsrc/x11/xf86-video-ati</code></p>
+<p><code># make install clean</code></p>
 <h1>Configurar <em>Xorg</em></h1>
 <p>Si todo va bien, proseguimos a configurar <a href="http://www.x.org/" title="X.Org Foundation">Xorg</a> de dos formas.</p>
-<p><code># xorgcfg</code>
-El comando anterior inicia el programa de configuración de <a href="http://www.x.org/" title="X.Org Foundation">Xorg</a> en modo gráfico y el siguiente en modo texto.
-<code># xorgconfig</code></p>
+<p><code># xorgcfg</code></p>
+<p>El comando anterior inicia el programa de configuración de <a href="http://www.x.org/" title="X.Org Foundation">Xorg</a> en modo gráfico y el siguiente en modo texto.</p>
+<p><code># xorgconfig</code></p>
 <h1>Configurando lo básico en <code>~/.xinitrc</code></h1>
-<p><code>xclock -geometry 50x50-1-1 &amp;</code>
-<code>xterm -geometry 80x34-1+1 -bg OldLace &amp;</code>
-<code>xsetroot -solid Bisque4 &amp;</code>
-<code>xterm -geometry 80x44+0+0 -bg AntiqueWhite -name login</code>
-<code>twm</code></p>
+<p><code>xclock -geometry 50x50-1-1 &amp;</code></p>
+<p><code>xterm -geometry 80x34-1+1 -bg OldLace &amp;</code></p>
+<p><code>xsetroot -solid Bisque4 &amp;</code></p>
+<p><code>xterm -geometry 80x44+0+0 -bg AntiqueWhite -name login</code></p>
+<p><code>twm</code></p>
 <h1>Iniciando <em>Xorg</em></h1>
 <p><code># xinit</code></p>
 <h1>Referencias</h1>
