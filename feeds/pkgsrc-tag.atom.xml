@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Grupo de Usuarios de NetBSD en México</title><link href="http://www.netbsd.mx/" rel="alternate"></link><link href="http://www.netbsd.mx/feeds/pkgsrc-tag.atom.xml" rel="self"></link><id>http://www.netbsd.mx/</id><updated>2013-01-14T15:00:00-06:00</updated><entry><title>Instalando modular-xorg desde pkgsrc</title><link href="http://www.netbsd.mx/modular-xorg-pkgsrc.html" rel="alternate"></link><updated>2013-01-14T15:00:00-06:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-01-14:modular-xorg-pkgsrc.html</id><summary type="html">&lt;p&gt;Recientemente tuve la necesidad de configurar &lt;em&gt;X&lt;/em&gt; en mi &lt;em&gt;IBM Thinpad T43p&lt;/em&gt;, la cual incluye una tarjeta gráfica &lt;em&gt;ATI Fire Gl&lt;/em&gt; con 128MB.&lt;/p&gt;
+&lt;p&gt;Descargué &lt;a href="http://www.netbsd.org/" title="The NetBSD Project"&gt;NetBSD&lt;/a&gt; &lt;strong&gt;-current&lt;/strong&gt;(4.99.45) desde ftp y proseguí a realizar una instalación completa, no fue hasta que traté de configurar X para poder usar mi &lt;em&gt;laptop&lt;/em&gt; como &lt;em&gt;desktop&lt;/em&gt; para hacer tareas comunes, y no conseguí hacer funcionar X correctamente, &lt;a href="http://www.xfree86.org/" title="XFree86&amp;amp;reg; Home to the X Window System"&gt;XFree86&lt;/a&gt; simplemente no trabajó para mí.&lt;/p&gt;
+&lt;h1&gt;Antes de empezar&lt;/h1&gt;
+&lt;p&gt;No instalar &lt;a href="http://www.xfree86.org/" title="XFree86&amp;amp;reg; Home to the X Window System"&gt;XFree86&lt;/a&gt; que viene en base, de-seleccionar en el programa de instalación.&lt;/p&gt;
+&lt;h1&gt;Instalando &lt;code&gt;modular-xorg&lt;/code&gt; desde &lt;em&gt;pkgsrc&lt;/em&gt;&lt;/h1&gt;
+&lt;p&gt;Estoy usando &lt;a href="http://www.pkgsrc.org/" title="pkgsrc"&gt;pkgsrc&lt;/a&gt; &lt;strong&gt;-current&lt;/strong&gt; para aprovechar algunas novedades, las instrucciones para compilar &lt;code&gt;modular-xorg&lt;/code&gt; desde &lt;a href="http://www.pkgsrc.org/" title="pkgsrc"&gt;pkgsrc&lt;/a&gt; son las siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Editar &lt;code&gt;/etc/mk.conf&lt;/code&gt; e incluir:
+&lt;code&gt;X11_TYPE=modular&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Los paquetes necesarios son los siguientes:
+&lt;code&gt;# cd /usr/pkgsrc/x11/modular-xorg-server&lt;/code&gt;
+&lt;code&gt;# make install clean&lt;/code&gt;
+&lt;code&gt;# cd /usr/pkgsrc/meta-pkgs/modular-xorg-apps&lt;/code&gt;
+&lt;code&gt;# make install clean&lt;/code&gt;
+&lt;code&gt;# cd /usr/pkgsrc/meta-pkgs/modular-xorg-fonts&lt;/code&gt;
+&lt;code&gt;# make install clean&lt;/code&gt;
+&lt;code&gt;# cd /usr/pkgsrc/x11/xf86-input-keyboard&lt;/code&gt;
+&lt;code&gt;# make install clean&lt;/code&gt;
+&lt;code&gt;# cd /usr/pkgsrc/x11/xf86-input-mouse&lt;/code&gt;
+&lt;code&gt;# make install clean&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Esta es la parte interesante, elegir el controlador de video (&lt;em&gt;video driver&lt;/em&gt;) que estés usando en tu computadora o &lt;em&gt;laptop&lt;/em&gt;, en mi caso estoy usando ATI, para ello:
+&lt;code&gt;# cd /usr/pkgsrc/x11/xf86-video-ati&lt;/code&gt;
+&lt;code&gt;# make install clean&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Configurar &lt;em&gt;Xorg&lt;/em&gt;&lt;/h1&gt;
+&lt;p&gt;Si todo va bien, proseguimos a configurar &lt;a href="http://www.x.org/" title="X.Org Foundation"&gt;Xorg&lt;/a&gt; de dos formas.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# xorgcfg&lt;/code&gt;
+El comando anterior inicia el programa de configuración de &lt;a href="http://www.x.org/" title="X.Org Foundation"&gt;Xorg&lt;/a&gt; en modo gráfico y el siguiente en modo texto.
+&lt;code&gt;# xorgconfig&lt;/code&gt;&lt;/p&gt;
+&lt;h1&gt;Configurando lo básico en &lt;code&gt;~/.xinitrc&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;xclock -geometry 50x50-1-1 &amp;amp;&lt;/code&gt;
+&lt;code&gt;xterm -geometry 80x34-1+1 -bg OldLace &amp;amp;&lt;/code&gt;
+&lt;code&gt;xsetroot -solid Bisque4 &amp;amp;&lt;/code&gt;
+&lt;code&gt;xterm -geometry 80x44+0+0 -bg AntiqueWhite -name login&lt;/code&gt;
+&lt;code&gt;twm&lt;/code&gt;&lt;/p&gt;
+&lt;h1&gt;Iniciando &lt;em&gt;Xorg&lt;/em&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;# xinit&lt;/code&gt;&lt;/p&gt;
+&lt;h1&gt;Referencias&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://www.netbsd.org/docs/guide/en/chap-x.html" title="The NetBSD Guide"&gt;Capítulo de X en la Guía de NetBSD&lt;/a&gt;.&lt;/p&gt;</summary><category term="X"></category><category term="Xorg"></category><category term="pkgsrc"></category></entry></feed>

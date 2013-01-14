@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+        <title>Instalando modular-xorg desde pkgsrc - Grupo de Usuarios de NetBSD en México</title>
+    <link href="http://fonts.googleapis.com/css?family=Arimo:400,700|Inika" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./theme/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/pastie.css" />
+    <link href="http://www.netbsd.mx/feeds/feed.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Atom Feed" />
+        <link href="http://www.netbsd.mx/feeds/feed.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México RSS Feed" />
+            
+        
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span8">
+                  
+<div id="content">    
+    <div class="header">
+        <h1>Instalando modular-xorg desde pkgsrc</h1>
+    </div>
+    <p class="meta"><small><span><a href=".author/francisco-valladolid/">Francisco Valladolid</a> - </span><span>lunes, 14 de enero de 2013</span> - <span class="tags"><a href="/tag/X/">X</a>, <a href="/tag/Xorg/">Xorg</a>, <a href="/tag/pkgsrc/">pkgsrc</a></span></small></p>
+        <div class="entry-content">
+        <p>Recientemente tuve la necesidad de configurar <em>X</em> en mi <em>IBM Thinpad T43p</em>, la cual incluye una tarjeta gráfica <em>ATI Fire Gl</em> con 128MB.</p>
+<p>Descargué <a href="http://www.netbsd.org/" title="The NetBSD Project">NetBSD</a> <strong>-current</strong>(4.99.45) desde ftp y proseguí a realizar una instalación completa, no fue hasta que traté de configurar X para poder usar mi <em>laptop</em> como <em>desktop</em> para hacer tareas comunes, y no conseguí hacer funcionar X correctamente, <a href="http://www.xfree86.org/" title="XFree86&amp;reg; Home to the X Window System">XFree86</a> simplemente no trabajó para mí.</p>
+<h1>Antes de empezar</h1>
+<p>No instalar <a href="http://www.xfree86.org/" title="XFree86&amp;reg; Home to the X Window System">XFree86</a> que viene en base, de-seleccionar en el programa de instalación.</p>
+<h1>Instalando <code>modular-xorg</code> desde <em>pkgsrc</em></h1>
+<p>Estoy usando <a href="http://www.pkgsrc.org/" title="pkgsrc">pkgsrc</a> <strong>-current</strong> para aprovechar algunas novedades, las instrucciones para compilar <code>modular-xorg</code> desde <a href="http://www.pkgsrc.org/" title="pkgsrc">pkgsrc</a> son las siguientes:</p>
+<ul>
+<li>Editar <code>/etc/mk.conf</code> e incluir:
+<code>X11_TYPE=modular</code></li>
+<li>Los paquetes necesarios son los siguientes:
+<code># cd /usr/pkgsrc/x11/modular-xorg-server</code>
+<code># make install clean</code>
+<code># cd /usr/pkgsrc/meta-pkgs/modular-xorg-apps</code>
+<code># make install clean</code>
+<code># cd /usr/pkgsrc/meta-pkgs/modular-xorg-fonts</code>
+<code># make install clean</code>
+<code># cd /usr/pkgsrc/x11/xf86-input-keyboard</code>
+<code># make install clean</code>
+<code># cd /usr/pkgsrc/x11/xf86-input-mouse</code>
+<code># make install clean</code></li>
+<li>Esta es la parte interesante, elegir el controlador de video (<em>video driver</em>) que estés usando en tu computadora o <em>laptop</em>, en mi caso estoy usando ATI, para ello:
+<code># cd /usr/pkgsrc/x11/xf86-video-ati</code>
+<code># make install clean</code></li>
+</ul>
+<h1>Configurar <em>Xorg</em></h1>
+<p>Si todo va bien, proseguimos a configurar <a href="http://www.x.org/" title="X.Org Foundation">Xorg</a> de dos formas.</p>
+<p><code># xorgcfg</code>
+El comando anterior inicia el programa de configuración de <a href="http://www.x.org/" title="X.Org Foundation">Xorg</a> en modo gráfico y el siguiente en modo texto.
+<code># xorgconfig</code></p>
+<h1>Configurando lo básico en <code>~/.xinitrc</code></h1>
+<p><code>xclock -geometry 50x50-1-1 &amp;</code>
+<code>xterm -geometry 80x34-1+1 -bg OldLace &amp;</code>
+<code>xsetroot -solid Bisque4 &amp;</code>
+<code>xterm -geometry 80x44+0+0 -bg AntiqueWhite -name login</code>
+<code>twm</code></p>
+<h1>Iniciando <em>Xorg</em></h1>
+<p><code># xinit</code></p>
+<h1>Referencias</h1>
+<p><a href="http://www.netbsd.org/docs/guide/en/chap-x.html" title="The NetBSD Guide">Capítulo de X en la Guía de NetBSD</a>.</p>
+        </div><!-- /.entry-content -->
+        </div>
+        </div>
+        <div class="span3 offset1">
+          <div class="well">
+            <ul class="nav nav-list">
+              <li class="nav-header">Blog</li>
+              <li ><a href=".">Index</a></li>
+              <li ><a href="./tags/">Tags</a></li>
+              <li ><a href="./archives/">Archiv</a></li>
+                                                                                    <li class="nav-header">Links</li>
+                            <li><a href="http://www.netbsd.org">NetBSD</a></li>
+                                        </ul>
+          </div><!-- /#menu --> 
+        </div>
+      </div>
+      
+      <hr />
+      
+      <div class="row">
+        <div class="span12">
+          <div id="about">
+            <p>Proudly powered by <a href="http://twitter.github.com/bootstrap/">bootstrap</a>, <a href="http://docs.notmyidea.org/alexis/pelican/">pelican</a>, <a href="http://python.org">python</a> and <a href="http://www.julo.ch/about/">Alex</a>!</p>
+          </div><!-- /#about -->
+        </div><!-- /#contentinfo -->
+      </div>
+    </div>
+    
+        
+  </body>
+</html>
