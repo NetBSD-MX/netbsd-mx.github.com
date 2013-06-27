@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Grupo de Usuarios de NetBSD en México</title><link href="http://www.netbsd.mx/" rel="alternate"></link><link href="http://www.netbsd.mx/feeds/paquetes-tag.atom.xml" rel="self"></link><id>http://www.netbsd.mx/</id><updated>2013-06-26T16:40:00-05:00</updated><entry><title>Usando pkgsrc e instalando paquetes binarios</title><link href="http://www.netbsd.mx/pkgsrc-binarios.html" rel="alternate"></link><updated>2013-06-26T16:40:00-05:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-06-26:pkgsrc-binarios.html</id><summary type="html">&lt;div class="section" id="que-es-pkgsrc"&gt;
-&lt;h2&gt;Que es pkgsrc ?&lt;/h2&gt;
+&lt;h2&gt;¿Que es pkgsrc ?&lt;/h2&gt;
 &lt;img alt="./static/images/pkgsrc.png" src="./static/images/pkgsrc.png" /&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.pkgsrc.org"&gt;pkgsrc&lt;/a&gt; es un con junto de makefiles que permiten la creacion e
 instalacion de software de terceros en &lt;a class="reference external" href="http://www.netbsd.org"&gt;NetBSD&lt;/a&gt; y otros sistemas tipo
@@ -8,18 +8,17 @@ UNIX, actualmente &lt;a class="reference external" href="http://www.pkgsrc.org"&
 independiente del sistema base, lo que lo hace altamente portable y
 eficiente. A continuacion se detalla su uso.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="usando-pkgsrc"&gt;
-&lt;h2&gt;Usando pkgsrc&lt;/h2&gt;
-&lt;/div&gt;
+&lt;div class="section" id="inicializando-pkgsrc"&gt;
+&lt;h2&gt;Inicializando pkgsrc&lt;/h2&gt;
 &lt;div class="section" id="establecemos-las-variables-usadas-por-cvs"&gt;
-&lt;h2&gt;Establecemos las variables usadas por cvs&lt;/h2&gt;
+&lt;h3&gt;Establecemos las variables usadas por cvs&lt;/h3&gt;
 &lt;pre class="literal-block"&gt;
 # export CVSROOT :pserver:anoncvs&amp;#64;anoncvs.netbsd.org:/cvsroot
 # export CVS_RSH ssh
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="descargamos-pkgsrc-a-traves-de-cvs-por-unica-vez"&gt;
-&lt;h2&gt;Descargamos pkgsrc a traves de CVS por unica vez&lt;/h2&gt;
+&lt;h3&gt;Descargamos pkgsrc a traves de CVS por unica vez&lt;/h3&gt;
 &lt;pre class="literal-block"&gt;
 # cd /usr
 # cvs -d$CVSROOT login
@@ -29,18 +28,18 @@ eficiente. A continuacion se detalla su uso.&lt;/p&gt;
 &lt;p&gt;Con estas simples instrucciones tenemos instalado y actualizado el arbol
 de paquetes de NetBSD.&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
 &lt;div class="section" id="instalando-paquetes-via-pkgsrc"&gt;
 &lt;h2&gt;Instalando paquetes via pkgsrc&lt;/h2&gt;
-&lt;/div&gt;
 &lt;div class="section" id="para-instalar-imagemagick-desde-pkgsrc"&gt;
-&lt;h2&gt;Para instalar ImageMagick desde pkgsrc:&lt;/h2&gt;
+&lt;h3&gt;Para instalar ImageMagick desde pkgsrc:&lt;/h3&gt;
 &lt;pre class="literal-block"&gt;
 # cd /usr/pkgsrc/graphics/ImageMagick
 # make install clean
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="para-crear-un-paquete-precompilado-de-imagemagick-desde-pkgsrc"&gt;
-&lt;h2&gt;Para crear un paquete precompilado de ImageMagick desde pkgsrc:&lt;/h2&gt;
+&lt;h3&gt;Para crear un paquete precompilado de ImageMagick desde pkgsrc:&lt;/h3&gt;
 &lt;pre class="literal-block"&gt;
 # cd /usr/pkgsrc/graphics/ImageMagick
 # make package
@@ -51,6 +50,7 @@ de paquetes de NetBSD.&lt;/p&gt;
 &lt;p&gt;Para desinstalar un paquete previamente instalado, (averigue el nombre
 correcto, este nombre del paquete es de ejemplo).&lt;/p&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;# pkg_delete &lt;span class="pre"&gt;ImageMagick-VERSION.tgz&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="introduccion-a-pkgin"&gt;
 &lt;h2&gt;Introduccion a pkgin&lt;/h2&gt;
