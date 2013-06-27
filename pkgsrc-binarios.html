@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="">	
+<head>
+	<meta charset="utf-8"/>
+	<title>Usando pkgsrc e instalando paquetes binarios - Grupo de Usuarios de NetBSD en México</title>	
+	<meta name="author" content="">
+	
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
+	
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:700,400|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+		
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+			
+	<link href="./" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México ATOM Feed" />
+		<link href="./feeds/feed.rss.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México RSS Feed" />
+	</head>
+	
+<body>		
+	<header class="clearfix" role="banner">
+		<div class="wrapper">
+			<h1 class="huge"><a href=".">Grupo de Usuarios de NetBSD en México</a></h1>
+		</div>
+	</header>
+	
+	<div role="main" class="content clearfix">	
+	<article>
+		<div class="post wrapper">
+			<h1>Usando pkgsrc e instalando paquetes binarios</h1>
+			<div class="section" id="que-es-pkgsrc">
+<h2>Que es pkgsrc ?</h2>
+<img alt="./static/images/pkgsrc.png" src="./static/images/pkgsrc.png" />
+<p><a class="reference external" href="http://www.pkgsrc.org">pkgsrc</a> es un con junto de makefiles que permiten la creacion e
+instalacion de software de terceros en <a class="reference external" href="http://www.netbsd.org">NetBSD</a> y otros sistemas tipo
+UNIX, actualmente <a class="reference external" href="http://www.pkgsrc.org">pkgsrc</a> cuenta con mas de 12000 paquetes y es
+independiente del sistema base, lo que lo hace altamente portable y
+eficiente. A continuacion se detalla su uso.</p>
+</div>
+<div class="section" id="usando-pkgsrc">
+<h2>Usando pkgsrc</h2>
+</div>
+<div class="section" id="establecemos-las-variables-usadas-por-cvs">
+<h2>Establecemos las variables usadas por cvs</h2>
+<pre class="literal-block">
+# export CVSROOT :pserver:anoncvs&#64;anoncvs.netbsd.org:/cvsroot
+# export CVS_RSH ssh
+</pre>
+</div>
+<div class="section" id="descargamos-pkgsrc-a-traves-de-cvs-por-unica-vez">
+<h2>Descargamos pkgsrc a traves de CVS por unica vez</h2>
+<pre class="literal-block">
+# cd /usr
+# cvs -d$CVSROOT login
+# cvs -d$CVSROOT co -P pkgsrc
+# cvs -d$CVSROOT logout
+</pre>
+<p>Con estas simples instrucciones tenemos instalado y actualizado el arbol
+de paquetes de NetBSD.</p>
+</div>
+<div class="section" id="instalando-paquetes-via-pkgsrc">
+<h2>Instalando paquetes via pkgsrc</h2>
+</div>
+<div class="section" id="para-instalar-imagemagick-desde-pkgsrc">
+<h2>Para instalar ImageMagick desde pkgsrc:</h2>
+<pre class="literal-block">
+# cd /usr/pkgsrc/graphics/ImageMagick
+# make install clean
+</pre>
+</div>
+<div class="section" id="para-crear-un-paquete-precompilado-de-imagemagick-desde-pkgsrc">
+<h2>Para crear un paquete precompilado de ImageMagick desde pkgsrc:</h2>
+<pre class="literal-block">
+# cd /usr/pkgsrc/graphics/ImageMagick
+# make package
+</pre>
+<p>el paquete se creara en /usr/pkgsrc/packages/All/ImageMagick-VERSION.tgz</p>
+<p>Para checar la lista de paquetes que hemos instalado:</p>
+<p><tt class="docutils literal"># pkg_info</tt></p>
+<p>Para desinstalar un paquete previamente instalado, (averigue el nombre
+correcto, este nombre del paquete es de ejemplo).</p>
+<p><tt class="docutils literal"># pkg_delete <span class="pre">ImageMagick-VERSION.tgz</span></tt></p>
+</div>
+<div class="section" id="introduccion-a-pkgin">
+<h2>Introduccion a pkgin</h2>
+<p><a class="reference external" href="http://www.netbsd.org">NetBSD</a> ofrece una utileria llamada <tt class="docutils literal">pkgin</tt> al estilo <tt class="docutils literal">pacman</tt> en
+<a class="reference external" href="http://www.archlinux.org">ArchLinux</a> o <tt class="docutils literal">yum</tt> en <a class="reference external" href="http://www.fedoraproject.org">Fedora</a>, que permite instalar paquetes binarios
+precompilados para una plataforma especifica, veamos como trabaja.</p>
+<p>Si acabas de instalar NetBSD y no quieres lidiar compilando paquetes via
+<a class="reference external" href="http://www.pkgsrc.org">pkgsrc</a>, asumimos <a class="reference external" href="http://www.netbsd.org">NetBSD</a> 6.1 amd64 para este articulo.</p>
+<p>El instalador de <a class="reference external" href="http://www.netbsd.org">NetBSD</a> a partir de 6.0, te permite instalar <tt class="docutils literal">pkgin</tt>
+automaticamente, si lo omitiste, entonces ve al sitio ftp
+<tt class="docutils literal"><span class="pre">ftp://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/amd64/6.1/All/</span></tt> y
+descarga <tt class="docutils literal"><span class="pre">pkgin-0.6.3.1.1.tgz</span></tt> e instalalo manualmente via pkg_add</p>
+<pre class="literal-block">
+# pkg_add -v pkgin-0.6.3.1.1.tgz
+</pre>
+<p><tt class="docutils literal">pkgin</tt> usa un archivo de configuracion en
+<em>/usr/pkg/etc/pkgin/repositories.conf</em> el  cual necesitas editar
+para que apunte a tu ftp actual de paquetes binarios, en nuestro caso;
+<tt class="docutils literal"><span class="pre">ftp://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/amd64/6.1/All/</span></tt></p>
+<p>Siguiente paso, actualizar el arbol de paquetes localmente;</p>
+<p><tt class="docutils literal"># pkgin update</tt></p>
+<div class="section" id="usando-pkgin">
+<h3>Usando pkgin</h3>
+<dl class="docutils">
+<dt>Ejecutando pkgin sin argumentos, obtenemos:</dt>
+<dd><pre class="first last literal-block">
+$ pkgin
+  Usage: pkgin [-cdfFhlnPtvVy] command [package ...]
+  Commands and shortcuts:
+  list                (ls  ) -  List installed packages.
+  avail               (av  ) -  List available packages.
+  install             (in  ) -  Perform packages installation or upgrade.
+  update              (up  ) -  Create and populate the initial database.
+  remove              (rm  ) -  Remove packages and depending packages.
+  upgrade             (ug  ) -  Upgrade main packages to their newer
+  versions.
+  full-upgrade        (fug ) -  Upgrade all packages to their newer
+  versions.
+  show-deps           (sd  ) -  Display direct dependencies.
+  show-full-deps      (sfd ) -  Display dependencies recursively.
+  show-rev-deps       (srd ) -  Display reverse dependencies recursively.
+  show-category       (sc  ) -  Show packages belonging to category.
+  show-pkg-category   (spc ) -  Show package's category.
+  show-all-categories (sac ) -  Show all categories.
+  keep                (ke  ) -  Mark package as &quot;non auto-removable&quot;.
+  unkeep              (uk  ) -  Mark package as &quot;auto-removable&quot;.
+  show-keep           (sk  ) -  Display &quot;non auto-removable&quot; packages.
+  show-no-keep        (snk ) -  Display &quot;auto-removable&quot; packages.
+  search              (se  ) -  Search for a package.
+  clean               (cl  ) -  Clean packages cache.
+  autoremove          (ar  ) -  Autoremove orphan dependencies.
+  export              (ex  ) -  Export &quot;non auto-removable&quot; packages to
+  stdout.
+  import              (im  ) -  Import &quot;non auto-removable&quot; package list
+  from file.
+  provides            (prov) -  Show what files a package provides.
+  requires            (req ) -  Show what files a package requires.
+  pkg-content         (pc  ) -  Show remote package's content.
+  pkg-descr           (pd  ) -  Show remote package's long-description.
+  pkg-build-defs      (pbd ) -  Show remote package's build definitions.
+</pre>
+</dd>
+</dl>
+</div>
+<div class="section" id="ejemplos">
+<h3>Ejemplos:</h3>
+<pre class="literal-block">
+# pkgin se sudo             ;Busca sudo en el arbol local de paquetes
+
+# pkgin install sudo        ;Instala sudo y sus dependencias
+
+# pkgin remove sudo         ;quita  sudo del sistema
+
+# pkgin list                ;Muestra los paquetes instalados
+
+# pkgin                     ;Ayuda
+</pre>
+</div>
+</div>
+
+			
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="netbsdmx" data-lang="en" data-size="large" data-related="netbsdmx">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						
+						
+		</div>
+	
+	<div class="meta wrapper">
+	<time datetime="2013-06-26T16:40:00" pubdate>miércoles, 26 de junio de 2013</time>
+	<ul class="tag clearfix">
+		<li><a href="./category/netbsd-pkgsrc.html">NetBSD, pkgsrc</a></li>
+			<li><a href="./tag/pkgsrc.html">pkgsrc</a></li>
+			<li><a href="./tag/binarios.html">binarios</a></li>
+			<li><a href="./tag/pkgin.html">pkgin</a></li>
+			<li><a href="./tag/paquetes.html">paquetes</a></li>
+		</ul>
+	</div>	</article>	
+</div>
+	
+		
+<footer class="clearfix">
+	<div class="wrapper pages">
+		<ul class="nav">
+					<li><a href="./archives.html">Archive</a></li>
+		</ul>
+	</div>
+	
+	<div class="copy wrapper">
+		<ul class="social">
+						<li><a href="http://twitter.com/netbsdmx">twitter</a></li>
+					</ul>
+	
+		<p role="contentinfo">© 2012 <br>
+		Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">Pelican</a>.</p>
+	</div>
+</footer>
+	
+	<script>
+	  var _gaq=[['_setAccount',''],['_trackPageview']];
+	  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	  s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+</body>
+</html>
