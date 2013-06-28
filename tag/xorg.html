@@ -1,238 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Grupo de Usuarios de NetBSD en México - Xorg</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<html lang="es">
+<head>
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+	<!--<link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">-->
+	<!--<script src="/theme/js/less.js" type="text/javascript"></script>-->
+	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
 
-    <!-- Le styles -->
-    <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css" />
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-      .tag-1 {
-        font-size: 13pt;
-      }
-      .tag-2 {
-        font-size: 10pt;
-      }
-      .tag-2 {
-        font-size: 8pt;
-      }
-      .tag-4 {
-        font-size: 6pt;
-     }
-    </style>
-    <link href="../theme/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="../theme/css/font-awesome.css" rel="stylesheet">
+	<link href="http://www.netbsd.mx/" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México ATOM Feed" />
+			<link href="http://www.netbsd.mx/feeds/feed.rss.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México RSS Feed" />
+	
+			<title>Grupo de Usuarios de NetBSD en México - Xorg</title>
+		<meta charset="utf-8" />
+	</head>
+<body>
+	<section id="sidebar">
+		<figure id="user_logo">
+			<a href="/"><div class="logo">&nbsp;</div></a>
+		</figure>
 
-    <link href="../theme/css/pygments.css" rel="stylesheet">
+		<div class="user_meta">
+			<h1 id="user"><a href="/" class=""></a></h1>
+			<h2></h2>
+			<ul>
+																										<li><a href="http://www.netbsd.org">NetBSD</a></li>
+							</ul>
+		</div>
+		<footer>
+			<address>
+				Powered by <a href="http://pelican.notmyidea.org/">Pelican</a>,
+				theme by <a href="https://github.com/wting/pelican-svbtle">wting</a>.
+			</address>
+		</footer>
+	</section>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+	<section id="posts">
+			<header>
+		<h1>'s blog</h1>
+		<h3>
+			<script type="text/javascript">
+				var currentDate = new Date();
+				var day = currentDate.getDate();
+				var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+				var month = monthNames[currentDate.getMonth()].toUpperCase();
+				var year = currentDate.getFullYear();
+				document.write(month + " " + day + ", " + year);
+			</script>
+		</h3>
+	</header>
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../theme/images/favicon.ico">
-    <link rel="apple-touch-icon" href="../theme/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../theme/images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../theme/images/apple-touch-icon-114x114.png">
+	<dl>
+		<ol>
+							<li>
+					<h1 class="title">
+						<a href="../modular-xorg-pkgsrc.html" rel="bookmark" title="Permalink to Instalando modular-xorg desde pkgsrc">Instalando modular-xorg desde pkgsrc</a>
+					</h1>
+					<abbr class="published" title="2013-01-14T15:00:00">lunes, 14 de enero de 2013</abbr>
+				<div class="entry-content"> <p>Recientemente tuve la necesidad de configurar <em>X</em> en mi <em>IBM Thinpad T43p</em>, la cual incluye una tarjeta gráfica <em>ATI Fire Gl</em> con 128MB.</p>
+<p>Descargué <a href="http://www.netbsd.org/" title="The NetBSD Project">NetBSD</a> <strong>-current</strong>(4.99.45) desde ftp y proseguí a realizar una instalación completa, no fue hasta que traté de configurar X para poder usar mi <em>laptop</em> como <em>desktop</em> para hacer tareas comunes, y ...</p> </div>
+				</li>
+					</ol>
+	</dl>
 
-    <link href="../" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México ATOM Feed" />
-        <link href="../feeds/feed.rss.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México RSS Feed" />
-    
-  </head>
+	<p class="paginator">
+		</p>
+	</section>
 
-  <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="../index.html">Grupo de Usuarios de NetBSD en México </a>
-          <div class="nav-collapse">
-            <ul class="nav">
-                                                                    <li class="divider-vertical"></li>
-                                              <li >
-                    <a href="../category/netbsd.html">
-						<i class="icon-folder-open icon-large"></i>NetBSD
-					</a>
-                  </li>
-              
-                          <ul class="nav pull-right">
-                                <li><a href="../archives.html"><i class="icon-th-list"></i>Archives</a></li>
-                          </ul>
-
-            </ul>
-            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="span9" id="content">
-                            <div class="article">
-                <h1><a href="../modular-xorg-pkgsrc.html">Instalando modular-xorg desde pkgsrc</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2013-01-14T15:00:00">
-        <i class="icon-calendar"></i>lunes, 14 de enero de 2013
-</abbr>
-<span class="label">By</span>
-<a href="../author/francisco-valladolid.html"><i class="icon-user"></i>Francisco Valladolid</a>
-<span class="label">Category</span>
-<a href="../category/netbsd.html"><i class="icon-folder-open"></i>NetBSD</a>.
-
-
-<span class="label">Tags</span>
-	<a href="../tag/x.html"><i class="icon-tag"></i>X</a>
-	<a href="../tag/xorg.html"><i class="icon-tag"></i>Xorg</a>
-	<a href="../tag/pkgsrc.html"><i class="icon-tag"></i>pkgsrc</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>Recientemente tuve la necesidad de configurar <em>X</em> en mi <em>IBM Thinpad T43p</em>, la cual incluye una tarjeta gráfica <em>ATI Fire Gl</em> con 128MB.</p>
-<p>Descargué <a href="http://www.netbsd.org/" title="The NetBSD Project">NetBSD</a> <strong>-current</strong>(4.99.45) desde ftp y proseguí a realizar una instalación completa, no fue hasta que traté de configurar X para poder usar mi <em>laptop</em> como <em>desktop</em> para hacer tareas comunes, y ...</p>
-                        <a class="btn primary xsmall" href="../modular-xorg-pkgsrc.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-        
-                        </div><!--/span-->
-
-                <div class="span3 well sidebar-nav" id="sidebar">
-            <ul class="nav nav-list">
-<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
-    <li><a href="http://www.netbsd.org"><i class="icon-external-link"></i>NetBSD</a></li>
-<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
-<li><a href="../" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
-<li><a href="../feeds/feed.rss.xml" rel="alternate"><i class="icon-bookmark icon-large"></i>rss feed</a></li>
-    <li><a href="http://twitter.com/netbsdmx"><i class="icon-twitter-sign icon-large"></i>twitter</a></li>
-
-<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
-<li>
-<a href="../category/netbsd.html">
-    <i class="icon-folder-open icon-large"></i>NetBSD
-</a>
-</li>
-
-<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
-<li class="tag-4">
-    <a href="../tag/x.html">
-        <i class="icon-tag icon-large"></i>X
-    </a>
-</li>
-<li class="tag-1">
-    <a href="../tag/pkgsrc.html">
-        <i class="icon-tag icon-large"></i>pkgsrc
-    </a>
-</li>
-<li class="tag-4">
-    <a href="../tag/dhcp.html">
-        <i class="icon-tag icon-large"></i>DHCP
-    </a>
-</li>
-<li class="tag-4">
-    <a href="../tag/tftp.html">
-        <i class="icon-tag icon-large"></i>TFTP
-    </a>
-</li>
-<li class="tag-4">
-    <a href="../tag/pxe.html">
-        <i class="icon-tag icon-large"></i>PXE
-    </a>
-</li>
-<li class="tag-4">
-    <a href="../tag/redes.html">
-        <i class="icon-tag icon-large"></i>Redes
-    </a>
-</li>
-<li class="tag-4">
-    <a href="../tag/pkgin.html">
-        <i class="icon-tag icon-large"></i>pkgin
-    </a>
-</li>
-<li class="tag-4">
-    <a href="../tag/xorg.html">
-        <i class="icon-tag icon-large"></i>Xorg
-    </a>
-</li>
-<li class="tag-4">
-    <a href="../tag/paquetes.html">
-        <i class="icon-tag icon-large"></i>paquetes
-    </a>
-</li>
-<li class="tag-4">
-    <a href="../tag/binarios.html">
-        <i class="icon-tag icon-large"></i>binarios
-    </a>
-</li>
-
-<li class="nav-header"><h4><i class="icon-twitter-sign"></i>Twitter</h4></li>
-<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'profile',
-  rpp: 4,
-  interval: 30000,
-  width: 'auto',
-  height: 300,
-  theme: {
-	shell: {
-	  background: '#f5f5f5',
-	  color: '#000000'
-	},
-	tweets: {
-	  background: '#ffffff',
-	  color: '#000000',
-	  links: '#1a50a1'
-	}
-  },
-  features: {
-	scrollbar: false,
-	loop: false,
-	live: false,
-	behavior: 'all'
-  }
-}).render().setUser('netbsdmx').start();
-</script>
-
-</ul>        </div><!--/.well -->
-
-      </div><!--/row-->
-
-      <hr>
-
-      <footer>
-        <address id="about">
-                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
-                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
-        </address><!-- /#about -->
-
-        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
-                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
-      </footer>
-
-    </div><!--/.fluid-container-->
-
-
-            
-    <!-- Le javascript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../theme/js/jquery-1.7.2.min.js"></script>
-    <script src="../theme/js/bootstrap.min.js"></script>
-  </body>
+	</body>
 </html>
