@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grupo de Usuarios de NetBSD en México</title><link>http://www.netbsd.mx/</link><description></description><atom:link href="http://www.netbsd.mx/feeds/httpd-tag.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 01 Jul 2013 20:40:00 -0500</lastBuildDate><item><title>bozohttpd - bozotic httpd</title><link>http://www.netbsd.mx/bozohttpd.html</link><description>&lt;pre class="literal-block"&gt;
+httpd&amp;nbsp;-&amp;nbsp;hyper&amp;nbsp;text&amp;nbsp;transfer&amp;nbsp;protocol&amp;nbsp;version&amp;nbsp;1.1&amp;nbsp;daemon&amp;nbsp;&amp;nbsp;(via&amp;nbsp;man&amp;nbsp;httpd)
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;httpd(8)&amp;nbsp;lee&amp;nbsp;una&amp;nbsp;peticion&amp;nbsp;por&amp;nbsp;medio&amp;nbsp;del&amp;nbsp;protocolo&amp;nbsp;http&amp;nbsp;y&amp;nbsp;envia&amp;nbsp;la&amp;nbsp;respuesta&amp;nbsp;a&amp;nbsp;la&amp;nbsp;salida&amp;nbsp;standard.
+&lt;/pre&gt;
+&lt;div class="section" id="requerimientos"&gt;
+&lt;h2&gt;Requerimientos&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.netbsd.org"&gt;NetBSD&lt;/a&gt; 5 o superior.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="introduccion"&gt;
+&lt;h2&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current"&gt;httpd&lt;/a&gt; es un servidor web ligero que viene en el sistema base NetBSD y
+ejecuta via &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?inetd++NetBSD-current"&gt;inetd&lt;/a&gt;, no es necesario instalar paquetes adicionales, tiene
+la habilidad de ejecutar scripts cgi,php,c,sh etc. e indexar una lista
+de directorios en su caso. El ser ligero lo hace atractivo en sistema
+empotrados, en routers, firewall y en sistemas con pocos recursos,
+soporta indizado de directorios y virtualhosts ademas de
+ejecutarlo bajo &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?chroot++NetBSD-current"&gt;chroot&lt;/a&gt;. Soporta ipv6 tambien.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="usos"&gt;
+&lt;h2&gt;Usos&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Blog cgi, estatico, php (cgi)&lt;/li&gt;
+&lt;li&gt;Sistemas empotrados.&lt;/li&gt;
+&lt;li&gt;Autenticacion por web.&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion"&gt;
+&lt;h2&gt;Configuración&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current"&gt;httpd&lt;/a&gt;(8) se inicia via &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?inetd++NetBSD-current"&gt;inetd&lt;/a&gt;(8), para ello editamos lo siguiente:&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#vi/etc/inetd.conf&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Descomentar la linea;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;httpstreamtcpnowait:600_httpd/usr/libexec/httpdhttpd/var/www&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;La linea anterior habilita el inicio de &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current"&gt;httpd&lt;/a&gt; via inetd, el
+directorio /var/www es la ubicacion de nuestros archivos html o cgi,
+este directorio ya existe en nuestro sistema, lo que procede es poner
+documentos ahi para que &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current"&gt;httpd&lt;/a&gt; los lea.&lt;/p&gt;
+&lt;p&gt;Ahora tambien es posible ejecutar httpd desde el shell, via &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?rc.d++NetBSD-current"&gt;rc&lt;/a&gt; de la
+siguiente forma:&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#/etc/rc.d/httpdstart&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;A continuacion ponemos algo dentro del directorio por defecto de httpd :&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#vi/var/www/index.html&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Escribimos una linea html en el archivo y guardamos los cambios,
+ejemplo:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;h1&amp;gt; It work's &amp;lt;/h1&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;A continuacion, iniciamos httpd(8), para ello basta ejecutar desde la
+linea de comandos:&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#/etc/rc.d/inetdrestart&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Apuntamos nuestro browser hacia &lt;strong&gt;http://localhost&lt;/strong&gt; para probar nuestra
+configuracion.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="parametros-adicionales"&gt;
+&lt;h2&gt;Parametros adicionales&lt;/h2&gt;
+&lt;pre class="literal-block"&gt;
+-c&amp;nbsp;habilita&amp;nbsp;el&amp;nbsp;uso&amp;nbsp;de&amp;nbsp;scripts&amp;nbsp;cgi,&amp;nbsp;bajo&amp;nbsp;el&amp;nbsp;directorio&amp;nbsp;/var/www/cgi-bin
+-x&amp;nbsp;Permite&amp;nbsp;el&amp;nbsp;indizado&amp;nbsp;de&amp;nbsp;directorios&amp;nbsp;dentro&amp;nbsp;de&amp;nbsp;un&amp;nbsp;directorio&amp;nbsp;particular&amp;nbsp;dentro&amp;nbsp;del&amp;nbsp;DocumentRoot&amp;nbsp;(/var/www&amp;nbsp;en&amp;nbsp;este&amp;nbsp;caso)
+-v&amp;nbsp;Habilita&amp;nbsp;el&amp;nbsp;uso&amp;nbsp;de&amp;nbsp;VirtualHost&amp;nbsp;o&amp;nbsp;servidores&amp;nbsp;virtuales&amp;nbsp;dentro&amp;nbsp;de&amp;nbsp;nuestro&amp;nbsp;DocumentRoot.
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ejemplos"&gt;
+&lt;h2&gt;Ejemplos&lt;/h2&gt;
+&lt;pre class="literal-block"&gt;
+http&amp;nbsp;stream&amp;nbsp;tcp&amp;nbsp;&amp;nbsp;nowait:600&amp;nbsp;_httpd&amp;nbsp;/usr/libexec/httpd&amp;nbsp;httpd&amp;nbsp;-v&amp;nbsp;/var/vroot&amp;nbsp;/var/www
+Inicia&amp;nbsp;httpd(8)&amp;nbsp;via&amp;nbsp;inetd&amp;nbsp;con&amp;nbsp;Vhosts&amp;nbsp;dentro&amp;nbsp;de&amp;nbsp;/var/vroot
+
+httpd&amp;nbsp;-C&amp;nbsp;.php&amp;nbsp;/usr/pkg/bin/php&amp;nbsp;/var/www
+Inicia&amp;nbsp;httpd(8)&amp;nbsp;con&amp;nbsp;soporte&amp;nbsp;php&amp;nbsp;dentro&amp;nbsp;de&amp;nbsp;/var/www/
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="autenticacion"&gt;
+&lt;h2&gt;Autenticación&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current"&gt;httpd&lt;/a&gt;(8) soporta autenticación básica a traves de .htpasswd&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Francisco Valladolid</dc:creator><pubDate>Mon, 01 Jul 2013 20:40:00 -0500</pubDate><guid>tag:www.netbsd.mx,2013-07-01:bozohttpd.html</guid><category>netbsd</category><category>httpd</category><category>servidor</category><category>web</category><category>cgi</category><category>html</category></item></channel></rss>

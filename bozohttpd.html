@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+	<!--<link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">-->
+	<!--<script src="/theme/js/less.js" type="text/javascript"></script>-->
+	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
+
+	<link href="http://www.netbsd.mx/" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México ATOM Feed" />
+			<link href="http://www.netbsd.mx/feeds/feed.rss.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México RSS Feed" />
+	
+			<title>Grupo de Usuarios de NetBSD en México</title>
+		<meta charset="utf-8" />
+	</head>
+<body>
+	<section id="sidebar">
+		<figure id="user_logo">
+			<a href="/"><div class="logo">&nbsp;</div></a>
+		</figure>
+
+		<div class="user_meta">
+			<h1 id="user"><a href="/" class=""></a></h1>
+			<h2></h2>
+			<ul>
+																										<li><a href="http://www.netbsd.org">NetBSD</a></li>
+							</ul>
+		</div>
+		<footer>
+			<address>
+				Powered by <a href="http://pelican.notmyidea.org/">Pelican</a>,
+				theme by <a href="https://github.com/wting/pelican-svbtle">wting</a>.
+			</address>
+		</footer>
+	</section>
+
+	<section id="posts">
+			<header>
+		<h1>Francisco Valladolid's blog</h1>
+		<h3>Posted lunes, 01 de julio de 2013</h3>
+	</header>
+	<article>
+		<h1 id="title">
+			<a href="./bozohttpd.html" rel="bookmark"
+				title="Permalink to bozohttpd - bozotic httpd">bozohttpd - bozotic httpd</a>
+		</h1>
+		<pre class="literal-block">
+httpd&nbsp;-&nbsp;hyper&nbsp;text&nbsp;transfer&nbsp;protocol&nbsp;version&nbsp;1.1&nbsp;daemon&nbsp;&nbsp;(via&nbsp;man&nbsp;httpd)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httpd(8)&nbsp;lee&nbsp;una&nbsp;peticion&nbsp;por&nbsp;medio&nbsp;del&nbsp;protocolo&nbsp;http&nbsp;y&nbsp;envia&nbsp;la&nbsp;respuesta&nbsp;a&nbsp;la&nbsp;salida&nbsp;standard.
+</pre>
+<div class="section" id="requerimientos">
+<h2>Requerimientos</h2>
+<p><a class="reference external" href="http://www.netbsd.org">NetBSD</a> 5 o superior.</p>
+</div>
+<div class="section" id="introduccion">
+<h2>Introducción</h2>
+<p><a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> es un servidor web ligero que viene en el sistema base NetBSD y
+ejecuta via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?inetd++NetBSD-current">inetd</a>, no es necesario instalar paquetes adicionales, tiene
+la habilidad de ejecutar scripts cgi,php,c,sh etc. e indexar una lista
+de directorios en su caso. El ser ligero lo hace atractivo en sistema
+empotrados, en routers, firewall y en sistemas con pocos recursos,
+soporta indizado de directorios y virtualhosts ademas de
+ejecutarlo bajo <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?chroot++NetBSD-current">chroot</a>. Soporta ipv6 tambien.</p>
+</div>
+<div class="section" id="usos">
+<h2>Usos</h2>
+<ul class="simple">
+<li>Blog cgi, estatico, php (cgi)</li>
+<li>Sistemas empotrados.</li>
+<li>Autenticacion por web.</li>
+<li>etc.</li>
+</ul>
+</div>
+<div class="section" id="configuracion">
+<h2>Configuración</h2>
+<p><a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a>(8) se inicia via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?inetd++NetBSD-current">inetd</a>(8), para ello editamos lo siguiente:</p>
+<p><tt class="docutils literal">#vi/etc/inetd.conf</tt></p>
+<p>Descomentar la linea;</p>
+<p><tt class="docutils literal">httpstreamtcpnowait:600_httpd/usr/libexec/httpdhttpd/var/www</tt></p>
+<p>La linea anterior habilita el inicio de <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> via inetd, el
+directorio /var/www es la ubicacion de nuestros archivos html o cgi,
+este directorio ya existe en nuestro sistema, lo que procede es poner
+documentos ahi para que <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> los lea.</p>
+<p>Ahora tambien es posible ejecutar httpd desde el shell, via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?rc.d++NetBSD-current">rc</a> de la
+siguiente forma:</p>
+<p><tt class="docutils literal">#/etc/rc.d/httpdstart</tt></p>
+<p>A continuacion ponemos algo dentro del directorio por defecto de httpd :</p>
+<p><tt class="docutils literal">#vi/var/www/index.html</tt></p>
+<p>Escribimos una linea html en el archivo y guardamos los cambios,
+ejemplo:</p>
+<pre class="literal-block">
+&lt;h1&gt; It work's &lt;/h1&gt;
+</pre>
+<p>A continuacion, iniciamos httpd(8), para ello basta ejecutar desde la
+linea de comandos:</p>
+<p><tt class="docutils literal">#/etc/rc.d/inetdrestart</tt></p>
+<p>Apuntamos nuestro browser hacia <strong>http://localhost</strong> para probar nuestra
+configuracion.</p>
+</div>
+<div class="section" id="parametros-adicionales">
+<h2>Parametros adicionales</h2>
+<pre class="literal-block">
+-c&nbsp;habilita&nbsp;el&nbsp;uso&nbsp;de&nbsp;scripts&nbsp;cgi,&nbsp;bajo&nbsp;el&nbsp;directorio&nbsp;/var/www/cgi-bin
+-x&nbsp;Permite&nbsp;el&nbsp;indizado&nbsp;de&nbsp;directorios&nbsp;dentro&nbsp;de&nbsp;un&nbsp;directorio&nbsp;particular&nbsp;dentro&nbsp;del&nbsp;DocumentRoot&nbsp;(/var/www&nbsp;en&nbsp;este&nbsp;caso)
+-v&nbsp;Habilita&nbsp;el&nbsp;uso&nbsp;de&nbsp;VirtualHost&nbsp;o&nbsp;servidores&nbsp;virtuales&nbsp;dentro&nbsp;de&nbsp;nuestro&nbsp;DocumentRoot.
+</pre>
+</div>
+<div class="section" id="ejemplos">
+<h2>Ejemplos</h2>
+<pre class="literal-block">
+http&nbsp;stream&nbsp;tcp&nbsp;&nbsp;nowait:600&nbsp;_httpd&nbsp;/usr/libexec/httpd&nbsp;httpd&nbsp;-v&nbsp;/var/vroot&nbsp;/var/www
+Inicia&nbsp;httpd(8)&nbsp;via&nbsp;inetd&nbsp;con&nbsp;Vhosts&nbsp;dentro&nbsp;de&nbsp;/var/vroot
+
+httpd&nbsp;-C&nbsp;.php&nbsp;/usr/pkg/bin/php&nbsp;/var/www
+Inicia&nbsp;httpd(8)&nbsp;con&nbsp;soporte&nbsp;php&nbsp;dentro&nbsp;de&nbsp;/var/www/
+</pre>
+</div>
+<div class="section" id="autenticacion">
+<h2>Autenticación</h2>
+<p><a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a>(8) soporta autenticación básica a traves de .htpasswd</p>
+</div>
+
+
+		<div id="article_meta">
+							Category:
+					<a href="./category/netbsd.html">NetBSD</a>
+										<br />Tags:
+									<a href="./tag/netbsd.html">netbsd</a>
+									<a href="./tag/httpd.html">httpd</a>
+									<a href="./tag/servidor.html">servidor</a>
+									<a href="./tag/web.html">web</a>
+									<a href="./tag/cgi.html">cgi</a>
+									<a href="./tag/html.html">html</a>
+									</div>
+	</article>
+
+	<footer>
+		<a href="./" class="button_accent">&larr;&nbsp;&nbsp;&nbsp;Back to blog</a>
+	</footer>
+
+	
+	</section>
+
+	</body>
+</html>
