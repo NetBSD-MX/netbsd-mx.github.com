@@ -1,5 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grupo de Usuarios de NetBSD en México</title><link>http://www.netbsd.mx/</link><description></description><atom:link href="http://www.netbsd.mx/feeds/all-es.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 01 Jul 2013 20:40:00 -0500</lastBuildDate><item><title>bozohttpd - bozotic httpd</title><link>http://www.netbsd.mx/bozohttpd.html</link><description>&lt;pre class="literal-block"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grupo de Usuarios de NetBSD en México</title><link>http://www.netbsd.mx/</link><description></description><atom:link href="http://www.netbsd.mx/feeds/all-es.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 02 Jul 2013 16:40:00 -0500</lastBuildDate><item><title>Access point con doble stack y seguridad WPA</title><link>http://www.netbsd.mx/accesspoint-dualstack.html</link><description>&lt;div class="contents topic" id="contents"&gt;
+&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#descripcion" id="id1"&gt;Descripcion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#definiciones" id="id2"&gt;Definiciones:&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#requisitos" id="id3"&gt;Requisitos:&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#procedimiento" id="id4"&gt;Procedimiento:&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cliente" id="id5"&gt;Cliente:&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#comentarios-y-explicaciones" id="id6"&gt;Comentarios y explicaciones:&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="descripcion"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Descripcion&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Este Access Point operando bajo NetBSD con llaves dinámicas WPA es
+extremadamente seguro. Las razones de ello no podría explicarlas porque
+esa no es mi área de conocimiento... tendrá qué buscarlas usted por su
+cuenta. Si usted es un paranoico de la seguridad, esta configuración de
+Access Point es para usted.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="definiciones"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Definiciones:&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;La tarjeta de red es la CNet &lt;strong&gt;CWP-854&lt;/strong&gt; PCI con chipset
+RT2501/RT2561N driver &lt;strong&gt;ral(4)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Se utilizará una llave de 512 bits (64 bytes)&lt;/li&gt;
+&lt;li&gt;Se utlizará la red privada 192.168.154.0/24&lt;/li&gt;
+&lt;li&gt;Se utlizará la red IPv6 3ffe:8240:8018:7fa::/64&lt;/li&gt;
+&lt;li&gt;Las direcciones de nuestra tarjeta inalámbrica serán 192.168.154.1 y
+3ffe:8240:8018:7fa::1&lt;/li&gt;
+&lt;li&gt;Nuestra red inalámbrica se llamará &lt;strong&gt;hola&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Utilizaremos el &lt;strong&gt;canal 4&lt;/strong&gt; de la red inalámbrica&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="requisitos"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;Requisitos:&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Una computadora con NetBSD-4 ó superior&lt;/li&gt;
+&lt;li&gt;Servicio dhcpd en la misma máquina configurado con las direcciones
+previamente definidas&lt;/li&gt;
+&lt;li&gt;Servicio DNS caché (por lo menos) en la misma máquina&lt;/li&gt;
+&lt;li&gt;Servicio hostapd&lt;/li&gt;
+&lt;li&gt;Una llave de 512 bits en formato exadecimal generadas en algún
+dispositivo de tipo random&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="procedimiento"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;Procedimiento:&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Instale el hardware y software&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Configure el sistema operativo y los requisitos, no olvide el soporte
+de IPv6&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Elabore el archivo de configuración de la tarjeta inalámbrica&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;/etc/ifconfig.ral0&lt;/tt&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="literal-block"&gt;
+nwid&amp;nbsp;hola&amp;nbsp;mediaopt&amp;nbsp;hostap&amp;nbsp;chan&amp;nbsp;4
+inet&amp;nbsp;&amp;nbsp;192.168.64.1&amp;nbsp;netmask&amp;nbsp;0xffffff00&amp;nbsp;media&amp;nbsp;auto
+inet6&amp;nbsp;3ffe:8240:8018:7fa::1&amp;nbsp;prefixlen&amp;nbsp;64&amp;nbsp;alias
+up
+&lt;/pre&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Haga el archivo &lt;strong&gt;/etc/rtadvd.conf&lt;/strong&gt; de anuncio de rutas y asignación
+de direcciones de IPv6&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;tt class="docutils literal"&gt;ral0:\&lt;/tt&gt;
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;:addr=&amp;quot;3ffe:8240:8016:aff::&amp;quot;:prefixlen#64:&lt;/span&gt;&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Haga el archivo &lt;strong&gt;/etc/hostapd.conf&lt;/strong&gt; para la configuración de la
+seguridad&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="literal-block"&gt;
+interface=ral0
+logger_syslog=-1
+logger_syslog_level=2
+logger_stdout=-1
+logger_stdout_level=2
+debug=0
+dump_file=/tmp/hostapd.dump
+ctrl_interface=/var/run/hostapd
+ctrl_interface_group=wheel
+ssid=hola
+macaddr_acl=0
+auth_algs=1
+wpa=1
+wpa_psk=75eb38988c5bb4499517c319934c845f6575f0456fa693666e0a90da3b92b740
+&lt;/pre&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Configure el arranque de los servicios en &lt;strong&gt;/etc/rc.conf&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="literal-block"&gt;
+ip6mode=router
+hostapd=YES
+rtadvd=YES&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;rtadvd_flags=&amp;quot;ral0&amp;quot;
+named=YES&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;named_flags=&amp;quot;&amp;quot;
+dhcpd=YES&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;dhcpd_flags=&amp;quot;-q&amp;nbsp;ral0&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;Reinicie su máquina, la parte de Access Point ha quedado lista.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cliente"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Cliente:&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Configure la interfase inalámbrica del cliente con la red hola y la
+llave de 512 bits (wpa_psk)&lt;/li&gt;
+&lt;li&gt;Reinicie&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ahora tiene usted el servicio de Access Point WPA completamente
+operacional. Disfrute su nuevo access point :)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="comentarios-y-explicaciones"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;Comentarios y explicaciones:&lt;/a&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;tt class="docutils literal"&gt;/etc/ifconfig.ral0&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;hostap es el modo para trabajar como &amp;quot;Access Point&amp;quot;. Otras
+opciones son ibss para conexiones peer to peer, &lt;strong&gt;monitor&lt;/strong&gt;
+(autoexplicativo) y bss (default) para ser cliente de un access
+point. Consulte el manual del driver de su tarjeta de red para
+comprobar el soporte de estos modos.&lt;/li&gt;
+&lt;li&gt;Se hacen las asignaciones de direcciónes IP, IPv6 y sus máscaras. La
+media elegida es auto para que la tarjeta inalámbrica tome el
+valor default de velocidad. Otros valores posibles son DS5,
+OFDM54 y varios más. Consulte el manual del driver de su tarjeta
+de red para comprobar el soporte de otras velocidades así como sus
+alcances y limitaciones.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;tt class="docutils literal"&gt;/etc/rtadvd.conf&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Con ral0:addr=&amp;quot;3ffe:8240:8018:7fa::&amp;quot;:prefixlen#64: es posible
+definirlo en una sola línea acorde a la sintáxis de termcap(5)&lt;/li&gt;
+&lt;li&gt;El servicio rtadvd con la dirección base addr/64 y la mac address del
+cliente que solicita una IPv6 le asignará una dirección utilizando el
+formato eui64&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;tt class="docutils literal"&gt;/etc/rc.conf&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Ponemos nuestra máquina con NetBSD en modo de ruteo IPv6&lt;/li&gt;
+&lt;li&gt;Declaramos que los cuatro servicios arrancarán en automático. Las
+flags con ral0 indican que el servicio solo correrá en esa interfase.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;tt class="docutils literal"&gt;/etc/hostapd.conf&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;El archivo proporcionado está a su mínima expresión, con valores por
+default y sin comentarios.&lt;/li&gt;
+&lt;li&gt;Si usted desea tener este archivo completo y con sus comentarios,
+haga lo siguiente:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;cp/usr/share/examples/hostapd/hostapd.conf/etc/hostapd.conf&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Edite su archivo y haga los siguientes reemplazos&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+diff&amp;nbsp;/usr/share/examples/hostapd/hostapd.conf&amp;nbsp;/etc/hostapd.conf
+1c1
+&amp;lt;&amp;nbsp;#&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$NetBSD:&amp;nbsp;hostapd.conf,v&amp;nbsp;1.1&amp;nbsp;2006/04/30&amp;nbsp;13:52:35&amp;nbsp;rpaulo&amp;nbsp;Exp&amp;nbsp;$
+---
+&amp;gt;&amp;nbsp;#&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$NetBSD:&amp;nbsp;hostapd.conf&amp;nbsp;1.1&amp;nbsp;2006/04/30&amp;nbsp;13:52:35&amp;nbsp;rpaulo&amp;nbsp;Exp&amp;nbsp;$
+8c8
+&amp;lt;&amp;nbsp;interface=if0
+---
+&amp;gt;&amp;nbsp;interface=ral0
+70c70
+&amp;lt;&amp;nbsp;ssid=NetBSD
+---
+&amp;gt;&amp;nbsp;ssid=hola
+90c90
+&amp;lt;&amp;nbsp;auth_algs=3
+---
+&amp;gt;&amp;nbsp;auth_algs=1
+268c268
+&amp;lt;&amp;nbsp;#wpa=1
+---
+&amp;gt;&amp;nbsp;wpa=1
+276c276
+&amp;lt;&amp;nbsp;#wpa_psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+---
+&amp;gt;wpa_psk=75eb38988c5bb4499517c319934c845f6575f0456fa693666e0a90da3b92b740
+&lt;/pre&gt;
+&lt;p&gt;Si usted no quiere IPv6, suprima las líneas que lo relacionan, pero no
+lo eche en saco roto. &lt;strong&gt;IPv6 ya es inminente&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Disfrute su nuevo Access Point con NetBSD&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Heron Gallegos</dc:creator><pubDate>Tue, 02 Jul 2013 16:40:00 -0500</pubDate><guid>tag:www.netbsd.mx,2013-07-02:accesspoint-dualstack.html</guid><category>netbsd</category><category>redes</category><category>wireless</category></item><item><title>bozohttpd - bozotic httpd</title><link>http://www.netbsd.mx/bozohttpd.html</link><description>&lt;pre class="literal-block"&gt;
 httpd&amp;nbsp;-&amp;nbsp;hyper&amp;nbsp;text&amp;nbsp;transfer&amp;nbsp;protocol&amp;nbsp;version&amp;nbsp;1.1&amp;nbsp;daemon&amp;nbsp;&amp;nbsp;(via&amp;nbsp;man&amp;nbsp;httpd)
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;httpd(8)&amp;nbsp;lee&amp;nbsp;una&amp;nbsp;peticion&amp;nbsp;por&amp;nbsp;medio&amp;nbsp;del&amp;nbsp;protocolo&amp;nbsp;http&amp;nbsp;y&amp;nbsp;envia&amp;nbsp;la&amp;nbsp;respuesta&amp;nbsp;a&amp;nbsp;la&amp;nbsp;salida&amp;nbsp;standard.
 &lt;/pre&gt;
