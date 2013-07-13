@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grupo de Usuarios de NetBSD en México</title><link>http://www.netbsd.mx/</link><description></description><atom:link href="http://www.netbsd.mx/feeds/all-es.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 02 Jul 2013 16:40:00 -0500</lastBuildDate><item><title>Access point con doble stack y seguridad WPA</title><link>http://www.netbsd.mx/accesspoint-dualstack.html</link><description>&lt;div class="contents topic" id="contents"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grupo de Usuarios de NetBSD en México</title><link>http://www.netbsd.mx/</link><description></description><atom:link href="http://www.netbsd.mx/feeds/all-es.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 13 Jul 2013 19:40:00 -0500</lastBuildDate><item><title>Grabando CD's and DVD-R</title><link>http://www.netbsd.mx/pkgsrc-binarios.html</link><description>&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/home/cesar/Proyectos/NetBSD-MX/blog-content/articles/media.rst&lt;/tt&gt;, line 2)&lt;/p&gt;
+&lt;p&gt;Title underline too short.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Grabando CD's and DVD-R
+######################
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="instalando-lo-necesario"&gt;
+&lt;h2&gt;Instalando lo necesario&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;(DVD+RW-TOOLS) - pkgsrc/sysutils/dvd+rw-tools&lt;/li&gt;
+&lt;li&gt;(CDR-DAO) - pkgsrc/sysutils/cdrdao&lt;/li&gt;
+&lt;li&gt;(CDR-TOOLS) - pkgsrc/sysutils/cdrtools-ossdvd&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="grabando-dvd-s"&gt;
+&lt;h2&gt;Grabando DVD's&lt;/h2&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#growisofs&lt;span class="pre"&gt;-dvd-compat&lt;/span&gt;&lt;span class="pre"&gt;-Z&lt;/span&gt;/dev/rcd0d=imagen.iso&lt;/tt&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="almacenando-archivos-en-un-dvd"&gt;
+&lt;h2&gt;Almacenando archivos en un DVD&lt;/h2&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#growisofs&lt;span class="pre"&gt;-dvd-compat&lt;/span&gt;&lt;span class="pre"&gt;-Z&lt;/span&gt;/dev/rcd0d&lt;span class="pre"&gt;-J&lt;/span&gt;&lt;span class="pre"&gt;-R&lt;/span&gt;/path/to/files&lt;/tt&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="creando-un-dvd-video"&gt;
+&lt;h2&gt;Creando un DVD Video&lt;/h2&gt;
+&lt;p&gt;Para crear un DVD-Video desde una ruta especifica conteniendo VIDEO_TS
+y AUDIO_TS hacemos:&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#growisofs&lt;span class="pre"&gt;-Z&lt;/span&gt;/dev/rcd0d&lt;span class="pre"&gt;-dvd-video&lt;/span&gt;/path/to/video/files&lt;/tt&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="generando-una-imagen-desde-un-dvd"&gt;
+&lt;h2&gt;Generando una imagen desde un DVD&lt;/h2&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#readcd&lt;span class="pre"&gt;dev=/dev/rcd0d&lt;/span&gt;f=image.img&lt;/tt&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="formateando-dvd-s"&gt;
+&lt;h2&gt;Formateando DVD's&lt;/h2&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#&lt;span class="pre"&gt;dvd+rw-format&lt;/span&gt;&lt;span class="pre"&gt;-blank&lt;/span&gt;/dev/rcd0d&lt;/tt&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="generando-una-imagen-iso-desde-un-cd"&gt;
+&lt;h2&gt;Generando una imagen .ISO desde un CD&lt;/h2&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#readcd&lt;span class="pre"&gt;dev=/dev/rcd0d&lt;/span&gt;f=imagen.iso&lt;/tt&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="grabando-una-imagen-iso-a-un-cd"&gt;
+&lt;h2&gt;Grabando una imagen ISO a un CD&lt;/h2&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;#cdrecord&lt;span class="pre"&gt;-v&lt;/span&gt;&lt;span class="pre"&gt;dev=/dev/rcd0d&lt;/span&gt;imagen.iso&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="formateando-cd-s"&gt;
+&lt;h2&gt;Formateando CD's&lt;/h2&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#cdrdaoblank&lt;span class="pre"&gt;--device&lt;/span&gt;/dev/rcd0d&lt;span class="pre"&gt;--driver&lt;/span&gt;&lt;span class="pre"&gt;generic-mmc&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="trabajando-con-cd-de-audio"&gt;
+&lt;h2&gt;Trabajando con CD de Audio&lt;/h2&gt;
+&lt;p&gt;El comando siguiente lee las pistas de audio en formato WAV y genera una
+tabla de contenidos en el archivo cdtracks.toc&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;# cdrdao &lt;span class="pre"&gt;read-cd&lt;/span&gt; &lt;span class="pre"&gt;--device&lt;/span&gt; /dev/rcd0d cdtracks.toc&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;A continuacion escribimos el contenido del CD de audio originado a
+partir de la tabla de contenidos del paso anterior en un CD-R blanco. #
+cdrdao write --device /dev/rcd0d cdtracks.toc&lt;/p&gt;
+&lt;p&gt;Como puedes leer, NetBSD incluye todo lo necesario para generar tus CD's
+y DVD's desde el shell, tu eres libre de programar tus scripts y
+automatizar tus copias.&lt;/p&gt;
+&lt;p&gt;Links:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.netbsd.org/docs/bootcd.html"&gt;NetBSD-creando boot  disks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://fy.chalmers.se/~appro/linux/DVD+RW/"&gt;dvd+rw-tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://cdrdao.sourceforge.net/"&gt;cdrdao&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Francisco Valladolid</dc:creator><pubDate>Sat, 13 Jul 2013 19:40:00 -0500</pubDate><guid>tag:www.netbsd.mx,2013-07-13:pkgsrc-binarios.html</guid><category>pkgsrc</category><category>paquetes</category><category>dvdrw</category></item><item><title>Access point con doble stack y seguridad WPA</title><link>http://www.netbsd.mx/accesspoint-dualstack.html</link><description>&lt;div class="contents topic" id="contents"&gt;
 &lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#descripcion" id="id1"&gt;Descripcion&lt;/a&gt;&lt;/li&gt;
