@@ -67,6 +67,44 @@ httpd&nbsp;-&nbsp;hyper&nbsp;text&nbsp;transfer&nbsp;protocol&nbsp;version&nbsp;
 ejecuta via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?inetd++NetBSD-current">inetd</a>, no es necesario instalar paquetes ...</p></div>
   </div>
 </article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="../dancer.html">Perl Dancer y NetBSD</a></h3>
+  </div>
+  <div id="article_text">
+    <div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#instalamos-el-servidor-lighttpd" id="id1">Instalamos el servidor lighttpd:</a></li>
+<li><a class="reference internal" href="#configuracion" id="id2">Configuración</a></li>
+<li><a class="reference internal" href="#creando-una-aplicacion" id="id3">Creando una aplicacion:</a></li>
+<li><a class="reference internal" href="#referencias" id="id4">Referencias</a></li>
+</ul>
+</div>
+<div class="section" id="instalamos-el-servidor-lighttpd">
+<h2><a class="toc-backref" href="#id1">Instalamos el servidor lighttpd:</a></h2>
+<blockquote>
+<tt class="docutils literal">pkg_add<span class="pre">-v</span>lighttpd</tt></blockquote>
+<p>Instalamos los módulos de <strong>Perl</strong> con <strong>CPAN</strong> necesarios (algunos de
+ellos no están disponibles como paquetes binarios):</p>
+<pre class="literal-block">
+cpan&nbsp;install&nbsp;YAML
+cpan&nbsp;install&nbsp;Plack
+cpan&nbsp;install&nbsp;FCGI
+cpan&nbsp;install&nbsp;FCGI::ProcManager
+cpan&nbsp;install&nbsp;Dancer
+</pre>
+</div>
+<div class="section" id="configuracion">
+<h2><a class="toc-backref" href="#id2">Configuración</a></h2>
+<blockquote>
+<ul>
+<li><p class="first">Creamos el script de booteo:</p>
+<blockquote>
+<p><tt class="docutils literal">cp/usr ...</tt></p></blockquote></li></ul></blockquote></div>
+  </div>
+</article>
 
     <footer>
       <p id="paginator">

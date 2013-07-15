@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="./theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="./theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="">
+  <meta name="description" content="Posts and writings by ">
+
+    <link href="http://www.netbsd.mx/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full Atom Feed" />
+      <link href="http://www.netbsd.mx/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full RSS Feed" />
+  
+  <meta name="keywords" content="pkgsrc, paquetes, dvdrw">
+
+  <title>
+    Grabando CD's and DVD-R  </title>
+
+  </head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+                <img src="./theme/images/logo.png" alt="logo">
+              </a>
+      <h2><a href="."></a></h2>
+      <p></p>
+      <ul>
+                                <li><a href="http://www.netbsd.org" target="_blank">NetBSD</a></li>
+                        <li><a href="http://twitter.com/netbsdmx" target="_blank">twitter</a></li>
+              </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>Posted on sábado, 13 de julio de 2013</p>
+    </header>
+
+    <article>
+  <div id="article_title">
+    <h3><a href="./media.html">Grabando CD's and DVD-R</a></h3>
+  </div>
+  <div id="article_text">
+    <div class="section" id="instalando-lo-necesario">
+<h2>Instalando lo necesario</h2>
+<ul class="simple">
+<li>(DVD+RW-TOOLS) - pkgsrc/sysutils/dvd+rw-tools</li>
+<li>(CDR-DAO) - pkgsrc/sysutils/cdrdao</li>
+<li>(CDR-TOOLS) - pkgsrc/sysutils/cdrtools-ossdvd</li>
+</ul>
+</div>
+<div class="section" id="grabando-dvd-s">
+<h2>Grabando DVD's</h2>
+<p><tt class="docutils literal">#growisofs<span class="pre">-dvd-compat</span><span class="pre">-Z</span>/dev/rcd0d=imagen.iso</tt></p>
+</div>
+<div class="section" id="almacenando-archivos-en-un-dvd">
+<h2>Almacenando archivos en un DVD</h2>
+<p><tt class="docutils literal">#growisofs<span class="pre">-dvd-compat</span><span class="pre">-Z</span>/dev/rcd0d<span class="pre">-J</span><span class="pre">-R</span>/path/to/files</tt></p>
+</div>
+<div class="section" id="creando-un-dvd-video">
+<h2>Creando un DVD Video</h2>
+<p>Para crear un DVD-Video desde una ruta especifica conteniendo VIDEO_TS
+y AUDIO_TS hacemos:</p>
+<p><tt class="docutils literal">#growisofs<span class="pre">-Z</span>/dev/rcd0d<span class="pre">-dvd-video</span>/path/to/video/files</tt></p>
+</div>
+<div class="section" id="generando-una-imagen-desde-un-dvd">
+<h2>Generando una imagen desde un DVD</h2>
+<p><tt class="docutils literal">#readcd<span class="pre">dev=/dev/rcd0d</span>f=image.img</tt></p>
+</div>
+<div class="section" id="formateando-dvd-s">
+<h2>Formateando DVD's</h2>
+<p><tt class="docutils literal">#<span class="pre">dvd+rw-format</span><span class="pre">-blank</span>/dev/rcd0d</tt></p>
+</div>
+<div class="section" id="generando-una-imagen-iso-desde-un-cd">
+<h2>Generando una imagen .ISO desde un CD</h2>
+<p><tt class="docutils literal">#readcd<span class="pre">dev=/dev/rcd0d</span>f=imagen.iso</tt></p>
+</div>
+<div class="section" id="grabando-una-imagen-iso-a-un-cd">
+<h2>Grabando una imagen ISO a un CD</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">#cdrecord<span class="pre">-v</span><span class="pre">dev=/dev/rcd0d</span>imagen.iso</tt></div>
+</div>
+</div>
+<div class="section" id="formateando-cd-s">
+<h2>Formateando CD's</h2>
+<p><tt class="docutils literal">#cdrdaoblank<span class="pre">--device</span>/dev/rcd0d<span class="pre">--driver</span><span class="pre">generic-mmc</span></tt></p>
+</div>
+<div class="section" id="trabajando-con-cd-de-audio">
+<h2>Trabajando con CD de Audio</h2>
+<p>El comando siguiente lee las pistas de audio en formato WAV y genera una
+tabla de contenidos en el archivo cdtracks.toc</p>
+<p><tt class="docutils literal"># cdrdao <span class="pre">read-cd</span> <span class="pre">--device</span> /dev/rcd0d cdtracks.toc</tt></p>
+<p>A continuacion escribimos el contenido del CD de audio originado a
+partir de la tabla de contenidos del paso anterior en un CD-R blanco. #
+cdrdao write --device /dev/rcd0d cdtracks.toc</p>
+<p>Como puedes leer, NetBSD incluye todo lo necesario para generar tus CD's
+y DVD's desde el shell, tu eres libre de programar tus scripts y
+automatizar tus copias.</p>
+<p>Links:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.netbsd.org/docs/bootcd.html">NetBSD-creando boot  disks</a></li>
+<li><a class="reference external" href="http://fy.chalmers.se/~appro/linux/DVD+RW/">dvd+rw-tools</a></li>
+<li><a class="reference external" href="http://cdrdao.sourceforge.net/">cdrdao</a></li>
+</ul>
+</div>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="./category/pkgsrc.html">pkgsrc</a></p>
+        <p>Tags:
+            <a href="./tag/pkgsrc.html">pkgsrc</a>,            <a href="./tag/paquetes.html">paquetes</a>,            <a href="./tag/dvdrw.html">dvdrw</a>          </p>
+      </div>
+</article>
+
+    <footer>
+      <p><a href="./" class="button_accent">&larr; Back to Index</a></p>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. You can fork the theme on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+    </div>
+  </main>
+</body>
+</html>

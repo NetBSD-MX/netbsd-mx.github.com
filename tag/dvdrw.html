@@ -50,18 +50,10 @@
 
     <article>
   <div id="article_title">
-    <h3><a href="../pkgsrc-binarios.html">Grabando CD's and DVD-R</a></h3>
+    <h3><a href="../media.html">Grabando CD's and DVD-R</a></h3>
   </div>
   <div id="article_text">
-    <div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/cesar/Proyectos/NetBSD-MX/blog-content/articles/media.rst</tt>, line 2)</p>
-<p>Title underline too short.</p>
-<pre class="literal-block">
-Grabando CD's and DVD-R
-######################
-</pre>
-</div>
-<div class="section" id="instalando-lo-necesario">
+    <div class="section" id="instalando-lo-necesario">
 <h2>Instalando lo necesario</h2>
 <ul class="simple">
 <li>(DVD+RW-TOOLS) - pkgsrc/sysutils/dvd+rw-tools</li>
@@ -75,7 +67,12 @@ Grabando CD's and DVD-R
 </div>
 <div class="section" id="almacenando-archivos-en-un-dvd">
 <h2>Almacenando archivos en un DVD</h2>
-<p><tt class="docutils literal">#growisofs<span class="pre">-dvd-compat</span><span class="pre">-Z ...</span></tt></p></div>
+<p><tt class="docutils literal">#growisofs<span class="pre">-dvd-compat</span><span class="pre">-Z</span>/dev/rcd0d<span class="pre">-J</span><span class="pre">-R</span>/path/to/files</tt></p>
+</div>
+<div class="section" id="creando-un-dvd-video">
+<h2>Creando un DVD Video</h2>
+<p>Para crear un DVD-Video desde una ruta especifica conteniendo VIDEO_TS
+y AUDIO_TS ...</p></div>
   </div>
 </article>
 

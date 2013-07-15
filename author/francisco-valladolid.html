@@ -65,6 +65,34 @@ ejecuta via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man
 <hr />
 <article>
   <div id="article_title">
+    <h3><a href="../media.html">Grabando CD's and DVD-R</a></h3>
+  </div>
+  <div id="article_text">
+    <div class="section" id="instalando-lo-necesario">
+<h2>Instalando lo necesario</h2>
+<ul class="simple">
+<li>(DVD+RW-TOOLS) - pkgsrc/sysutils/dvd+rw-tools</li>
+<li>(CDR-DAO) - pkgsrc/sysutils/cdrdao</li>
+<li>(CDR-TOOLS) - pkgsrc/sysutils/cdrtools-ossdvd</li>
+</ul>
+</div>
+<div class="section" id="grabando-dvd-s">
+<h2>Grabando DVD's</h2>
+<p><tt class="docutils literal">#growisofs<span class="pre">-dvd-compat</span><span class="pre">-Z</span>/dev/rcd0d=imagen.iso</tt></p>
+</div>
+<div class="section" id="almacenando-archivos-en-un-dvd">
+<h2>Almacenando archivos en un DVD</h2>
+<p><tt class="docutils literal">#growisofs<span class="pre">-dvd-compat</span><span class="pre">-Z</span>/dev/rcd0d<span class="pre">-J</span><span class="pre">-R</span>/path/to/files</tt></p>
+</div>
+<div class="section" id="creando-un-dvd-video">
+<h2>Creando un DVD Video</h2>
+<p>Para crear un DVD-Video desde una ruta especifica conteniendo VIDEO_TS
+y AUDIO_TS ...</p></div>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
     <h3><a href="../modular-xorg-pkgsrc.html">Instalando modular-xorg desde pkgsrc</a></h3>
   </div>
   <div id="article_text">
@@ -91,37 +119,6 @@ eficiente. A continuacion se detalla su uso.</p>
 <h2>Inicializando pkgsrc</h2>
 <div class="section" id="establecemos-las-variables-usadas-por-cvs">
 <h3>Establecemos ...</h3></div></div>
-  </div>
-</article>
-<hr />
-<article>
-  <div id="article_title">
-    <h3><a href="../pkgsrc-binarios.html">Grabando CD's and DVD-R</a></h3>
-  </div>
-  <div id="article_text">
-    <div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/cesar/Proyectos/NetBSD-MX/blog-content/articles/media.rst</tt>, line 2)</p>
-<p>Title underline too short.</p>
-<pre class="literal-block">
-Grabando CD's and DVD-R
-######################
-</pre>
-</div>
-<div class="section" id="instalando-lo-necesario">
-<h2>Instalando lo necesario</h2>
-<ul class="simple">
-<li>(DVD+RW-TOOLS) - pkgsrc/sysutils/dvd+rw-tools</li>
-<li>(CDR-DAO) - pkgsrc/sysutils/cdrdao</li>
-<li>(CDR-TOOLS) - pkgsrc/sysutils/cdrtools-ossdvd</li>
-</ul>
-</div>
-<div class="section" id="grabando-dvd-s">
-<h2>Grabando DVD's</h2>
-<p><tt class="docutils literal">#growisofs<span class="pre">-dvd-compat</span><span class="pre">-Z</span>/dev/rcd0d=imagen.iso</tt></p>
-</div>
-<div class="section" id="almacenando-archivos-en-un-dvd">
-<h2>Almacenando archivos en un DVD</h2>
-<p><tt class="docutils literal">#growisofs<span class="pre">-dvd-compat</span><span class="pre">-Z ...</span></tt></p></div>
   </div>
 </article>
 

@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grupo de Usuarios de NetBSD en México</title><link>http://www.netbsd.mx/</link><description></description><atom:link href="http://www.netbsd.mx/feeds/pkgsrc.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 13 Jul 2013 19:40:00 -0500</lastBuildDate><item><title>Grabando CD's and DVD-R</title><link>http://www.netbsd.mx/pkgsrc-binarios.html</link><description>&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/home/cesar/Proyectos/NetBSD-MX/blog-content/articles/media.rst&lt;/tt&gt;, line 2)&lt;/p&gt;
-&lt;p&gt;Title underline too short.&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-Grabando CD's and DVD-R
-######################
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class="section" id="instalando-lo-necesario"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grupo de Usuarios de NetBSD en México</title><link>http://www.netbsd.mx/</link><description></description><atom:link href="http://www.netbsd.mx/feeds/pkgsrc.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 13 Jul 2013 19:40:00 -0500</lastBuildDate><item><title>Grabando CD's and DVD-R</title><link>http://www.netbsd.mx/media.html</link><description>&lt;div class="section" id="instalando-lo-necesario"&gt;
 &lt;h2&gt;Instalando lo necesario&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;(DVD+RW-TOOLS) - pkgsrc/sysutils/dvd+rw-tools&lt;/li&gt;
@@ -69,4 +61,4 @@ automatizar tus copias.&lt;/p&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://cdrdao.sourceforge.net/"&gt;cdrdao&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Francisco Valladolid</dc:creator><pubDate>Sat, 13 Jul 2013 19:40:00 -0500</pubDate><guid>tag:www.netbsd.mx,2013-07-13:pkgsrc-binarios.html</guid><category>pkgsrc</category><category>paquetes</category><category>dvdrw</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Francisco Valladolid</dc:creator><pubDate>Sat, 13 Jul 2013 19:40:00 -0500</pubDate><guid>tag:www.netbsd.mx,2013-07-13:media.html</guid><category>pkgsrc</category><category>paquetes</category><category>dvdrw</category></item></channel></rss>
