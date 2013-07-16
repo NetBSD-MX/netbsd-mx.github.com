@@ -1,118 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Grupo de Usuarios de NetBSD en México</title><link href="http://www.netbsd.mx/" rel="alternate"></link><link href="http://www.netbsd.mx/feeds/lighttpd-tag.atom.xml" rel="self"></link><id>http://www.netbsd.mx/</id><updated>2013-06-26T16:40:00-05:00</updated><entry><title>Perl Dancer y NetBSD</title><link href="http://www.netbsd.mx/dancer.html" rel="alternate"></link><updated>2013-06-26T16:40:00-05:00</updated><author><name>asarch</name></author><id>tag:www.netbsd.mx,2013-06-26:dancer.html</id><summary type="html">&lt;div class="contents topic" id="contents"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Grupo de Usuarios de NetBSD en México</title><link href="http://www.netbsd.mx/" rel="alternate"></link><link href="http://www.netbsd.mx/feeds/lighttpd-tag.atom.xml" rel="self"></link><id>http://www.netbsd.mx/</id><updated>2013-07-13T22:40:00-05:00</updated><entry><title>Perl Dancer y NetBSD</title><link href="http://www.netbsd.mx/dancer.html" rel="alternate"></link><updated>2013-07-13T22:40:00-05:00</updated><author><name>asarch</name></author><id>tag:www.netbsd.mx,2013-07-13:dancer.html</id><summary type="html">&lt;div class="contents topic" id="contents"&gt;
 &lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#instalamos-el-servidor-lighttpd" id="id1"&gt;Instalamos el servidor lighttpd:&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#instalacion" id="id1"&gt;Instalación&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#configuracion" id="id2"&gt;Configuración&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#creando-una-aplicacion" id="id3"&gt;Creando una aplicacion:&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#contenido" id="id3"&gt;Contenido&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#referencias" id="id4"&gt;Referencias&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="instalamos-el-servidor-lighttpd"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Instalamos el servidor lighttpd:&lt;/a&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;tt class="docutils literal"&gt;pkg_add&lt;span class="pre"&gt;-v&lt;/span&gt;lighttpd&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;div class="section" id="instalacion"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Instalación&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Instalamos el servidor &lt;strong&gt;lighttpd&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;pkg_add&lt;span class="pre"&gt;-v&lt;/span&gt;lighttpd&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;Instalamos los módulos de &lt;strong&gt;Perl&lt;/strong&gt; con &lt;strong&gt;CPAN&lt;/strong&gt; necesarios (algunos de
 ellos no están disponibles como paquetes binarios):&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-cpan&amp;nbsp;install&amp;nbsp;YAML
-cpan&amp;nbsp;install&amp;nbsp;Plack
-cpan&amp;nbsp;install&amp;nbsp;FCGI
-cpan&amp;nbsp;install&amp;nbsp;FCGI::ProcManager
-cpan&amp;nbsp;install&amp;nbsp;Dancer
-&lt;/pre&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cpaninstallYAML&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cpaninstallPlack&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cpaninstallFCGI&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cpaninstall&lt;span class="pre"&gt;FCGI::ProcManager&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cpaninstallDancer&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="configuracion"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Configuración&lt;/a&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;Creamos el script de booteo:&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Creamos el script de booteo:&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;cp/usr/pkg/share/examples/rc.d/lighttpd/etc/rc.d&lt;/tt&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Lo habilitamos para el inicio:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;vi/etc/rc.conf&lt;/tt&gt;
-&lt;tt class="docutils literal"&gt;lighttpd=YES&lt;/tt&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Habilitamos el módulo de &lt;strong&gt;FastCGI&lt;/strong&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;ol class="arabic simple" start="2"&gt;
+&lt;li&gt;Lo habilitamos para el inicio:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;vi/etc/rc.conf&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;lighttpd=YES&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol class="arabic simple" start="3"&gt;
+&lt;li&gt;Habilitamos el módulo de &lt;strong&gt;FastCGI&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;vi/usr/pkg/etc/lighttpd/modules.conf&lt;/tt&gt;&lt;/div&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;server.modules=(&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&amp;nbsp;    &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;...,&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;...,&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&amp;quot;mod_fastcgi&amp;quot;&lt;/tt&gt;&lt;/div&gt;
-&lt;/div&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;)&lt;/tt&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Configuramos el &lt;strong&gt;lighttpd&lt;/strong&gt; para el trabajo con &lt;strong&gt;NetBSD&lt;/strong&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;ol class="arabic simple" start="4"&gt;
+&lt;li&gt;Configuramos el &lt;strong&gt;lighttpd&lt;/strong&gt; para el trabajo con &lt;strong&gt;NetBSD&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;vi/usr/pkg/etc/lighttpd/lighttpd.conf&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;var.server_root=&amp;quot;/var/www&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#server.event_handler=&amp;quot;linux-sisepoll&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#server.network_backend=&amp;quot;linux-sendfile&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#server.use_ipv6=&amp;quot;enable&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Creamos los directorios necesarios:&lt;/p&gt;
+&lt;ol class="arabic simple" start="5"&gt;
+&lt;li&gt;Creamos los directorios necesarios:&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;mkdir/var/www/htdocs&lt;/tt&gt;&lt;/div&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;mkdir/var/log/lighttpd&lt;/tt&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Arreglamos los permisos:&lt;/p&gt;
+&lt;ol class="arabic simple" start="6"&gt;
+&lt;li&gt;Arreglamos los permisos:&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;groupaddlighttpd&lt;/tt&gt;&lt;/div&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;useraddlighttpd&lt;/tt&gt;&lt;/div&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;chown&lt;span class="pre"&gt;-R&lt;/span&gt;lighttpd:lighttpd/var/log/lighttpd&lt;/tt&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
 &lt;/div&gt;
-&lt;div class="section" id="creando-una-aplicacion"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;Creando una aplicacion:&lt;/a&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;Creamos una aplicación &lt;strong&gt;Dancer&lt;/strong&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;div class="section" id="contenido"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;Contenido&lt;/a&gt;&lt;/h2&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Creamos una aplicación &lt;strong&gt;Dancer&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;dancer&lt;span class="pre"&gt;-a&lt;/span&gt;&lt;span class="pre"&gt;MyWeb::App&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Iniciamos la aplicación para crear el socket de conexión:&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
+&lt;ol class="arabic simple" start="2"&gt;
+&lt;li&gt;Iniciamos la aplicación para crear el socket de conexión:&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;export&lt;span class="pre"&gt;PATH=$PATH:/usr/pkg/lib/perl5/site_perl/bin&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cd&lt;span class="pre"&gt;MyWeb-App&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
 &lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;plackup&lt;span class="pre"&gt;-s&lt;/span&gt;FCGI&lt;span class="pre"&gt;--listen&lt;/span&gt;/tmp/socketbin/app.pl&lt;/tt&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;Habilitamos el socket en &lt;strong&gt;lighttpd&lt;/strong&gt;:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;pre class="literal-block"&gt;
-vi&amp;nbsp;/usr/pkg/etc/lighttpd/lighttpd.conf
-$HTTP[&amp;quot;url&amp;quot;]&amp;nbsp;=~&amp;nbsp;&amp;quot;^/app&amp;quot;&amp;nbsp;{
-    fastcgi.server&amp;nbsp;+=&amp;nbsp;(
-&amp;nbsp;&amp;nbsp;      &amp;quot;/app&amp;quot;&amp;nbsp;=&amp;gt;&amp;nbsp;(
-  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;      &amp;quot;&amp;quot;&amp;nbsp;=&amp;gt;&amp;nbsp;(
-&amp;nbsp;&amp;nbsp;  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;      &amp;quot;socket&amp;quot;&amp;nbsp;=&amp;gt;&amp;nbsp;&amp;quot;/tmp/socket&amp;quot;,
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;      &amp;quot;check-local&amp;quot;&amp;nbsp;=&amp;gt;&amp;nbsp;&amp;quot;disable&amp;quot;
-&amp;nbsp;&amp;nbsp;  &amp;nbsp;       &amp;nbsp;)
-   &amp;nbsp;    )
-    )
-}
-&lt;/pre&gt;
+&lt;ol class="arabic simple" start="3"&gt;
+&lt;li&gt;Habilitamos el socket en &lt;strong&gt;lighttpd&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;vi/usr/pkg/etc/lighttpd/lighttpd.conf&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$HTTP[&amp;quot;url&amp;quot;]&lt;/span&gt;=~&lt;span class="pre"&gt;&amp;quot;^/app&amp;quot;&lt;/span&gt;{&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;fastcgi.server+=(&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&amp;quot;/app&amp;quot;=&amp;gt;(&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&amp;quot;&amp;quot;=&amp;gt;(&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&amp;quot;socket&amp;quot;=&amp;gt;&amp;quot;/tmp/socket&amp;quot;,&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;&amp;quot;check-local&amp;quot;&lt;/span&gt;=&amp;gt;&amp;quot;disable&amp;quot;&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;)&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;)&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;)&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;}&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="referencias"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;Referencias&lt;/a&gt;&lt;/h2&gt;

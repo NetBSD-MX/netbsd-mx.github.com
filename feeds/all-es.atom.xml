@@ -1,5 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Grupo de Usuarios de NetBSD en México</title><link href="http://www.netbsd.mx/" rel="alternate"></link><link href="http://www.netbsd.mx/feeds/all-es.atom.xml" rel="self"></link><id>http://www.netbsd.mx/</id><updated>2013-07-13T19:40:00-05:00</updated><entry><title>Grabando CD's and DVD-R</title><link href="http://www.netbsd.mx/media.html" rel="alternate"></link><updated>2013-07-13T19:40:00-05:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-07-13:media.html</id><summary type="html">&lt;div class="section" id="instalando-lo-necesario"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Grupo de Usuarios de NetBSD en México</title><link href="http://www.netbsd.mx/" rel="alternate"></link><link href="http://www.netbsd.mx/feeds/all-es.atom.xml" rel="self"></link><id>http://www.netbsd.mx/</id><updated>2013-07-14T02:30:00-05:00</updated><entry><title>PPPoE</title><link href="http://www.netbsd.mx/pppoe.html" rel="alternate"></link><updated>2013-07-14T02:30:00-05:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-07-14:pppoe.html</id><summary type="html">&lt;div class="section" id="introducccion"&gt;
+&lt;h2&gt;Introducccion:&lt;/h2&gt;
+&lt;p&gt;Algunas ocasiones necesitamos establecer una conexion PPPoE (Point to Point over
+Ethernet)  a internet via ADSL, los routers actuales
+pueden hacer &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?pppoe++NetBSD-current"&gt;pppoe&lt;/a&gt; de forma sencilla, sin embargo en algunos entornos donde
+se necesita control de la conexion podemos usar nuestro router casero en modo bridge
+y usar &lt;a class="reference external" href="http://www.netbsd.org"&gt;NetBSD&lt;/a&gt; como pppoe/router/firewall/dns cache y tener el control de nuestra red
+casera.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="requerimientos"&gt;
+&lt;h2&gt;Requerimientos:&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Una PC corriendo &lt;a class="reference external" href="http://www.netbsd.org"&gt;NetBSD&lt;/a&gt; (&lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?pppoe++NetBSD-current"&gt;pppoe&lt;/a&gt; es soportado desde 1.6)&lt;/li&gt;
+&lt;li&gt;Dos tarjetas de red (una para el bridge, otra para la red interna)&lt;/li&gt;
+&lt;li&gt;Un editor de textos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion"&gt;
+&lt;h2&gt;Configuracion:&lt;/h2&gt;
+&lt;p&gt;Suponiendo fxp0 la interfase que conecta al modem ADSL, editamos
+&lt;em&gt;/etc/ifconfig.ppoe&lt;/em&gt; sino existe lo creamos y agregamos lo siguiente:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+create
+!&amp;nbsp;/sbin/ifconfig&amp;nbsp;fxp0&amp;nbsp;up
+!&amp;nbsp;/sbin/pppoectl&amp;nbsp;-e&amp;nbsp;fxp0&amp;nbsp;$int
+!&amp;nbsp;/sbin/pppoectl&amp;nbsp;$int&amp;nbsp;myauthproto=pap&amp;nbsp;'myauthname=tu_nombre_de_usuario' \
+     'myauthsecret=tu_password'&amp;nbsp;hisauthproto=none
+       inet&amp;nbsp;0.0.0.0&amp;nbsp;0.0.0.1&amp;nbsp;netmask&amp;nbsp;0xffffffff
+#!&amp;nbsp;/sbin/route&amp;nbsp;add&amp;nbsp;default&amp;nbsp;-iface&amp;nbsp;0.0.0.1
+up
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Agregamos ifwatchd al rc.conf para monitorear la conexion.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;#echo&amp;quot;ifwatchd=YES&amp;quot;&amp;gt;&amp;gt;/etc/rc.conf&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Es necesario bajar el valor del MTU para las interfaces, un valor MTU
+alto quiza cause algunos problemas a nuestra conexion, entonces
+modificamos dentro de &lt;em&gt;/etc/sysctl.conf&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;net.inet.tcp.mss_ifmtu=1&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Si quiere hacer NAT a su red interna, entonces, necesita agregar lo
+siguiente a su archivo &lt;em&gt;rc.conf&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# sysctl -w net.inet.ip.forwarding=1
+# echo &amp;quot;ipf=YES&amp;quot; &amp;gt;&amp;gt; /etc/rc.conf
+# echo &amp;quot;ipnat=YES&amp;quot; &amp;gt;&amp;gt; /etc/rc.conf
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="haciendo-nat"&gt;
+&lt;h2&gt;Haciendo NAT&lt;/h2&gt;
+&lt;p&gt;Agregar las reglas nat a ipnat.conf, suponiendo que esta usando
+192.168.1.0/24&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+map&amp;nbsp;pppoe0&amp;nbsp;192.168.1.0/24&amp;nbsp;-&amp;gt;&amp;nbsp;0/32&amp;nbsp;portmap&amp;nbsp;tcp/udp&amp;nbsp;44000:49999&amp;nbsp;mssclamp 1440
+map&amp;nbsp;pppoe0&amp;nbsp;192.168.1.0/24&amp;nbsp;-&amp;gt;&amp;nbsp;0/32&amp;nbsp;mssclamp&amp;nbsp;1440
+&lt;/pre&gt;
+&lt;p&gt;Con esta configuracion &lt;a class="reference external" href="http://www.netbsd.org"&gt;NetBSD&lt;/a&gt; esta actuando como servidor &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?pppoe++NetBSD-current"&gt;pppoe&lt;/a&gt; y haciendo NAT a la red inerna
+via &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?ipnat++NetBSD-current"&gt;ipnat&lt;/a&gt; e &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?ipf++NetBSD-current"&gt;ipf&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="consideraciones"&gt;
+&lt;h2&gt;Consideraciones:&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.netbsd.org"&gt;NetBSD&lt;/a&gt; ahora incluye un filtro de paquetes en base llamado &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?npf++NetBSD-current"&gt;npf&lt;/a&gt; para hacer NAT y
+filtrado de paquetes, la configuracion para ello varia en mucho en comparacion a &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?ipf++NetBSD-current"&gt;ipf&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="pppoe"></category><category term="redes"></category><category term="nat"></category><category term="firewall"></category><category term="ipf"></category><category term="ipnat"></category></entry><entry><title>Perl Dancer y NetBSD</title><link href="http://www.netbsd.mx/dancer.html" rel="alternate"></link><updated>2013-07-13T22:40:00-05:00</updated><author><name>asarch</name></author><id>tag:www.netbsd.mx,2013-07-13:dancer.html</id><summary type="html">&lt;div class="contents topic" id="contents"&gt;
+&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#instalacion" id="id1"&gt;Instalación&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion" id="id2"&gt;Configuración&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#contenido" id="id3"&gt;Contenido&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#referencias" id="id4"&gt;Referencias&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="instalacion"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Instalación&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Instalamos el servidor &lt;strong&gt;lighttpd&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;pkg_add&lt;span class="pre"&gt;-v&lt;/span&gt;lighttpd&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Instalamos los módulos de &lt;strong&gt;Perl&lt;/strong&gt; con &lt;strong&gt;CPAN&lt;/strong&gt; necesarios (algunos de
+ellos no están disponibles como paquetes binarios):&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cpaninstallYAML&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cpaninstallPlack&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cpaninstallFCGI&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cpaninstall&lt;span class="pre"&gt;FCGI::ProcManager&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cpaninstallDancer&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Configuración&lt;/a&gt;&lt;/h2&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Creamos el script de booteo:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;cp/usr/pkg/share/examples/rc.d/lighttpd/etc/rc.d&lt;/tt&gt;&lt;/p&gt;
+&lt;ol class="arabic simple" start="2"&gt;
+&lt;li&gt;Lo habilitamos para el inicio:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;vi/etc/rc.conf&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;lighttpd=YES&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol class="arabic simple" start="3"&gt;
+&lt;li&gt;Habilitamos el módulo de &lt;strong&gt;FastCGI&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;vi/usr/pkg/etc/lighttpd/modules.conf&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;server.modules=(&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;...,&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&amp;quot;mod_fastcgi&amp;quot;&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;)&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol class="arabic simple" start="4"&gt;
+&lt;li&gt;Configuramos el &lt;strong&gt;lighttpd&lt;/strong&gt; para el trabajo con &lt;strong&gt;NetBSD&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;vi/usr/pkg/etc/lighttpd/lighttpd.conf&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;var.server_root=&amp;quot;/var/www&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#server.event_handler=&amp;quot;linux-sisepoll&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#server.network_backend=&amp;quot;linux-sendfile&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#server.use_ipv6=&amp;quot;enable&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol class="arabic simple" start="5"&gt;
+&lt;li&gt;Creamos los directorios necesarios:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;mkdir/var/www/htdocs&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;mkdir/var/log/lighttpd&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol class="arabic simple" start="6"&gt;
+&lt;li&gt;Arreglamos los permisos:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;groupaddlighttpd&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;useraddlighttpd&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;chown&lt;span class="pre"&gt;-R&lt;/span&gt;lighttpd:lighttpd/var/log/lighttpd&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="contenido"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;Contenido&lt;/a&gt;&lt;/h2&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Creamos una aplicación &lt;strong&gt;Dancer&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;dancer&lt;span class="pre"&gt;-a&lt;/span&gt;&lt;span class="pre"&gt;MyWeb::App&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;ol class="arabic simple" start="2"&gt;
+&lt;li&gt;Iniciamos la aplicación para crear el socket de conexión:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;export&lt;span class="pre"&gt;PATH=$PATH:/usr/pkg/lib/perl5/site_perl/bin&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cd&lt;span class="pre"&gt;MyWeb-App&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;plackup&lt;span class="pre"&gt;-s&lt;/span&gt;FCGI&lt;span class="pre"&gt;--listen&lt;/span&gt;/tmp/socketbin/app.pl&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol class="arabic simple" start="3"&gt;
+&lt;li&gt;Habilitamos el socket en &lt;strong&gt;lighttpd&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;vi/usr/pkg/etc/lighttpd/lighttpd.conf&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$HTTP[&amp;quot;url&amp;quot;]&lt;/span&gt;=~&lt;span class="pre"&gt;&amp;quot;^/app&amp;quot;&lt;/span&gt;{&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;fastcgi.server+=(&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&amp;quot;/app&amp;quot;=&amp;gt;(&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&amp;quot;&amp;quot;=&amp;gt;(&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&amp;quot;socket&amp;quot;=&amp;gt;&amp;quot;/tmp/socket&amp;quot;,&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;&amp;quot;check-local&amp;quot;&lt;/span&gt;=&amp;gt;&amp;quot;disable&amp;quot;&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;)&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;)&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;)&lt;/tt&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;}&lt;/tt&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="referencias"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;Referencias&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://search.cpan.org/~xsawyerx/Dancer-1.3091/lib/Dancer/Deployment.pod"&gt;perldoc
+Dancer::Deployment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</summary><category term="perl"></category><category term="web"></category><category term="lighttpd"></category><category term="dancer"></category><category term="cpan"></category></entry><entry><title>Grabando CD's and DVD-R</title><link href="http://www.netbsd.mx/media.html" rel="alternate"></link><updated>2013-07-13T19:40:00-05:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-07-13:media.html</id><summary type="html">&lt;div class="section" id="instalando-lo-necesario"&gt;
 &lt;h2&gt;Instalando lo necesario&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;(DVD+RW-TOOLS) - pkgsrc/sysutils/dvd+rw-tools&lt;/li&gt;
@@ -322,129 +495,7 @@ Inicia&amp;nbsp;httpd(8)&amp;nbsp;con&amp;nbsp;soporte&amp;nbsp;php&amp;nbsp;den
 &lt;h2&gt;Autenticación&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current"&gt;httpd&lt;/a&gt;(8) soporta autenticación básica a traves de .htpasswd&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="netbsd"></category><category term="httpd"></category><category term="servidor"></category><category term="web"></category><category term="cgi"></category><category term="html"></category></entry><entry><title>Perl Dancer y NetBSD</title><link href="http://www.netbsd.mx/dancer.html" rel="alternate"></link><updated>2013-06-26T16:40:00-05:00</updated><author><name>asarch</name></author><id>tag:www.netbsd.mx,2013-06-26:dancer.html</id><summary type="html">&lt;div class="contents topic" id="contents"&gt;
-&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#instalamos-el-servidor-lighttpd" id="id1"&gt;Instalamos el servidor lighttpd:&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#configuracion" id="id2"&gt;Configuración&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#creando-una-aplicacion" id="id3"&gt;Creando una aplicacion:&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#referencias" id="id4"&gt;Referencias&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="instalamos-el-servidor-lighttpd"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Instalamos el servidor lighttpd:&lt;/a&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;tt class="docutils literal"&gt;pkg_add&lt;span class="pre"&gt;-v&lt;/span&gt;lighttpd&lt;/tt&gt;&lt;/blockquote&gt;
-&lt;p&gt;Instalamos los módulos de &lt;strong&gt;Perl&lt;/strong&gt; con &lt;strong&gt;CPAN&lt;/strong&gt; necesarios (algunos de
-ellos no están disponibles como paquetes binarios):&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-cpan&amp;nbsp;install&amp;nbsp;YAML
-cpan&amp;nbsp;install&amp;nbsp;Plack
-cpan&amp;nbsp;install&amp;nbsp;FCGI
-cpan&amp;nbsp;install&amp;nbsp;FCGI::ProcManager
-cpan&amp;nbsp;install&amp;nbsp;Dancer
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class="section" id="configuracion"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Configuración&lt;/a&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;Creamos el script de booteo:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;cp/usr/pkg/share/examples/rc.d/lighttpd/etc/rc.d&lt;/tt&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Lo habilitamos para el inicio:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;vi/etc/rc.conf&lt;/tt&gt;
-&lt;tt class="docutils literal"&gt;lighttpd=YES&lt;/tt&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Habilitamos el módulo de &lt;strong&gt;FastCGI&lt;/strong&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;vi/usr/pkg/etc/lighttpd/modules.conf&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;server.modules=(&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&amp;nbsp;    &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;...,&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&amp;quot;mod_fastcgi&amp;quot;&lt;/tt&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;)&lt;/tt&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Configuramos el &lt;strong&gt;lighttpd&lt;/strong&gt; para el trabajo con &lt;strong&gt;NetBSD&lt;/strong&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;vi/usr/pkg/etc/lighttpd/lighttpd.conf&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;var.server_root=&amp;quot;/var/www&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#server.event_handler=&amp;quot;linux-sisepoll&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#server.network_backend=&amp;quot;linux-sendfile&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#server.use_ipv6=&amp;quot;enable&amp;quot;&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Creamos los directorios necesarios:&lt;/p&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;mkdir/var/www/htdocs&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;mkdir/var/log/lighttpd&lt;/tt&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Arreglamos los permisos:&lt;/p&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;groupaddlighttpd&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;useraddlighttpd&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;chown&lt;span class="pre"&gt;-R&lt;/span&gt;lighttpd:lighttpd/var/log/lighttpd&lt;/tt&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div class="section" id="creando-una-aplicacion"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;Creando una aplicacion:&lt;/a&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;Creamos una aplicación &lt;strong&gt;Dancer&lt;/strong&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;dancer&lt;span class="pre"&gt;-a&lt;/span&gt;&lt;span class="pre"&gt;MyWeb::App&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Iniciamos la aplicación para crear el socket de conexión:&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;export&lt;span class="pre"&gt;PATH=$PATH:/usr/pkg/lib/perl5/site_perl/bin&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;cd&lt;span class="pre"&gt;MyWeb-App&lt;/span&gt;&lt;/tt&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&lt;tt class="docutils literal"&gt;plackup&lt;span class="pre"&gt;-s&lt;/span&gt;FCGI&lt;span class="pre"&gt;--listen&lt;/span&gt;/tmp/socketbin/app.pl&lt;/tt&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Habilitamos el socket en &lt;strong&gt;lighttpd&lt;/strong&gt;:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;pre class="literal-block"&gt;
-vi&amp;nbsp;/usr/pkg/etc/lighttpd/lighttpd.conf
-$HTTP[&amp;quot;url&amp;quot;]&amp;nbsp;=~&amp;nbsp;&amp;quot;^/app&amp;quot;&amp;nbsp;{
-    fastcgi.server&amp;nbsp;+=&amp;nbsp;(
-&amp;nbsp;&amp;nbsp;      &amp;quot;/app&amp;quot;&amp;nbsp;=&amp;gt;&amp;nbsp;(
-  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;      &amp;quot;&amp;quot;&amp;nbsp;=&amp;gt;&amp;nbsp;(
-&amp;nbsp;&amp;nbsp;  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;      &amp;quot;socket&amp;quot;&amp;nbsp;=&amp;gt;&amp;nbsp;&amp;quot;/tmp/socket&amp;quot;,
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;      &amp;quot;check-local&amp;quot;&amp;nbsp;=&amp;gt;&amp;nbsp;&amp;quot;disable&amp;quot;
-&amp;nbsp;&amp;nbsp;  &amp;nbsp;       &amp;nbsp;)
-   &amp;nbsp;    )
-    )
-}
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class="section" id="referencias"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;Referencias&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://search.cpan.org/~xsawyerx/Dancer-1.3091/lib/Dancer/Deployment.pod"&gt;perldoc
-Dancer::Deployment&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-</summary><category term="perl"></category><category term="web"></category><category term="lighttpd"></category><category term="dancer"></category><category term="cpan"></category></entry><entry><title>Usando pkgsrc e instalando paquetes binarios</title><link href="http://www.netbsd.mx/pkgsrc-binarios.html" rel="alternate"></link><updated>2013-06-26T16:40:00-05:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-06-26:pkgsrc-binarios.html</id><summary type="html">&lt;div class="section" id="que-es-pkgsrc"&gt;
+</summary><category term="netbsd"></category><category term="httpd"></category><category term="servidor"></category><category term="web"></category><category term="cgi"></category><category term="html"></category></entry><entry><title>Usando pkgsrc e instalando paquetes binarios</title><link href="http://www.netbsd.mx/pkgsrc-binarios.html" rel="alternate"></link><updated>2013-06-26T16:40:00-05:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-06-26:pkgsrc-binarios.html</id><summary type="html">&lt;div class="section" id="que-es-pkgsrc"&gt;
 &lt;h2&gt;¿Que es pkgsrc ?&lt;/h2&gt;
 &lt;img alt="./static/images/pkgsrc.png" src="./static/images/pkgsrc.png" /&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.pkgsrc.org"&gt;pkgsrc&lt;/a&gt; es un con junto de makefiles que permiten la creacion e

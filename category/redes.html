@@ -17,9 +17,11 @@
     <link href="http://www.netbsd.mx/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full Atom Feed" />
       <link href="http://www.netbsd.mx/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full RSS Feed" />
   
-    
+  <link href="http://www.netbsd.mx/feeds/redes.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México redes Category Atom Feed" />
+<link href="http://www.netbsd.mx/feeds/redes.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México redes Category RSS Feed" />
+
   <title>
-    Author: asarch  </title>
+    Category: redes  </title>
 
   </head>
 
@@ -40,45 +42,24 @@
 
   <main>
     <header>
-      <p>Author: asarch</p>
+      <p>Category: redes
+&#124; <a href="http://www.netbsd.mx/feeds/redes.atom.xml">Atom Feed</a>
+&#124; <a href="http://www.netbsd.mx/feeds/redes.rss.xml">RSS Feed</a>
+</p>
     </header>
 
     <article>
   <div id="article_title">
-    <h3><a href="../dancer.html">Perl Dancer y NetBSD</a></h3>
+    <h3><a href="../pppoe.html">PPPoE</a></h3>
   </div>
   <div id="article_text">
-    <div class="contents topic" id="contents">
-<p class="topic-title first">Contents</p>
-<ul class="simple">
-<li><a class="reference internal" href="#instalacion" id="id1">Instalación</a></li>
-<li><a class="reference internal" href="#configuracion" id="id2">Configuración</a></li>
-<li><a class="reference internal" href="#contenido" id="id3">Contenido</a></li>
-<li><a class="reference internal" href="#referencias" id="id4">Referencias</a></li>
-</ul>
-</div>
-<div class="section" id="instalacion">
-<h2><a class="toc-backref" href="#id1">Instalación</a></h2>
-<p>Instalamos el servidor <strong>lighttpd</strong>:</p>
-<p><tt class="docutils literal">pkg_add<span class="pre">-v</span>lighttpd</tt></p>
-<p>Instalamos los módulos de <strong>Perl</strong> con <strong>CPAN</strong> necesarios (algunos de
-ellos no están disponibles como paquetes binarios):</p>
-<div class="line-block">
-<div class="line"><tt class="docutils literal">cpaninstallYAML</tt></div>
-<div class="line"><tt class="docutils literal">cpaninstallPlack</tt></div>
-<div class="line"><tt class="docutils literal">cpaninstallFCGI</tt></div>
-<div class="line"><tt class="docutils literal">cpaninstall<span class="pre">FCGI::ProcManager</span></tt></div>
-<div class="line"><tt class="docutils literal">cpaninstallDancer</tt></div>
-</div>
-</div>
-<div class="section" id="configuracion">
-<h2><a class="toc-backref" href="#id2">Configuración</a></h2>
-<ol class="arabic simple">
-<li>Creamos el script de booteo:</li>
-</ol>
-<p><tt class="docutils literal">cp/usr/pkg/share/examples/rc.d/lighttpd/etc/rc.d</tt></p>
-<ol class="arabic simple" start="2">
-<li>Lo habilitamos para el ...</li></ol></div>
+    <div class="section" id="introducccion">
+<h2>Introducccion:</h2>
+<p>Algunas ocasiones necesitamos establecer una conexion PPPoE (Point to Point over
+Ethernet)  a internet via ADSL, los routers actuales
+pueden hacer <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?pppoe++NetBSD-current">pppoe</a> de forma sencilla, sin embargo en algunos entornos donde
+se necesita control de la conexion podemos usar nuestro router casero en modo bridge
+y usar <a class="reference external" href="http://www.netbsd.org">NetBSD</a> como pppoe/router/firewall/dns cache y tener el ...</p></div>
   </div>
 </article>
 
