@@ -68,7 +68,7 @@ de direcciones de IPv6&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;tt class="docutils literal"&gt;ral0:\&lt;/tt&gt;
-&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;:addr=&amp;quot;3ffe:8240:8016:aff::&amp;quot;:prefixlen#64:&lt;/span&gt;&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;:addr=&amp;quot;3ffe:8240:8016:aff::&amp;quot;:prefixlen#64:&lt;/span&gt;&lt;/tt&gt;&lt;/blockquote&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Haga el archivo &lt;strong&gt;/etc/hostapd.conf&lt;/strong&gt; para la configuración de la
 seguridad&lt;/li&gt;
@@ -152,7 +152,7 @@ default y sin comentarios.&lt;/li&gt;
 &lt;li&gt;Si usted desea tener este archivo completo y con sus comentarios,
 haga lo siguiente:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;cp/usr/share/examples/hostapd/hostapd.conf/etc/hostapd.conf&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cp&amp;nbsp;/usr/share/examples/hostapd/hostapd.conf&amp;nbsp;/etc/hostapd.conf&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;Edite su archivo y haga los siguientes reemplazos&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 diff&amp;nbsp;/usr/share/examples/hostapd/hostapd.conf&amp;nbsp;/etc/hostapd.conf

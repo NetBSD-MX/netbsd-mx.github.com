@@ -41,7 +41,7 @@
 
   <main>
     <header>
-      <p>Posted on domingo, 14 de julio de 2013</p>
+      <p>Posted on Sunday, 14 de July de 2013</p>
     </header>
 
     <article>
@@ -83,11 +83,11 @@ create
 up
 </pre>
 <p><strong>Agregamos ifwatchd al rc.conf para monitorear la conexion.</strong></p>
-<p><tt class="docutils literal">#echo&quot;ifwatchd=YES&quot;&gt;&gt;/etc/rc.conf</tt></p>
+<p><tt class="docutils literal"><span class="pre">#&nbsp;echo&nbsp;&quot;ifwatchd&nbsp;=&nbsp;YES&quot;&nbsp;&gt;&gt;&nbsp;/etc/rc.conf</span></tt></p>
 <p>Es necesario bajar el valor del MTU para las interfaces, un valor MTU
 alto quiza cause algunos problemas a nuestra conexion, entonces
 modificamos dentro de <em>/etc/sysctl.conf</em>:</p>
-<p><tt class="docutils literal">net.inet.tcp.mss_ifmtu=1</tt></p>
+<p><tt class="docutils literal">&nbsp;net.inet.tcp.mss_ifmtu=1</tt></p>
 <p>Si quiere hacer NAT a su red interna, entonces, necesita agregar lo
 siguiente a su archivo <em>rc.conf</em></p>
 <pre class="literal-block">

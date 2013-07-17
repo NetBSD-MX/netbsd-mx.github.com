@@ -29,18 +29,18 @@ ejecutarlo bajo &lt;a class="reference external" href="http://netbsd.gw.com/cgi-
 &lt;div class="section" id="configuracion"&gt;
 &lt;h2&gt;Configuración&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current"&gt;httpd&lt;/a&gt;(8) se inicia via &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?inetd++NetBSD-current"&gt;inetd&lt;/a&gt;(8), para ello editamos lo siguiente:&lt;/p&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;#vi/etc/inetd.conf&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#&amp;nbsp;vi&amp;nbsp;/etc/inetd.conf&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;Descomentar la linea;&lt;/p&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;httpstreamtcpnowait:600_httpd/usr/libexec/httpdhttpd/var/www&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;http&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;stream&amp;nbsp;&amp;nbsp;tcp&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;nowait:600&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_httpd&amp;nbsp;&amp;nbsp;/usr/libexec/httpd&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;httpd&amp;nbsp;/var/www&amp;nbsp;&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;La linea anterior habilita el inicio de &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current"&gt;httpd&lt;/a&gt; via inetd, el
 directorio /var/www es la ubicacion de nuestros archivos html o cgi,
 este directorio ya existe en nuestro sistema, lo que procede es poner
 documentos ahi para que &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current"&gt;httpd&lt;/a&gt; los lea.&lt;/p&gt;
 &lt;p&gt;Ahora tambien es posible ejecutar httpd desde el shell, via &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?rc.d++NetBSD-current"&gt;rc&lt;/a&gt; de la
 siguiente forma:&lt;/p&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;#/etc/rc.d/httpdstart&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#&amp;nbsp;/etc/rc.d/httpd&amp;nbsp;start&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;A continuacion ponemos algo dentro del directorio por defecto de httpd :&lt;/p&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;#vi/var/www/index.html&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#&amp;nbsp;vi&amp;nbsp;/var/www/index.html&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;Escribimos una linea html en el archivo y guardamos los cambios,
 ejemplo:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
@@ -48,7 +48,7 @@ ejemplo:&lt;/p&gt;
 &lt;/pre&gt;
 &lt;p&gt;A continuacion, iniciamos httpd(8), para ello basta ejecutar desde la
 linea de comandos:&lt;/p&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;#/etc/rc.d/inetdrestart&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#&amp;nbsp;/etc/rc.d/inetd&amp;nbsp;restart&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;Apuntamos nuestro browser hacia &lt;strong&gt;http://localhost&lt;/strong&gt; para probar nuestra
 configuracion.&lt;/p&gt;
 &lt;/div&gt;

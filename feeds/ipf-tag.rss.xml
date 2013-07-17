@@ -33,11 +33,11 @@ create
 up
 &lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Agregamos ifwatchd al rc.conf para monitorear la conexion.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;#echo&amp;quot;ifwatchd=YES&amp;quot;&amp;gt;&amp;gt;/etc/rc.conf&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;#&amp;nbsp;echo&amp;nbsp;&amp;quot;ifwatchd&amp;nbsp;=&amp;nbsp;YES&amp;quot;&amp;nbsp;&amp;gt;&amp;gt;&amp;nbsp;/etc/rc.conf&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;Es necesario bajar el valor del MTU para las interfaces, un valor MTU
 alto quiza cause algunos problemas a nuestra conexion, entonces
 modificamos dentro de &lt;em&gt;/etc/sysctl.conf&lt;/em&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;net.inet.tcp.mss_ifmtu=1&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&amp;nbsp;net.inet.tcp.mss_ifmtu=1&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;Si quiere hacer NAT a su red interna, entonces, necesita agregar lo
 siguiente a su archivo &lt;em&gt;rc.conf&lt;/em&gt;&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
