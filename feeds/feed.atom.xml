@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Grupo de Usuarios de NetBSD en México</title><link href="http://www.netbsd.mx/" rel="alternate"></link><link href="http://www.netbsd.mx/feeds/feed.atom.xml" rel="self"></link><id>http://www.netbsd.mx/</id><updated>2013-07-14T02:30:00-05:00</updated><entry><title>PPPoE</title><link href="http://www.netbsd.mx/pppoe.html" rel="alternate"></link><updated>2013-07-14T02:30:00-05:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-07-14:pppoe.html</id><summary type="html">&lt;div class="section" id="introducccion"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Grupo de Usuarios de NetBSD en México</title><link href="http://www.netbsd.mx/" rel="alternate"></link><link href="http://www.netbsd.mx/feeds/feed.atom.xml" rel="self"></link><id>http://www.netbsd.mx/</id><updated>2013-07-18T13:40:00-05:00</updated><entry><title>Servidor DHCP</title><link href="http://www.netbsd.mx/dhcp-server.html" rel="alternate"></link><updated>2013-07-18T13:40:00-05:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-07-18:dhcp-server.html</id><summary type="html">&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/home/cesar/Proyectos/NetBSD-MX/blog-content/articles/dhcp-server.rst&lt;/tt&gt;, line 11)&lt;/p&gt;
+Field list ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;Configurando un servidor DHCP es simple. NetBSD incluye &lt;a class="reference external" href="http://www.isc.org/sw/dhcp/"&gt;ISC
+DHCP&lt;/a&gt; en el sistema base, asi que no es
+necesario instalar software adicional.&lt;/p&gt;
+&lt;p&gt;La configuracion de &lt;strong&gt;dhcpd&lt;/strong&gt; radica en el archivo &lt;em&gt;/etc/dhcpd.conf&lt;/em&gt;, la
+forma basica:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+deny&amp;nbsp;unknown-clients;
+ddns-update-style&amp;nbsp;none;
+subnet&amp;nbsp;192.168.1.0&amp;nbsp;netmask&amp;nbsp;255.255.255.0&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;range&amp;nbsp;192.168.1.50&amp;nbsp;192.168.1.100;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;default-lease-time&amp;nbsp;28800;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;max-lease-time&amp;nbsp;86400;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;option&amp;nbsp;broadcast-address&amp;nbsp;192.168.1.255;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;option&amp;nbsp;domain-name&amp;nbsp;&amp;quot;mi-dominio.com&amp;quot;;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;option&amp;nbsp;domain-name-servers&amp;nbsp;200.33.146.241,&amp;nbsp;200.33.146.249;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;option&amp;nbsp;routers&amp;nbsp;192.168.1.1;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;host&amp;nbsp;www-server&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;hardware&amp;nbsp;ethernet&amp;nbsp;00:00:00:00:00:00;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;fixed-address&amp;nbsp;192.168.1.3;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+}
+&lt;/pre&gt;
+&lt;p&gt;En la configuracion anterior, tenemos direcciones IP asignadas pr DHCP
+desde 192.168.1.50 hasta 192.168.1.100, ademas un gateway en 192.168.1.1
+y una direccion fija para el host www-server 192.168.1.3 identificada
+por su MAC (00:00 es supuesto)&lt;/p&gt;
+&lt;p&gt;Editamos &lt;em&gt;/etc/rc.conf&lt;/em&gt; para activar &lt;strong&gt;dhcpd&lt;/strong&gt; al momento del arranque,
+asi como &lt;em&gt;dhcpd_flags&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+dhcpd=YES
+dhcpd_flags=&amp;quot;-q&amp;nbsp;fxp0&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;dhcpd_flags&lt;/em&gt; pasa el parametro al servidor &lt;strong&gt;dhcpd&lt;/strong&gt; para definir la
+interfaz que escuchara las solicitudes de IP, en nuestro caso es una
+intel 10/100 (fxp0)&lt;/p&gt;
+&lt;p&gt;Antes de iniciar el servidor dhcpd, es necesario crear el archivo
+&lt;em&gt;/var/db/dhcpd.leases&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+#&amp;nbsp;touch&amp;nbsp;/var/db/dhcpd.leases
+&lt;/pre&gt;
+&lt;p&gt;Iniciamos el servidor:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+#&amp;nbsp;/etc/rc.d/dhcpd&amp;nbsp;start
+&lt;/pre&gt;
+&lt;p&gt;Si todo va bien, en este momento NetBSD esta actuando como servidor DHCP
+a la red interna.&lt;/p&gt;
+&lt;div class="section" id="referencias"&gt;
+&lt;h2&gt;Referencias:&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?dhcpd"&gt;man dhcpd&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.netbsd.org/docs/network/dhcp.html"&gt;HOWTO: DHCP Server&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</summary><category term="dhcp"></category><category term="redes"></category></entry><entry><title>PPPoE</title><link href="http://www.netbsd.mx/pppoe.html" rel="alternate"></link><updated>2013-07-14T02:30:00-05:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-07-14:pppoe.html</id><summary type="html">&lt;div class="section" id="introducccion"&gt;
 &lt;h2&gt;Introducccion:&lt;/h2&gt;
 &lt;p&gt;Algunas ocasiones necesitamos establecer una conexion PPPoE (Point to Point over
 Ethernet)  a internet via ADSL, los routers actuales
