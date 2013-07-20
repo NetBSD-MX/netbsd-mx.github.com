@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grupo de Usuarios de NetBSD en México</title><link>http://www.netbsd.mx/</link><description></description><atom:link href="http://www.netbsd.mx/feeds/all-es.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 18 Jul 2013 13:40:00 -0500</lastBuildDate><item><title>Servidor DHCP</title><link>http://www.netbsd.mx/dhcp-server.html</link><description>&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/home/cesar/Proyectos/NetBSD-MX/blog-content/articles/dhcp-server.rst&lt;/tt&gt;, line 11)&lt;/p&gt;
-Field list ends without a blank line; unexpected unindent.&lt;/div&gt;
-&lt;p&gt;Configurando un servidor DHCP es simple. NetBSD incluye &lt;a class="reference external" href="http://www.isc.org/sw/dhcp/"&gt;ISC
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grupo de Usuarios de NetBSD en México</title><link>http://www.netbsd.mx/</link><description></description><atom:link href="http://www.netbsd.mx/feeds/all-es.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 18 Jul 2013 13:40:00 -0500</lastBuildDate><item><title>Servidor DHCP</title><link>http://www.netbsd.mx/dhcp-server.html</link><description>&lt;p&gt;Configurando un servidor DHCP es simple. NetBSD incluye &lt;a class="reference external" href="http://www.isc.org/sw/dhcp/"&gt;ISC
 DHCP&lt;/a&gt; en el sistema base, asi que no es
 necesario instalar software adicional.&lt;/p&gt;
 &lt;p&gt;La configuracion de &lt;strong&gt;dhcpd&lt;/strong&gt; radica en el archivo &lt;em&gt;/etc/dhcpd.conf&lt;/em&gt;, la

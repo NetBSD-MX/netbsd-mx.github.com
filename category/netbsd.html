@@ -53,8 +53,16 @@
     <h3><a href="../dhcp-server.html">Servidor DHCP</a></h3>
   </div>
   <div id="article_text">
-    <p class="first last">Configurando un Servdor dhcp</p>
-
+    <p>Configurando un servidor DHCP es simple. NetBSD incluye <a class="reference external" href="http://www.isc.org/sw/dhcp/">ISC
+DHCP</a> en el sistema base, asi que no es
+necesario instalar software adicional.</p>
+<p>La configuracion de <strong>dhcpd</strong> radica en el archivo <em>/etc/dhcpd.conf</em>, la
+forma basica:</p>
+<pre class="literal-block">
+deny&nbsp;unknown-clients;
+ddns-update-style&nbsp;none;
+subnet&nbsp;192.168.1.0&nbsp;netmask&nbsp;255.255.255.0&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range&nbsp;192.168.1.50&nbsp;192.168.1 ...</pre>
   </div>
 </article>
 <hr />
