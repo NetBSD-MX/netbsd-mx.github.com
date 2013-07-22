@@ -49,6 +49,34 @@
 
     <article>
   <div id="article_title">
+    <h3><a href="./wpa.html">WPA</a></h3>
+  </div>
+  <div id="article_text">
+    <div class="section" id="requisitos">
+<h2>Requisitos</h2>
+<p>Se requiere NetBSD 4 o superior.</p>
+</div>
+<div class="section" id="que-es">
+<h2>Que es ?</h2>
+<p><a class="reference external" href="http://es.wikipedia.org/wiki/Wi-Fi_Protected_Access">WPA</a> del ingles
+WiFi Protected Access, es un medio usado para proteger redes
+inalambricas. NetBSD soporta WPA a traves de
+<a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current">wpa_supplicant</a>  que esta incluido en base.</p>
+</div>
+<div class="section" id="configuracion">
+<h2>Configuracion</h2>
+<p>Para conectarnos a un AP usando WPA-Personal necesitamos <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current">wpa_supplicant</a>(8) que contenga al menos:</p>
+<pre class="literal-block">
+/etc/wpa_supplicant.conf
+
+network = {
+    ssid=&quot;MYWLAN&quot;
+    scan_ssid=1 ...</pre></div>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
     <h3><a href="./dhcp-server.html">Servidor DHCP</a></h3>
   </div>
   <div id="article_text">

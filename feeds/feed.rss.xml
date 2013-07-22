@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grupo de Usuarios de NetBSD en México</title><link>http://www.netbsd.mx/</link><description></description><atom:link href="http://www.netbsd.mx/feeds/feed.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 18 Jul 2013 13:40:00 -0500</lastBuildDate><item><title>Servidor DHCP</title><link>http://www.netbsd.mx/dhcp-server.html</link><description>&lt;p&gt;Configurando un servidor DHCP es simple. NetBSD incluye &lt;a class="reference external" href="http://www.isc.org/sw/dhcp/"&gt;ISC
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grupo de Usuarios de NetBSD en México</title><link>http://www.netbsd.mx/</link><description></description><atom:link href="http://www.netbsd.mx/feeds/feed.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 22 Jul 2013 16:15:00 -0500</lastBuildDate><item><title>WPA</title><link>http://www.netbsd.mx/wpa.html</link><description>&lt;div class="section" id="requisitos"&gt;
+&lt;h2&gt;Requisitos&lt;/h2&gt;
+&lt;p&gt;Se requiere NetBSD 4 o superior.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="que-es"&gt;
+&lt;h2&gt;Que es ?&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://es.wikipedia.org/wiki/Wi-Fi_Protected_Access"&gt;WPA&lt;/a&gt; del ingles
+WiFi Protected Access, es un medio usado para proteger redes
+inalambricas. NetBSD soporta WPA a traves de
+&lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current"&gt;wpa_supplicant&lt;/a&gt;  que esta incluido en base.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion"&gt;
+&lt;h2&gt;Configuracion&lt;/h2&gt;
+&lt;p&gt;Para conectarnos a un AP usando WPA-Personal necesitamos &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current"&gt;wpa_supplicant&lt;/a&gt;(8) que contenga al menos:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+/etc/wpa_supplicant.conf
+
+network = {
+    ssid=&amp;quot;MYWLAN&amp;quot;
+    scan_ssid=1
+    key_mgmt=WPA-PSK
+    psk=&amp;quot;Mi_llave_psk&amp;quot;
+}
+&lt;/pre&gt;
+&lt;p&gt;Para crear llaves podemos usar &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_passphrase++NetBSD-current"&gt;wpa_passphrase&lt;/a&gt;(8)&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+#&amp;nbsp;wpa_passphrase&amp;nbsp;myap&amp;nbsp;alguna_clave
+
+network={
+  ssid=&amp;quot;myapp&amp;quot;
+  psk=39db2863271f7a2ba6549e0941c95154ff339982a7849c71082561eb570e6708
+}
+&lt;/pre&gt;
+&lt;p&gt;Por citar un ejemplo, es importante notar que psk= debe ir sin comillas
+ni apostrofes.&lt;/p&gt;
+&lt;p&gt;Siempre podremos agregar mas redes a nuestro archivo de configuración
+wpa_supplicant.conf, ademas wpa_supplicant soporta muchos protocolos
+(WPA, WPA2,IEEE 802.1x) y varios métodos para autentificar (EAP,
+PEAP,etc), podremos tener también una red &amp;quot;genérica&amp;quot; para redes abiertas
+al publico (En algunos restaurantes, hoteles y aeropuertos) que puede
+describirse como sigue:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+network={
+    ssid=&amp;quot;any&amp;quot;
+    key_mgmt=NONE
+    priority=2
+}
+&lt;/pre&gt;
+&lt;p&gt;Al final solo debemos solicitar una IP y navegaremos sin problemas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="usando-wpa-supplicant"&gt;
+&lt;h2&gt;Usando wpa_supplicant&lt;/h2&gt;
+&lt;p&gt;Agrega lo siguiente a tu &lt;em&gt;/etc/ifconfig.ral0&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+up
+dhcp
+&lt;/pre&gt;
+&lt;p&gt;y mediante las siguientes lineas en /etc/rc.conf, inmediatamente despues
+de &lt;em&gt;wpa_supplicant=YES&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+dhcpcd_flags=&amp;quot;-q&amp;nbsp;-b&amp;quot;
+wpa_supplicant=YES
+wpa_supplicant_flags=&amp;quot;-B&amp;nbsp;-i&amp;nbsp;ral0&amp;nbsp;-c&amp;nbsp;/etc/wpa_supplicant.conf&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;La opcion -B permite correr wpa_supplicant en modo background.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="mas-informacion"&gt;
+&lt;h2&gt;Mas informacion:&lt;/h2&gt;
+&lt;p&gt;La pagina del manual de &lt;a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant.conf+5+NetBSD-current"&gt;wpa_supplicant.conf&lt;/a&gt; contiene toda la informacion del proceso mencionado en este tutorial.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Francisco Valladolid</dc:creator><pubDate>Mon, 22 Jul 2013 16:15:00 -0500</pubDate><guid>tag:www.netbsd.mx,2013-07-22:wpa.html</guid><category>wifi</category><category>redes</category><category>wpa</category></item><item><title>Servidor DHCP</title><link>http://www.netbsd.mx/dhcp-server.html</link><description>&lt;p&gt;Configurando un servidor DHCP es simple. NetBSD incluye &lt;a class="reference external" href="http://www.isc.org/sw/dhcp/"&gt;ISC
 DHCP&lt;/a&gt; en el sistema base, asi que no es
 necesario instalar software adicional.&lt;/p&gt;
 &lt;p&gt;La configuracion de &lt;strong&gt;dhcpd&lt;/strong&gt; radica en el archivo &lt;em&gt;/etc/dhcpd.conf&lt;/em&gt;, la

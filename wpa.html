@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="./theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="./theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="">
+  <meta name="description" content="Posts and writings by ">
+
+    <link href="http://www.netbsd.mx/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full Atom Feed" />
+      <link href="http://www.netbsd.mx/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full RSS Feed" />
+  
+  <meta name="keywords" content="wifi, redes, wpa">
+
+  <title>
+    WPA  </title>
+
+  </head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+                <img src="./theme/images/logo.png" alt="logo">
+              </a>
+      <h2><a href="."></a></h2>
+      <p></p>
+      <ul>
+                                <li><a href="http://www.netbsd.org" target="_blank">NetBSD</a></li>
+                        <li><a href="http://twitter.com/netbsdmx" target="_blank">twitter</a></li>
+              </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>Posted on lunes, 22 de julio de 2013</p>
+    </header>
+
+    <article>
+  <div id="article_title">
+    <h3><a href="./wpa.html">WPA</a></h3>
+  </div>
+  <div id="article_text">
+    <div class="section" id="requisitos">
+<h2>Requisitos</h2>
+<p>Se requiere NetBSD 4 o superior.</p>
+</div>
+<div class="section" id="que-es">
+<h2>Que es ?</h2>
+<p><a class="reference external" href="http://es.wikipedia.org/wiki/Wi-Fi_Protected_Access">WPA</a> del ingles
+WiFi Protected Access, es un medio usado para proteger redes
+inalambricas. NetBSD soporta WPA a traves de
+<a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current">wpa_supplicant</a>  que esta incluido en base.</p>
+</div>
+<div class="section" id="configuracion">
+<h2>Configuracion</h2>
+<p>Para conectarnos a un AP usando WPA-Personal necesitamos <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current">wpa_supplicant</a>(8) que contenga al menos:</p>
+<pre class="literal-block">
+/etc/wpa_supplicant.conf
+
+network = {
+    ssid=&quot;MYWLAN&quot;
+    scan_ssid=1
+    key_mgmt=WPA-PSK
+    psk=&quot;Mi_llave_psk&quot;
+}
+</pre>
+<p>Para crear llaves podemos usar <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_passphrase++NetBSD-current">wpa_passphrase</a>(8)</p>
+<pre class="literal-block">
+#&nbsp;wpa_passphrase&nbsp;myap&nbsp;alguna_clave
+
+network={
+  ssid=&quot;myapp&quot;
+  psk=39db2863271f7a2ba6549e0941c95154ff339982a7849c71082561eb570e6708
+}
+</pre>
+<p>Por citar un ejemplo, es importante notar que psk= debe ir sin comillas
+ni apostrofes.</p>
+<p>Siempre podremos agregar mas redes a nuestro archivo de configuración
+wpa_supplicant.conf, ademas wpa_supplicant soporta muchos protocolos
+(WPA, WPA2,IEEE 802.1x) y varios métodos para autentificar (EAP,
+PEAP,etc), podremos tener también una red &quot;genérica&quot; para redes abiertas
+al publico (En algunos restaurantes, hoteles y aeropuertos) que puede
+describirse como sigue:</p>
+<pre class="literal-block">
+network={
+    ssid=&quot;any&quot;
+    key_mgmt=NONE
+    priority=2
+}
+</pre>
+<p>Al final solo debemos solicitar una IP y navegaremos sin problemas.</p>
+</div>
+<div class="section" id="usando-wpa-supplicant">
+<h2>Usando wpa_supplicant</h2>
+<p>Agrega lo siguiente a tu <em>/etc/ifconfig.ral0</em>:</p>
+<pre class="literal-block">
+up
+dhcp
+</pre>
+<p>y mediante las siguientes lineas en /etc/rc.conf, inmediatamente despues
+de <em>wpa_supplicant=YES</em></p>
+<pre class="literal-block">
+dhcpcd_flags=&quot;-q&nbsp;-b&quot;
+wpa_supplicant=YES
+wpa_supplicant_flags=&quot;-B&nbsp;-i&nbsp;ral0&nbsp;-c&nbsp;/etc/wpa_supplicant.conf&quot;
+</pre>
+<p>La opcion -B permite correr wpa_supplicant en modo background.</p>
+</div>
+<div class="section" id="mas-informacion">
+<h2>Mas informacion:</h2>
+<p>La pagina del manual de <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant.conf+5+NetBSD-current">wpa_supplicant.conf</a> contiene toda la informacion del proceso mencionado en este tutorial.</p>
+</div>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="./category/redes.html">Redes</a></p>
+        <p>Tags:
+            <a href="./tag/wifi.html">wifi</a>,            <a href="./tag/redes.html">redes</a>,            <a href="./tag/wpa.html">wpa</a>          </p>
+      </div>
+</article>
+
+    <footer>
+      <p><a href="./" class="button_accent">&larr; Back to Index</a></p>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. You can fork the theme on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+    </div>
+  </main>
+</body>
+</html>
