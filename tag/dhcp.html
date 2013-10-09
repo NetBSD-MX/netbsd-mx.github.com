@@ -14,41 +14,59 @@
   <meta name="author" content="">
   <meta name="description" content="Posts and writings by ">
 
-    <link href="http://www.netbsd.mx/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full Atom Feed" />
-      <link href="http://www.netbsd.mx/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full RSS Feed" />
-  
-  <link href="http://www.netbsd.mx/feeds/DHCP-tag.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México DHCP Tag Atom Feed" />
-<link href="http://www.netbsd.mx/feeds/DHCP-tag.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México DHCP Tag RSS Feed" />
+  <link href="http://www.netbsd.mx/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full Atom Feed" />
+  <link href="http://www.netbsd.mx/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full RSS Feed" />
+
+<link href="http://www.netbsd.mx/feeds/dhcp-tag.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México dhcp Tag Atom Feed" />
+<link href="http://www.netbsd.mx/feeds/dhcp-tag.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México dhcp Tag RSS Feed" />
 
   <title>
-    Tag: DHCP  </title>
+Tag: dhcp  </title>
 
-  </head>
+</head>
 
 <body>
   <aside>
     <div id="user_meta">
       <a href="..">
-                <img src="../theme/images/logo.png" alt="logo">
-              </a>
+        <img src="../theme/images/logo.png" alt="logo">
+      </a>
       <h2><a href=".."></a></h2>
       <p></p>
       <ul>
-                                <li><a href="http://www.netbsd.org" target="_blank">NetBSD</a></li>
-                        <li><a href="http://twitter.com/netbsdmx" target="_blank">twitter</a></li>
-              </ul>
+        <li><a href="http://www.netbsd.org" target="_blank">NetBSD</a></li>
+        <li><a href="http://twitter.com/netbsdmx" target="_blank">twitter</a></li>
+      </ul>
     </div>
   </aside>
 
   <main>
     <header>
-      <p>Tag: DHCP
-&#124; <a href="http://www.netbsd.mx/feeds/DHCP-tag.atom.xml">Atom Feed</a>
-&#124; <a href="http://www.netbsd.mx/feeds/DHCP-tag.rss.xml">RSS Feed</a>
+<p>Tag: dhcp
+&#124; <a href="http://www.netbsd.mx/feeds/dhcp-tag.atom.xml">Atom Feed</a>
+&#124; <a href="http://www.netbsd.mx/feeds/dhcp-tag.rss.xml">RSS Feed</a>
 </p>
     </header>
 
-    <article>
+<article>
+  <div id="article_title">
+    <h3><a href="../dhcp-server.html">Servidor DHCP</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Configurando un servidor DHCP es simple. NetBSD incluye <a class="reference external" href="http://www.isc.org/sw/dhcp/">ISC
+DHCP</a> en el sistema base, asi que no es
+necesario instalar software adicional.</p>
+<p>La configuracion de <strong>dhcpd</strong> radica en el archivo <em>/etc/dhcpd.conf</em>, la
+forma basica:</p>
+<pre class="literal-block">
+deny&nbsp;unknown-clients;
+ddns-update-style&nbsp;none;
+subnet&nbsp;192.168.1.0&nbsp;netmask&nbsp;255.255.255.0&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range&nbsp;192.168.1.50&nbsp;192.168.1 ...</pre>
+  </div>
+</article>
+<hr />
+<article>
   <div id="article_title">
     <h3><a href="../instalacion-red.html">Instalación de NetBSD con Arranque desde Red (PXE)</a></h3>
   </div>
@@ -58,7 +76,7 @@
 </article>
 
     <footer>
-      <p id="paginator">
+<p id="paginator">
 
 </p>
     </footer>

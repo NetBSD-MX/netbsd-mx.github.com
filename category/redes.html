@@ -14,41 +14,69 @@
   <meta name="author" content="">
   <meta name="description" content="Posts and writings by ">
 
-    <link href="http://www.netbsd.mx/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full Atom Feed" />
-      <link href="http://www.netbsd.mx/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full RSS Feed" />
-  
-  <link href="http://www.netbsd.mx/feeds/redes.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México redes Category Atom Feed" />
+  <link href="http://www.netbsd.mx/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full Atom Feed" />
+  <link href="http://www.netbsd.mx/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full RSS Feed" />
+
+<link href="http://www.netbsd.mx/feeds/redes.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México redes Category Atom Feed" />
 <link href="http://www.netbsd.mx/feeds/redes.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México redes Category RSS Feed" />
 
   <title>
-    Category: redes  </title>
+Category: redes  </title>
 
-  </head>
+</head>
 
 <body>
   <aside>
     <div id="user_meta">
       <a href="..">
-                <img src="../theme/images/logo.png" alt="logo">
-              </a>
+        <img src="../theme/images/logo.png" alt="logo">
+      </a>
       <h2><a href=".."></a></h2>
       <p></p>
       <ul>
-                                <li><a href="http://www.netbsd.org" target="_blank">NetBSD</a></li>
-                        <li><a href="http://twitter.com/netbsdmx" target="_blank">twitter</a></li>
-              </ul>
+        <li><a href="http://www.netbsd.org" target="_blank">NetBSD</a></li>
+        <li><a href="http://twitter.com/netbsdmx" target="_blank">twitter</a></li>
+      </ul>
     </div>
   </aside>
 
   <main>
     <header>
-      <p>Category: redes
+<p>Category: redes
 &#124; <a href="http://www.netbsd.mx/feeds/redes.atom.xml">Atom Feed</a>
 &#124; <a href="http://www.netbsd.mx/feeds/redes.rss.xml">RSS Feed</a>
 </p>
     </header>
 
-    <article>
+<article>
+  <div id="article_title">
+    <h3><a href="../wpa.html">WPA</a></h3>
+  </div>
+  <div id="article_text">
+    <div class="section" id="requisitos">
+<h2>Requisitos</h2>
+<p>Se requiere NetBSD 4 o superior.</p>
+</div>
+<div class="section" id="que-es">
+<h2>Que es ?</h2>
+<p><a class="reference external" href="http://es.wikipedia.org/wiki/Wi-Fi_Protected_Access">WPA</a> del ingles
+WiFi Protected Access, es un medio usado para proteger redes
+inalambricas. NetBSD soporta WPA a traves de
+<a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current">wpa_supplicant</a>  que esta incluido en base.</p>
+</div>
+<div class="section" id="configuracion">
+<h2>Configuracion</h2>
+<p>Para conectarnos a un AP usando WPA-Personal necesitamos <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current">wpa_supplicant</a>(8) que contenga al menos:</p>
+<pre class="literal-block">
+/etc/wpa_supplicant.conf
+
+network = {
+    ssid=&quot;MYWLAN&quot;
+    scan_ssid=1 ...</pre></div>
+  </div>
+</article>
+<hr />
+<article>
   <div id="article_title">
     <h3><a href="../pppoe.html">PPPoE</a></h3>
   </div>
@@ -64,7 +92,7 @@ y usar <a class="reference external" href="http://www.netbsd.org">NetBSD</a> com
 </article>
 
     <footer>
-      <p id="paginator">
+<p id="paginator">
 
 </p>
     </footer>

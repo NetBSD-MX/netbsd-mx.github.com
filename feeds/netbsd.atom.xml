@@ -315,7 +315,7 @@ Inicia&amp;nbsp;httpd(8)&amp;nbsp;con&amp;nbsp;soporte&amp;nbsp;php&amp;nbsp;den
 &lt;/div&gt;
 </summary><category term="netbsd"></category><category term="httpd"></category><category term="servidor"></category><category term="web"></category><category term="cgi"></category><category term="html"></category></entry><entry><title>Usando pkgsrc e instalando paquetes binarios</title><link href="http://www.netbsd.mx/pkgsrc-binarios.html" rel="alternate"></link><updated>2013-06-26T16:40:00-05:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-06-26:pkgsrc-binarios.html</id><summary type="html">&lt;div class="section" id="que-es-pkgsrc"&gt;
 &lt;h2&gt;¿Que es pkgsrc ?&lt;/h2&gt;
-&lt;img alt="./static/images/pkgsrc.png" src="./static/images/pkgsrc.png" /&gt;
+&lt;img alt="" src="./static/images/pkgsrc.png" /&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.pkgsrc.org"&gt;pkgsrc&lt;/a&gt; es un con junto de makefiles que permiten la creacion e
 instalacion de software de terceros en &lt;a class="reference external" href="http://www.netbsd.org"&gt;NetBSD&lt;/a&gt; y otros sistemas tipo
 UNIX, actualmente &lt;a class="reference external" href="http://www.pkgsrc.org"&gt;pkgsrc&lt;/a&gt; cuenta con mas de 12000 paquetes y es

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Grupo de Usuarios de NetBSD en México</title><link href="http://www.netbsd.mx/" rel="alternate"></link><link href="http://www.netbsd.mx/feeds/binarios-tag.atom.xml" rel="self"></link><id>http://www.netbsd.mx/</id><updated>2013-06-26T16:40:00-05:00</updated><entry><title>Usando pkgsrc e instalando paquetes binarios</title><link href="http://www.netbsd.mx/pkgsrc-binarios.html" rel="alternate"></link><updated>2013-06-26T16:40:00-05:00</updated><author><name>Francisco Valladolid</name></author><id>tag:www.netbsd.mx,2013-06-26:pkgsrc-binarios.html</id><summary type="html">&lt;div class="section" id="que-es-pkgsrc"&gt;
 &lt;h2&gt;¿Que es pkgsrc ?&lt;/h2&gt;
-&lt;img alt="./static/images/pkgsrc.png" src="./static/images/pkgsrc.png" /&gt;
+&lt;img alt="" src="./static/images/pkgsrc.png" /&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.pkgsrc.org"&gt;pkgsrc&lt;/a&gt; es un con junto de makefiles que permiten la creacion e
 instalacion de software de terceros en &lt;a class="reference external" href="http://www.netbsd.org"&gt;NetBSD&lt;/a&gt; y otros sistemas tipo
 UNIX, actualmente &lt;a class="reference external" href="http://www.pkgsrc.org"&gt;pkgsrc&lt;/a&gt; cuenta con mas de 12000 paquetes y es

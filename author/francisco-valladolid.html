@@ -14,52 +14,60 @@
   <meta name="author" content="">
   <meta name="description" content="Posts and writings by ">
 
-    <link href="http://www.netbsd.mx/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full Atom Feed" />
-      <link href="http://www.netbsd.mx/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full RSS Feed" />
-  
-    
-  <title>
-    Author: Francisco Valladolid  </title>
+  <link href="http://www.netbsd.mx/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full Atom Feed" />
+  <link href="http://www.netbsd.mx/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Grupo de Usuarios de NetBSD en México Full RSS Feed" />
 
-  </head>
+
+  <title>
+Author: Francisco Valladolid  </title>
+
+</head>
 
 <body>
   <aside>
     <div id="user_meta">
       <a href="..">
-                <img src="../theme/images/logo.png" alt="logo">
-              </a>
+        <img src="../theme/images/logo.png" alt="logo">
+      </a>
       <h2><a href=".."></a></h2>
       <p></p>
       <ul>
-                                <li><a href="http://www.netbsd.org" target="_blank">NetBSD</a></li>
-                        <li><a href="http://twitter.com/netbsdmx" target="_blank">twitter</a></li>
-              </ul>
+        <li><a href="http://www.netbsd.org" target="_blank">NetBSD</a></li>
+        <li><a href="http://twitter.com/netbsdmx" target="_blank">twitter</a></li>
+      </ul>
     </div>
   </aside>
 
   <main>
     <header>
-      <p>Author: Francisco Valladolid</p>
+<p>Author: Francisco Valladolid</p>
     </header>
 
-    <article>
+<article>
   <div id="article_title">
-    <h3><a href="../bozohttpd.html">bozohttpd - bozotic httpd</a></h3>
+    <h3><a href="../wpa.html">WPA</a></h3>
   </div>
   <div id="article_text">
-    <pre class="literal-block">
-httpd&nbsp;-&nbsp;hyper&nbsp;text&nbsp;transfer&nbsp;protocol&nbsp;version&nbsp;1.1&nbsp;daemon&nbsp;&nbsp;(via&nbsp;man&nbsp;httpd)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httpd(8)&nbsp;lee&nbsp;una&nbsp;peticion&nbsp;por&nbsp;medio&nbsp;del&nbsp;protocolo&nbsp;http&nbsp;y&nbsp;envia&nbsp;la&nbsp;respuesta&nbsp;a&nbsp;la&nbsp;salida&nbsp;standard.
-</pre>
-<div class="section" id="requerimientos">
-<h2>Requerimientos</h2>
-<p><a class="reference external" href="http://www.netbsd.org">NetBSD</a> 5 o superior.</p>
+    <div class="section" id="requisitos">
+<h2>Requisitos</h2>
+<p>Se requiere NetBSD 4 o superior.</p>
 </div>
-<div class="section" id="introduccion">
-<h2>Introducción</h2>
-<p><a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> es un servidor web ligero que viene en el sistema base NetBSD y
-ejecuta via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?inetd++NetBSD-current">inetd</a>, no es necesario instalar paquetes ...</p></div>
+<div class="section" id="que-es">
+<h2>Que es ?</h2>
+<p><a class="reference external" href="http://es.wikipedia.org/wiki/Wi-Fi_Protected_Access">WPA</a> del ingles
+WiFi Protected Access, es un medio usado para proteger redes
+inalambricas. NetBSD soporta WPA a traves de
+<a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current">wpa_supplicant</a>  que esta incluido en base.</p>
+</div>
+<div class="section" id="configuracion">
+<h2>Configuracion</h2>
+<p>Para conectarnos a un AP usando WPA-Personal necesitamos <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current">wpa_supplicant</a>(8) que contenga al menos:</p>
+<pre class="literal-block">
+/etc/wpa_supplicant.conf
+
+network = {
+    ssid=&quot;MYWLAN&quot;
+    scan_ssid=1 ...</pre></div>
   </div>
 </article>
 <hr />
@@ -78,6 +86,21 @@ deny&nbsp;unknown-clients;
 ddns-update-style&nbsp;none;
 subnet&nbsp;192.168.1.0&nbsp;netmask&nbsp;255.255.255.0&nbsp;{
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range&nbsp;192.168.1.50&nbsp;192.168.1 ...</pre>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="../pppoe.html">PPPoE</a></h3>
+  </div>
+  <div id="article_text">
+    <div class="section" id="introducccion">
+<h2>Introducccion:</h2>
+<p>Algunas ocasiones necesitamos establecer una conexion PPPoE (Point to Point over
+Ethernet)  a internet via ADSL, los routers actuales
+pueden hacer <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?pppoe++NetBSD-current">pppoe</a> de forma sencilla, sin embargo en algunos entornos donde
+se necesita control de la conexion podemos usar nuestro router casero en modo bridge
+y usar <a class="reference external" href="http://www.netbsd.org">NetBSD</a> como pppoe/router/firewall/dns cache y tener el ...</p></div>
   </div>
 </article>
 <hr />
@@ -111,11 +134,21 @@ y AUDIO_TS ...</p></div>
 <hr />
 <article>
   <div id="article_title">
-    <h3><a href="../modular-xorg-pkgsrc.html">Instalando modular-xorg desde pkgsrc</a></h3>
+    <h3><a href="../bozohttpd.html">bozohttpd - bozotic httpd</a></h3>
   </div>
   <div id="article_text">
-    <p>Recientemente tuve la necesidad de configurar <em>X</em> en mi <em>IBM Thinpad T43p</em>, la cual incluye una tarjeta gráfica <em>ATI Fire Gl</em> con 128MB.</p>
-<p>Descargué <a href="http://www.netbsd.org/" title="The NetBSD Project">NetBSD</a> <strong>-current</strong>(4.99.45) desde ftp y proseguí a realizar una instalación completa, no fue hasta que traté de configurar X para poder usar mi <em>laptop</em> como <em>desktop</em> para hacer tareas comunes, y ...</p>
+    <pre class="literal-block">
+httpd&nbsp;-&nbsp;hyper&nbsp;text&nbsp;transfer&nbsp;protocol&nbsp;version&nbsp;1.1&nbsp;daemon&nbsp;&nbsp;(via&nbsp;man&nbsp;httpd)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httpd(8)&nbsp;lee&nbsp;una&nbsp;peticion&nbsp;por&nbsp;medio&nbsp;del&nbsp;protocolo&nbsp;http&nbsp;y&nbsp;envia&nbsp;la&nbsp;respuesta&nbsp;a&nbsp;la&nbsp;salida&nbsp;standard.
+</pre>
+<div class="section" id="requerimientos">
+<h2>Requerimientos</h2>
+<p><a class="reference external" href="http://www.netbsd.org">NetBSD</a> 5 o superior.</p>
+</div>
+<div class="section" id="introduccion">
+<h2>Introducción</h2>
+<p><a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> es un servidor web ligero que viene en el sistema base NetBSD y
+ejecuta via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?inetd++NetBSD-current">inetd</a>, no es necesario instalar paquetes ...</p></div>
   </div>
 </article>
 <hr />
@@ -126,7 +159,7 @@ y AUDIO_TS ...</p></div>
   <div id="article_text">
     <div class="section" id="que-es-pkgsrc">
 <h2>¿Que es pkgsrc ?</h2>
-<img alt="./static/images/pkgsrc.png" src="./static/images/pkgsrc.png" />
+<img alt="" src="./static/images/pkgsrc.png" />
 <p><a class="reference external" href="http://www.pkgsrc.org">pkgsrc</a> es un con junto de makefiles que permiten la creacion e
 instalacion de software de terceros en <a class="reference external" href="http://www.netbsd.org">NetBSD</a> y otros sistemas tipo
 UNIX, actualmente <a class="reference external" href="http://www.pkgsrc.org">pkgsrc</a> cuenta con mas de 12000 paquetes y es
@@ -142,49 +175,16 @@ eficiente. A continuacion se detalla su uso.</p>
 <hr />
 <article>
   <div id="article_title">
-    <h3><a href="../pppoe.html">PPPoE</a></h3>
+    <h3><a href="../modular-xorg-pkgsrc.html">Instalando modular-xorg desde pkgsrc</a></h3>
   </div>
   <div id="article_text">
-    <div class="section" id="introducccion">
-<h2>Introducccion:</h2>
-<p>Algunas ocasiones necesitamos establecer una conexion PPPoE (Point to Point over
-Ethernet)  a internet via ADSL, los routers actuales
-pueden hacer <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?pppoe++NetBSD-current">pppoe</a> de forma sencilla, sin embargo en algunos entornos donde
-se necesita control de la conexion podemos usar nuestro router casero en modo bridge
-y usar <a class="reference external" href="http://www.netbsd.org">NetBSD</a> como pppoe/router/firewall/dns cache y tener el ...</p></div>
-  </div>
-</article>
-<hr />
-<article>
-  <div id="article_title">
-    <h3><a href="../wpa.html">WPA</a></h3>
-  </div>
-  <div id="article_text">
-    <div class="section" id="requisitos">
-<h2>Requisitos</h2>
-<p>Se requiere NetBSD 4 o superior.</p>
-</div>
-<div class="section" id="que-es">
-<h2>Que es ?</h2>
-<p><a class="reference external" href="http://es.wikipedia.org/wiki/Wi-Fi_Protected_Access">WPA</a> del ingles
-WiFi Protected Access, es un medio usado para proteger redes
-inalambricas. NetBSD soporta WPA a traves de
-<a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current">wpa_supplicant</a>  que esta incluido en base.</p>
-</div>
-<div class="section" id="configuracion">
-<h2>Configuracion</h2>
-<p>Para conectarnos a un AP usando WPA-Personal necesitamos <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current">wpa_supplicant</a>(8) que contenga al menos:</p>
-<pre class="literal-block">
-/etc/wpa_supplicant.conf
-
-network = {
-    ssid=&quot;MYWLAN&quot;
-    scan_ssid=1 ...</pre></div>
+    <p>Recientemente tuve la necesidad de configurar <em>X</em> en mi <em>IBM Thinpad T43p</em>, la cual incluye una tarjeta gráfica <em>ATI Fire Gl</em> con 128MB.</p>
+<p>Descargué <a href="http://www.netbsd.org/" title="The NetBSD Project">NetBSD</a> <strong>-current</strong>(4.99.45) desde ftp y proseguí a realizar una instalación completa, no fue hasta que traté de configurar X para poder usar mi <em>laptop</em> como <em>desktop</em> para hacer tareas comunes, y ...</p>
   </div>
 </article>
 
     <footer>
-      <p id="paginator">
+<p id="paginator">
 
 </p>
     </footer>
