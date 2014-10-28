@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Perl Dancer y NetBSD &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.2.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Servidor DHCP" href="dhcp-server.html" />
+    <link rel="prev" title="bozohttpd - bozotic httpd" href="bozohttpd.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
+          Documentacion NetBSD Mexico </a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="examples.html">Examples</a></li>
+                <li><a href="http://example.com">Link</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="instalacion-red.html">Instalación de NetBSD con Arranque desde Red (PXE)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#servidor-de-arranque">Servidor de Arranque</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#equipo-destino">Equipo Destino</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accesspoint-dualstack.html">Access point con doble stack y seguridad WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#descripcion">Descripcion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#definiciones">Definiciones:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#requisitos">Requisitos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#procedimiento">Procedimiento:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#cliente">Cliente:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#comentarios-y-explicaciones">Comentarios y explicaciones:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pkgsrc-binarios.html">Usando pkgsrc e instalando paquetes binarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#que-es-pkgsrc">¿Que es pkgsrc ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#inicializando-pkgsrc">Inicializando pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#instalando-paquetes-via-pkgsrc">Instalando paquetes via pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#introduccion-a-pkgin">Introduccion a pkgin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bozohttpd.html">bozohttpd - bozotic httpd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Perl Dancer y NetBSD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#instalacion">Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contenido">Contenido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#referencias">Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp-server.html">Servidor DHCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wpa.html">WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#requisitos">Requisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#que-es">Que es ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#configuracion">Configuracion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#usando-wpa-supplicant">Usando wpa_supplicant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#mas-informacion">Mas informacion:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pppoe.html">PPPoE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#introducccion">Introducccion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#requerimientos">Requerimientos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#configuracion">Configuracion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#haciendo-nat">Haciendo NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#consideraciones">Consideraciones:</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Perl Dancer y NetBSD</a><ul>
+<li><a class="reference internal" href="#instalacion">Instalación</a></li>
+<li><a class="reference internal" href="#configuracion">Configuración</a></li>
+<li><a class="reference internal" href="#contenido">Contenido</a></li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/dancer.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="perl-dancer-y-netbsd">
+<h1><a class="toc-backref" href="#id1">Perl Dancer y NetBSD</a><a class="headerlink" href="#perl-dancer-y-netbsd" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">date:</th><td class="field-body">2013-07-13 22:40</td>
+</tr>
+<tr class="field-even field"><th class="field-name">author:</th><td class="field-body">asarch</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">tags:</th><td class="field-body">perl, web, lighttpd, dancer, cpan</td>
+</tr>
+<tr class="field-even field"><th class="field-name">category:</th><td class="field-body">programacion</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">slug:</th><td class="field-body">dancer</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lang:</th><td class="field-body">es</td>
+</tr>
+</tbody>
+</table>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#perl-dancer-y-netbsd" id="id1">Perl Dancer y NetBSD</a><ul>
+<li><a class="reference internal" href="#instalacion" id="id2">Instalación</a></li>
+<li><a class="reference internal" href="#configuracion" id="id3">Configuración</a></li>
+<li><a class="reference internal" href="#contenido" id="id4">Contenido</a></li>
+<li><a class="reference internal" href="#referencias" id="id5">Referencias</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="instalacion">
+<h2><a class="toc-backref" href="#id2">Instalación</a><a class="headerlink" href="#instalacion" title="Permalink to this headline">¶</a></h2>
+<p>Instalamos el servidor <strong>lighttpd</strong>:</p>
+<p><code class="docutils literal"><span class="pre">pkg_add&nbsp;-v&nbsp;lighttpd&nbsp;</span></code></p>
+<p>Instalamos los módulos de <strong>Perl</strong> con <strong>CPAN</strong> necesarios (algunos de
+ellos no están disponibles como paquetes binarios):</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">cpan&nbsp;install&nbsp;YAML</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">cpan&nbsp;install&nbsp;Plack</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">cpan&nbsp;install&nbsp;FCGI</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">cpan&nbsp;install&nbsp;FCGI::ProcManager</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">cpan&nbsp;install&nbsp;Dancer</span></code></div>
+</div>
+</div>
+<div class="section" id="configuracion">
+<h2><a class="toc-backref" href="#id3">Configuración</a><a class="headerlink" href="#configuracion" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Creamos el script de booteo:</li>
+</ol>
+<p><code class="docutils literal"><span class="pre">cp&nbsp;/usr/pkg/share/examples/rc.d/lighttpd&nbsp;/etc/rc.d</span></code></p>
+<ol class="arabic simple" start="2">
+<li>Lo habilitamos para el inicio:</li>
+</ol>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">vi&nbsp;/etc/rc.conf</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">lighttpd=YES</span></code></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Habilitamos el módulo de <strong>FastCGI</strong>:</li>
+</ol>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">vi&nbsp;/usr/pkg/etc/lighttpd/modules.conf</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">server.modules&nbsp;=&nbsp;(</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;...,</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&quot;mod_fastcgi&quot;</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">)</span></code></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Configuramos el <strong>lighttpd</strong> para el trabajo con <strong>NetBSD</strong>:</li>
+</ol>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">vi&nbsp;/usr/pkg/etc/lighttpd/lighttpd.conf</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">var.server_root=&quot;/var/www&quot;</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">#server.event_handler=&quot;linux-sisepoll&quot;</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">#server.network_backend=&quot;linux-sendfile&quot;</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">#server.use_ipv6=&quot;enable&quot;</span></code></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Creamos los directorios necesarios:</li>
+</ol>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">mkdir&nbsp;/var/www/htdocs</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">mkdir&nbsp;/var/log/lighttpd</span></code></div>
+</div>
+<ol class="arabic simple" start="6">
+<li>Arreglamos los permisos:</li>
+</ol>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">groupadd&nbsp;lighttpd</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">useradd&nbsp;lighttpd</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">chown&nbsp;-R&nbsp;lighttpd:lighttpd&nbsp;/var/log/lighttpd</span></code></div>
+</div>
+</div>
+<div class="section" id="contenido">
+<h2><a class="toc-backref" href="#id4">Contenido</a><a class="headerlink" href="#contenido" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Creamos una aplicación <strong>Dancer</strong>:</li>
+</ol>
+<p><code class="docutils literal"><span class="pre">dancer&nbsp;-a&nbsp;MyWeb::App</span></code></p>
+<ol class="arabic simple" start="2">
+<li>Iniciamos la aplicación para crear el socket de conexión:</li>
+</ol>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">export&nbsp;PATH=$PATH:/usr/pkg/lib/perl5/site_perl/bin</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">cd&nbsp;MyWeb-App</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">plackup&nbsp;-s&nbsp;FCGI&nbsp;--listen&nbsp;/tmp/socket&nbsp;bin/app.pl</span></code></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Habilitamos el socket en <strong>lighttpd</strong>:</li>
+</ol>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">vi&nbsp;/usr/pkg/etc/lighttpd/lighttpd.conf</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">$HTTP[&quot;url&quot;]&nbsp;=~&nbsp;&quot;^/app&quot;&nbsp;{</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;fastcgi.server&nbsp;+=&nbsp;(</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;/app&quot;&nbsp;=&gt;&nbsp;(</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&quot;&nbsp;=&gt;&nbsp;(</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;socket&quot;&nbsp;=&gt;&nbsp;&quot;/tmp/socket&quot;,</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;check-local&quot;&nbsp;=&gt;&nbsp;&quot;disable&quot;</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;)</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">}</span></code></div>
+</div>
+</div>
+<div class="section" id="referencias">
+<h2><a class="toc-backref" href="#id5">Referencias</a><a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://search.cpan.org/~xsawyerx/Dancer-1.3091/lib/Dancer/Deployment.pod">perldoc
+Dancer::Deployment</a></li>
+</ul>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, varios.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3b1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

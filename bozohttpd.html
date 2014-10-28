@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>bozohttpd - bozotic httpd &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.2.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Perl Dancer y NetBSD" href="dancer.html" />
+    <link rel="prev" title="Usando pkgsrc e instalando paquetes binarios" href="pkgsrc-binarios.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
+          Documentacion NetBSD Mexico </a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="examples.html">Examples</a></li>
+                <li><a href="http://example.com">Link</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="instalacion-red.html">Instalación de NetBSD con Arranque desde Red (PXE)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#servidor-de-arranque">Servidor de Arranque</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#equipo-destino">Equipo Destino</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accesspoint-dualstack.html">Access point con doble stack y seguridad WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#descripcion">Descripcion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#definiciones">Definiciones:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#requisitos">Requisitos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#procedimiento">Procedimiento:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#cliente">Cliente:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#comentarios-y-explicaciones">Comentarios y explicaciones:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pkgsrc-binarios.html">Usando pkgsrc e instalando paquetes binarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#que-es-pkgsrc">¿Que es pkgsrc ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#inicializando-pkgsrc">Inicializando pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#instalando-paquetes-via-pkgsrc">Instalando paquetes via pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#introduccion-a-pkgin">Introduccion a pkgin</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">bozohttpd - bozotic httpd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usos">Usos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parametros-adicionales">Parametros adicionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ejemplos">Ejemplos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autenticacion">Autenticación</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dancer.html">Perl Dancer y NetBSD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#instalacion">Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#contenido">Contenido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#referencias">Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp-server.html">Servidor DHCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wpa.html">WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#requisitos">Requisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#que-es">Que es ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#configuracion">Configuracion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#usando-wpa-supplicant">Usando wpa_supplicant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#mas-informacion">Mas informacion:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pppoe.html">PPPoE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#introducccion">Introducccion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#requerimientos">Requerimientos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#configuracion">Configuracion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#haciendo-nat">Haciendo NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#consideraciones">Consideraciones:</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">bozohttpd - bozotic httpd</a><ul>
+<li><a class="reference internal" href="#requerimientos">Requerimientos</a></li>
+<li><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li><a class="reference internal" href="#usos">Usos</a></li>
+<li><a class="reference internal" href="#configuracion">Configuración</a></li>
+<li><a class="reference internal" href="#parametros-adicionales">Parametros adicionales</a></li>
+<li><a class="reference internal" href="#ejemplos">Ejemplos</a></li>
+<li><a class="reference internal" href="#autenticacion">Autenticación</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/bozohttpd.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="bozohttpd-bozotic-httpd">
+<h1>bozohttpd - bozotic httpd<a class="headerlink" href="#bozohttpd-bozotic-httpd" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">date:</th><td class="field-body">2013-07-01 20:40</td>
+</tr>
+<tr class="field-even field"><th class="field-name">tags:</th><td class="field-body">netbsd, httpd, servidor, web, cgi, html</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">category:</th><td class="field-body">NetBSD</td>
+</tr>
+<tr class="field-even field"><th class="field-name">author:</th><td class="field-body">Francisco Valladolid</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">slug:</th><td class="field-body">bozohttpd</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lang:</th><td class="field-body">es</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre>httpd - hyper text transfer protocol version 1.1 daemon  (via man httpd)
+        httpd(8) lee una peticion por medio del protocolo http y envia la respuesta a la salida standard.
+</pre></div>
+</div>
+<div class="section" id="requerimientos">
+<h2>Requerimientos<a class="headerlink" href="#requerimientos" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.netbsd.org">NetBSD</a> 5 o superior.</p>
+</div>
+<div class="section" id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> es un servidor web ligero que viene en el sistema base NetBSD y
+ejecuta via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?inetd++NetBSD-current">inetd</a>, no es necesario instalar paquetes adicionales, tiene
+la habilidad de ejecutar scripts cgi,php,c,sh etc. e indexar una lista
+de directorios en su caso. El ser ligero lo hace atractivo en sistema
+empotrados, en routers, firewall y en sistemas con pocos recursos,
+soporta indizado de directorios y virtualhosts ademas de
+ejecutarlo bajo <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?chroot++NetBSD-current">chroot</a>. Soporta ipv6 tambien.</p>
+</div>
+<div class="section" id="usos">
+<h2>Usos<a class="headerlink" href="#usos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Blog cgi, estatico, php (cgi)</li>
+<li>Sistemas empotrados.</li>
+<li>Autenticacion por web.</li>
+<li>etc.</li>
+</ul>
+</div>
+<div class="section" id="configuracion">
+<h2>Configuración<a class="headerlink" href="#configuracion" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a>(8) se inicia via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?inetd++NetBSD-current">inetd</a>(8), para ello editamos lo siguiente:</p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;vi&nbsp;/etc/inetd.conf</span></code></p>
+<p>Descomentar la linea;</p>
+<p><code class="docutils literal"><span class="pre">http&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stream&nbsp;&nbsp;tcp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nowait:600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_httpd&nbsp;&nbsp;/usr/libexec/httpd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httpd&nbsp;/var/www&nbsp;</span></code></p>
+<p>La linea anterior habilita el inicio de <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> via inetd, el
+directorio /var/www es la ubicacion de nuestros archivos html o cgi,
+este directorio ya existe en nuestro sistema, lo que procede es poner
+documentos ahi para que <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> los lea.</p>
+<p>Ahora tambien es posible ejecutar httpd desde el shell, via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?rc.d++NetBSD-current">rc</a> de la
+siguiente forma:</p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;/etc/rc.d/httpd&nbsp;start</span></code></p>
+<p>A continuacion ponemos algo dentro del directorio por defecto de httpd :</p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;vi&nbsp;/var/www/index.html</span></code></p>
+<p>Escribimos una linea html en el archivo y guardamos los cambios,
+ejemplo:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;h1&gt; It work&#39;s &lt;/h1&gt;
+</pre></div>
+</div>
+<p>A continuacion, iniciamos httpd(8), para ello basta ejecutar desde la
+linea de comandos:</p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;/etc/rc.d/inetd&nbsp;restart</span></code></p>
+<p>Apuntamos nuestro browser hacia <strong>http://localhost</strong> para probar nuestra
+configuracion.</p>
+</div>
+<div class="section" id="parametros-adicionales">
+<h2>Parametros adicionales<a class="headerlink" href="#parametros-adicionales" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>-c habilita el uso de scripts cgi, bajo el directorio /var/www/cgi-bin
+-x Permite el indizado de directorios dentro de un directorio particular dentro del DocumentRoot (/var/www en este caso)
+-v Habilita el uso de VirtualHost o servidores virtuales dentro de nuestro DocumentRoot.
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplos">
+<h2>Ejemplos<a class="headerlink" href="#ejemplos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>http stream tcp  nowait:600 _httpd /usr/libexec/httpd httpd -v /var/vroot /var/www
+Inicia httpd(8) via inetd con Vhosts dentro de /var/vroot
+
+httpd -C .php /usr/pkg/bin/php /var/www
+Inicia httpd(8) con soporte php dentro de /var/www/
+</pre></div>
+</div>
+</div>
+<div class="section" id="autenticacion">
+<h2>Autenticación<a class="headerlink" href="#autenticacion" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a>(8) soporta autenticación básica a traves de .htpasswd</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, varios.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3b1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Servidor DHCP &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.2.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Grabando CD’s and DVD-R" href="media.html" />
+    <link rel="prev" title="Perl Dancer y NetBSD" href="dancer.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
+          Documentacion NetBSD Mexico </a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="examples.html">Examples</a></li>
+                <li><a href="http://example.com">Link</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="instalacion-red.html">Instalación de NetBSD con Arranque desde Red (PXE)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#servidor-de-arranque">Servidor de Arranque</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#equipo-destino">Equipo Destino</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accesspoint-dualstack.html">Access point con doble stack y seguridad WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#descripcion">Descripcion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#definiciones">Definiciones:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#requisitos">Requisitos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#procedimiento">Procedimiento:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#cliente">Cliente:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#comentarios-y-explicaciones">Comentarios y explicaciones:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pkgsrc-binarios.html">Usando pkgsrc e instalando paquetes binarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#que-es-pkgsrc">¿Que es pkgsrc ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#inicializando-pkgsrc">Inicializando pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#instalando-paquetes-via-pkgsrc">Instalando paquetes via pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#introduccion-a-pkgin">Introduccion a pkgin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bozohttpd.html">bozohttpd - bozotic httpd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dancer.html">Perl Dancer y NetBSD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#instalacion">Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#contenido">Contenido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#referencias">Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Servidor DHCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#referencias">Referencias:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wpa.html">WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#requisitos">Requisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#que-es">Que es ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#configuracion">Configuracion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#usando-wpa-supplicant">Usando wpa_supplicant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#mas-informacion">Mas informacion:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pppoe.html">PPPoE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#introducccion">Introducccion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#requerimientos">Requerimientos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#configuracion">Configuracion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#haciendo-nat">Haciendo NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#consideraciones">Consideraciones:</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Servidor DHCP</a><ul>
+<li><a class="reference internal" href="#referencias">Referencias:</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/dhcp-server.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="servidor-dhcp">
+<h1>Servidor DHCP<a class="headerlink" href="#servidor-dhcp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">author:</th><td class="field-body">Francisco Valladolid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">date:</th><td class="field-body">2013-07-18 13:40</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">category:</th><td class="field-body">NetBSD</td>
+</tr>
+<tr class="field-even field"><th class="field-name">tags:</th><td class="field-body">dhcp, redes</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">slug:</th><td class="field-body">dhcp-server</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lang:</th><td class="field-body">es</td>
+</tr>
+</tbody>
+</table>
+<p>Configurando un servidor DHCP es simple. NetBSD incluye <a class="reference external" href="http://www.isc.org/sw/dhcp/">ISC
+DHCP</a> en el sistema base, asi que no es
+necesario instalar software adicional.</p>
+<p>La configuracion de <strong>dhcpd</strong> radica en el archivo <em>/etc/dhcpd.conf</em>, la
+forma basica:</p>
+<div class="highlight-python"><div class="highlight"><pre>deny unknown-clients;
+ddns-update-style none;
+subnet 192.168.1.0 netmask 255.255.255.0 {
+       range 192.168.1.50 192.168.1.100;
+       default-lease-time 28800;
+       max-lease-time 86400;
+       option broadcast-address 192.168.1.255;
+       option domain-name &quot;mi-dominio.com&quot;;
+       option domain-name-servers 200.33.146.241, 200.33.146.249;
+       option routers 192.168.1.1;
+       host www-server {
+               hardware ethernet 00:00:00:00:00:00;
+               fixed-address 192.168.1.3;
+               }
+}
+</pre></div>
+</div>
+<p>En la configuracion anterior, tenemos direcciones IP asignadas pr DHCP
+desde 192.168.1.50 hasta 192.168.1.100, ademas un gateway en 192.168.1.1
+y una direccion fija para el host www-server 192.168.1.3 identificada
+por su MAC (00:00 es supuesto)</p>
+<p>Editamos <em>/etc/rc.conf</em> para activar <strong>dhcpd</strong> al momento del arranque,
+asi como <em>dhcpd_flags</em></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dhcpd</span><span class="o">=</span><span class="n">YES</span>
+<span class="n">dhcpd_flags</span><span class="o">=</span><span class="s">&quot;-q fxp0&quot;</span>
+</pre></div>
+</div>
+<p><em>dhcpd_flags</em> pasa el parametro al servidor <strong>dhcpd</strong> para definir la
+interfaz que escuchara las solicitudes de IP, en nuestro caso es una
+intel 10/100 (fxp0)</p>
+<p>Antes de iniciar el servidor dhcpd, es necesario crear el archivo
+<em>/var/db/dhcpd.leases</em></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># touch /var/db/dhcpd.leases</span>
+</pre></div>
+</div>
+<p>Iniciamos el servidor:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># /etc/rc.d/dhcpd start</span>
+</pre></div>
+</div>
+<p>Si todo va bien, en este momento NetBSD esta actuando como servidor DHCP
+a la red interna.</p>
+<div class="section" id="referencias">
+<h2>Referencias:<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?dhcpd">man dhcpd</a></li>
+<li><a class="reference external" href="http://www.netbsd.org/docs/network/dhcp.html">HOWTO: DHCP Server</a></li>
+</ul>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, varios.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3b1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PPPoE &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.2.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="prev" title="WPA" href="wpa.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
+          Documentacion NetBSD Mexico </a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="examples.html">Examples</a></li>
+                <li><a href="http://example.com">Link</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="instalacion-red.html">Instalación de NetBSD con Arranque desde Red (PXE)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#servidor-de-arranque">Servidor de Arranque</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#equipo-destino">Equipo Destino</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accesspoint-dualstack.html">Access point con doble stack y seguridad WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#descripcion">Descripcion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#definiciones">Definiciones:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#requisitos">Requisitos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#procedimiento">Procedimiento:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#cliente">Cliente:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#comentarios-y-explicaciones">Comentarios y explicaciones:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pkgsrc-binarios.html">Usando pkgsrc e instalando paquetes binarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#que-es-pkgsrc">¿Que es pkgsrc ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#inicializando-pkgsrc">Inicializando pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#instalando-paquetes-via-pkgsrc">Instalando paquetes via pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#introduccion-a-pkgin">Introduccion a pkgin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bozohttpd.html">bozohttpd - bozotic httpd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dancer.html">Perl Dancer y NetBSD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#instalacion">Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#contenido">Contenido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#referencias">Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp-server.html">Servidor DHCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wpa.html">WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#requisitos">Requisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#que-es">Que es ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#configuracion">Configuracion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#usando-wpa-supplicant">Usando wpa_supplicant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#mas-informacion">Mas informacion:</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">PPPoE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introducccion">Introducccion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requerimientos">Requerimientos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion">Configuracion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#haciendo-nat">Haciendo NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#consideraciones">Consideraciones:</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">PPPoE</a><ul>
+<li><a class="reference internal" href="#introducccion">Introducccion:</a></li>
+<li><a class="reference internal" href="#requerimientos">Requerimientos:</a></li>
+<li><a class="reference internal" href="#configuracion">Configuracion:</a></li>
+<li><a class="reference internal" href="#haciendo-nat">Haciendo NAT</a></li>
+<li><a class="reference internal" href="#consideraciones">Consideraciones:</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/pppoe.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="pppoe">
+<h1>PPPoE<a class="headerlink" href="#pppoe" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">date:</th><td class="field-body">2013-07-14 2:30</td>
+</tr>
+<tr class="field-even field"><th class="field-name">author:</th><td class="field-body">Francisco Valladolid</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">tags:</th><td class="field-body">pppoe, redes, nat, firewall, ipf, ipnat</td>
+</tr>
+<tr class="field-even field"><th class="field-name">category:</th><td class="field-body">redes</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">slug:</th><td class="field-body">pppoe</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lang:</th><td class="field-body">es</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="introducccion">
+<h2>Introducccion:<a class="headerlink" href="#introducccion" title="Permalink to this headline">¶</a></h2>
+<p>Algunas ocasiones necesitamos establecer una conexion PPPoE (Point to Point over
+Ethernet)  a internet via ADSL, los routers actuales
+pueden hacer <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?pppoe++NetBSD-current">pppoe</a> de forma sencilla, sin embargo en algunos entornos donde
+se necesita control de la conexion podemos usar nuestro router casero en modo bridge
+y usar <a class="reference external" href="http://www.netbsd.org">NetBSD</a> como pppoe/router/firewall/dns cache y tener el control de nuestra red
+casera.</p>
+</div>
+<div class="section" id="requerimientos">
+<h2>Requerimientos:<a class="headerlink" href="#requerimientos" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Una PC corriendo <a class="reference external" href="http://www.netbsd.org">NetBSD</a> (<a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?pppoe++NetBSD-current">pppoe</a> es soportado desde 1.6)</li>
+<li>Dos tarjetas de red (una para el bridge, otra para la red interna)</li>
+<li>Un editor de textos</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="configuracion">
+<h2>Configuracion:<a class="headerlink" href="#configuracion" title="Permalink to this headline">¶</a></h2>
+<p>Suponiendo fxp0 la interfase que conecta al modem ADSL, editamos
+<em>/etc/ifconfig.ppoe</em> sino existe lo creamos y agregamos lo siguiente:</p>
+<div class="highlight-python"><div class="highlight"><pre>create
+! /sbin/ifconfig fxp0 up
+! /sbin/pppoectl -e fxp0 $int
+! /sbin/pppoectl $int myauthproto=pap &#39;myauthname=tu_nombre_de_usuario&#39; \
+     &#39;myauthsecret=tu_password&#39; hisauthproto=none
+       inet 0.0.0.0 0.0.0.1 netmask 0xffffffff
+#! /sbin/route add default -iface 0.0.0.1
+up
+</pre></div>
+</div>
+<p><strong>Agregamos ifwatchd al rc.conf para monitorear la conexion.</strong></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;echo&nbsp;&quot;ifwatchd&nbsp;=&nbsp;YES&quot;&nbsp;&gt;&gt;&nbsp;/etc/rc.conf</span></code></p>
+<p>Es necesario bajar el valor del MTU para las interfaces, un valor MTU
+alto quiza cause algunos problemas a nuestra conexion, entonces
+modificamos dentro de <em>/etc/sysctl.conf</em>:</p>
+<p><code class="docutils literal"><span class="pre">&nbsp;net.inet.tcp.mss_ifmtu=1</span></code></p>
+<p>Si quiere hacer NAT a su red interna, entonces, necesita agregar lo
+siguiente a su archivo <em>rc.conf</em></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># sysctl -w net.inet.ip.forwarding=1</span>
+<span class="c"># echo &quot;ipf=YES&quot; &gt;&gt; /etc/rc.conf</span>
+<span class="c"># echo &quot;ipnat=YES&quot; &gt;&gt; /etc/rc.conf</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="haciendo-nat">
+<h2>Haciendo NAT<a class="headerlink" href="#haciendo-nat" title="Permalink to this headline">¶</a></h2>
+<p>Agregar las reglas nat a ipnat.conf, suponiendo que esta usando
+192.168.1.0/24</p>
+<div class="highlight-python"><div class="highlight"><pre>map pppoe0 192.168.1.0/24 -&gt; 0/32 portmap tcp/udp 44000:49999 mssclamp 1440
+map pppoe0 192.168.1.0/24 -&gt; 0/32 mssclamp 1440
+</pre></div>
+</div>
+<p>Con esta configuracion <a class="reference external" href="http://www.netbsd.org">NetBSD</a> esta actuando como servidor <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?pppoe++NetBSD-current">pppoe</a> y haciendo NAT a la red inerna
+via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?ipnat++NetBSD-current">ipnat</a> e <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?ipf++NetBSD-current">ipf</a></p>
+</div>
+<div class="section" id="consideraciones">
+<h2>Consideraciones:<a class="headerlink" href="#consideraciones" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.netbsd.org">NetBSD</a> ahora incluye un filtro de paquetes en base llamado <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?npf++NetBSD-current">npf</a> para hacer NAT y
+filtrado de paquetes, la configuracion para ello varia en mucho en comparacion a <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?ipf++NetBSD-current">ipf</a>.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, varios.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3b1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

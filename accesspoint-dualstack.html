@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Access point con doble stack y seguridad WPA &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.2.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Usando pkgsrc e instalando paquetes binarios" href="pkgsrc-binarios.html" />
+    <link rel="prev" title="Instalación de NetBSD con Arranque desde Red (PXE)" href="instalacion-red.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
+          Documentacion NetBSD Mexico </a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="examples.html">Examples</a></li>
+                <li><a href="http://example.com">Link</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="instalacion-red.html">Instalación de NetBSD con Arranque desde Red (PXE)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#servidor-de-arranque">Servidor de Arranque</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#equipo-destino">Equipo Destino</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Access point con doble stack y seguridad WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#descripcion">Descripcion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#definiciones">Definiciones:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requisitos">Requisitos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#procedimiento">Procedimiento:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cliente">Cliente:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comentarios-y-explicaciones">Comentarios y explicaciones:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pkgsrc-binarios.html">Usando pkgsrc e instalando paquetes binarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#que-es-pkgsrc">¿Que es pkgsrc ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#inicializando-pkgsrc">Inicializando pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#instalando-paquetes-via-pkgsrc">Instalando paquetes via pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#introduccion-a-pkgin">Introduccion a pkgin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bozohttpd.html">bozohttpd - bozotic httpd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dancer.html">Perl Dancer y NetBSD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#instalacion">Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#contenido">Contenido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#referencias">Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp-server.html">Servidor DHCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wpa.html">WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#requisitos">Requisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#que-es">Que es ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#configuracion">Configuracion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#usando-wpa-supplicant">Usando wpa_supplicant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#mas-informacion">Mas informacion:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pppoe.html">PPPoE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#introducccion">Introducccion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#requerimientos">Requerimientos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#configuracion">Configuracion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#haciendo-nat">Haciendo NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#consideraciones">Consideraciones:</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Access point con doble stack y seguridad WPA</a><ul>
+<li><a class="reference internal" href="#descripcion">Descripcion</a></li>
+<li><a class="reference internal" href="#definiciones">Definiciones:</a></li>
+<li><a class="reference internal" href="#requisitos">Requisitos:</a></li>
+<li><a class="reference internal" href="#procedimiento">Procedimiento:</a></li>
+<li><a class="reference internal" href="#cliente">Cliente:</a></li>
+<li><a class="reference internal" href="#comentarios-y-explicaciones">Comentarios y explicaciones:</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/accesspoint-dualstack.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="access-point-con-doble-stack-y-seguridad-wpa">
+<h1><a class="toc-backref" href="#id1">Access point con doble stack y seguridad WPA</a><a class="headerlink" href="#access-point-con-doble-stack-y-seguridad-wpa" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">date:</th><td class="field-body">2013-07-02 16:40</td>
+</tr>
+<tr class="field-even field"><th class="field-name">tags:</th><td class="field-body">netbsd,redes, wireless</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">category:</th><td class="field-body">NetBSD</td>
+</tr>
+<tr class="field-even field"><th class="field-name">author:</th><td class="field-body">Heron Gallegos</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">slug:</th><td class="field-body">accesspoint-dualstack</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lang:</th><td class="field-body">es</td>
+</tr>
+</tbody>
+</table>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#access-point-con-doble-stack-y-seguridad-wpa" id="id1">Access point con doble stack y seguridad WPA</a><ul>
+<li><a class="reference internal" href="#descripcion" id="id2">Descripcion</a></li>
+<li><a class="reference internal" href="#definiciones" id="id3">Definiciones:</a></li>
+<li><a class="reference internal" href="#requisitos" id="id4">Requisitos:</a></li>
+<li><a class="reference internal" href="#procedimiento" id="id5">Procedimiento:</a></li>
+<li><a class="reference internal" href="#cliente" id="id6">Cliente:</a></li>
+<li><a class="reference internal" href="#comentarios-y-explicaciones" id="id7">Comentarios y explicaciones:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="descripcion">
+<h2><a class="toc-backref" href="#id2">Descripcion</a><a class="headerlink" href="#descripcion" title="Permalink to this headline">¶</a></h2>
+<p>Este Access Point operando bajo NetBSD con llaves dinámicas WPA es
+extremadamente seguro. Las razones de ello no podría explicarlas porque
+esa no es mi área de conocimiento... tendrá qué buscarlas usted por su
+cuenta. Si usted es un paranoico de la seguridad, esta configuración de
+Access Point es para usted.</p>
+</div>
+<div class="section" id="definiciones">
+<h2><a class="toc-backref" href="#id3">Definiciones:</a><a class="headerlink" href="#definiciones" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>La tarjeta de red es la CNet <strong>CWP-854</strong> PCI con chipset
+RT2501/RT2561N driver <strong>ral(4)</strong></li>
+<li>Se utilizará una llave de 512 bits (64 bytes)</li>
+<li>Se utlizará la red privada 192.168.154.0/24</li>
+<li>Se utlizará la red IPv6 3ffe:8240:8018:7fa::/64</li>
+<li>Las direcciones de nuestra tarjeta inalámbrica serán 192.168.154.1 y
+3ffe:8240:8018:7fa::1</li>
+<li>Nuestra red inalámbrica se llamará <strong>hola</strong></li>
+<li>Utilizaremos el <strong>canal 4</strong> de la red inalámbrica</li>
+</ul>
+</div>
+<div class="section" id="requisitos">
+<h2><a class="toc-backref" href="#id4">Requisitos:</a><a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Una computadora con NetBSD-4 ó superior</li>
+<li>Servicio dhcpd en la misma máquina configurado con las direcciones
+previamente definidas</li>
+<li>Servicio DNS caché (por lo menos) en la misma máquina</li>
+<li>Servicio hostapd</li>
+<li>Una llave de 512 bits en formato exadecimal generadas en algún
+dispositivo de tipo random</li>
+</ul>
+</div>
+<div class="section" id="procedimiento">
+<h2><a class="toc-backref" href="#id5">Procedimiento:</a><a class="headerlink" href="#procedimiento" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Instale el hardware y software</p>
+</li>
+<li><p class="first">Configure el sistema operativo y los requisitos, no olvide el soporte
+de IPv6</p>
+</li>
+<li><p class="first">Elabore el archivo de configuración de la tarjeta inalámbrica</p>
+<p><code class="docutils literal"><span class="pre">/etc/ifconfig.ral0</span></code></p>
+</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>nwid hola mediaopt hostap chan 4
+inet  192.168.64.1 netmask 0xffffff00 media auto
+inet6 3ffe:8240:8018:7fa::1 prefixlen 64 alias
+up
+</pre></div>
+</div>
+<ul class="simple">
+<li>Haga el archivo <strong>/etc/rtadvd.conf</strong> de anuncio de rutas y asignación
+de direcciones de IPv6</li>
+</ul>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">ral0:\</span></code>
+<code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:addr=&quot;3ffe:8240:8016:aff::&quot;:prefixlen#64:</span></code></div></blockquote>
+<ul class="simple">
+<li>Haga el archivo <strong>/etc/hostapd.conf</strong> para la configuración de la
+seguridad</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>interface=ral0
+logger_syslog=-1
+logger_syslog_level=2
+logger_stdout=-1
+logger_stdout_level=2
+debug=0
+dump_file=/tmp/hostapd.dump
+ctrl_interface=/var/run/hostapd
+ctrl_interface_group=wheel
+ssid=hola
+macaddr_acl=0
+auth_algs=1
+wpa=1
+wpa_psk=75eb38988c5bb4499517c319934c845f6575f0456fa693666e0a90da3b92b740
+</pre></div>
+</div>
+<ul class="simple">
+<li>Configure el arranque de los servicios en <strong>/etc/rc.conf</strong></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>ip6mode=router
+hostapd=YES
+rtadvd=YES      rtadvd_flags=&quot;ral0&quot;
+named=YES       named_flags=&quot;&quot;
+dhcpd=YES       dhcpd_flags=&quot;-q ral0&quot;
+</pre></div>
+</div>
+<p>Reinicie su máquina, la parte de Access Point ha quedado lista.</p>
+</div>
+<div class="section" id="cliente">
+<h2><a class="toc-backref" href="#id6">Cliente:</a><a class="headerlink" href="#cliente" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Configure la interfase inalámbrica del cliente con la red hola y la
+llave de 512 bits (wpa_psk)</li>
+<li>Reinicie</li>
+</ul>
+<p>Ahora tiene usted el servicio de Access Point WPA completamente
+operacional. Disfrute su nuevo access point :)</p>
+</div>
+<div class="section" id="comentarios-y-explicaciones">
+<h2><a class="toc-backref" href="#id7">Comentarios y explicaciones:</a><a class="headerlink" href="#comentarios-y-explicaciones" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">/etc/ifconfig.ral0</span></code></div></blockquote>
+<ul class="simple">
+<li>hostap es el modo para trabajar como &#8220;Access Point&#8221;. Otras
+opciones son ibss para conexiones peer to peer, <strong>monitor</strong>
+(autoexplicativo) y bss (default) para ser cliente de un access
+point. Consulte el manual del driver de su tarjeta de red para
+comprobar el soporte de estos modos.</li>
+<li>Se hacen las asignaciones de direcciónes IP, IPv6 y sus máscaras. La
+media elegida es auto para que la tarjeta inalámbrica tome el
+valor default de velocidad. Otros valores posibles son DS5,
+OFDM54 y varios más. Consulte el manual del driver de su tarjeta
+de red para comprobar el soporte de otras velocidades así como sus
+alcances y limitaciones.</li>
+</ul>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">/etc/rtadvd.conf</span></code></div></blockquote>
+<ul class="simple">
+<li>Con ral0:addr=&#8221;3ffe:8240:8018:7fa::&#8221;:prefixlen#64: es posible
+definirlo en una sola línea acorde a la sintáxis de termcap(5)</li>
+<li>El servicio rtadvd con la dirección base addr/64 y la mac address del
+cliente que solicita una IPv6 le asignará una dirección utilizando el
+formato eui64</li>
+</ul>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">/etc/rc.conf</span></code></div></blockquote>
+<ul class="simple">
+<li>Ponemos nuestra máquina con NetBSD en modo de ruteo IPv6</li>
+<li>Declaramos que los cuatro servicios arrancarán en automático. Las
+flags con ral0 indican que el servicio solo correrá en esa interfase.</li>
+</ul>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">/etc/hostapd.conf</span></code></div></blockquote>
+<ul class="simple">
+<li>El archivo proporcionado está a su mínima expresión, con valores por
+default y sin comentarios.</li>
+<li>Si usted desea tener este archivo completo y con sus comentarios,
+haga lo siguiente:</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">cp&nbsp;/usr/share/examples/hostapd/hostapd.conf&nbsp;/etc/hostapd.conf</span></code></p>
+<p>Edite su archivo y haga los siguientes reemplazos</p>
+<div class="highlight-python"><div class="highlight"><pre>diff /usr/share/examples/hostapd/hostapd.conf /etc/hostapd.conf
+1c1
+&lt; #     $NetBSD: hostapd.conf,v 1.1 2006/04/30 13:52:35 rpaulo Exp $
+---
+&gt; #     $NetBSD: hostapd.conf 1.1 2006/04/30 13:52:35 rpaulo Exp $
+8c8
+&lt; interface=if0
+---
+&gt; interface=ral0
+70c70
+&lt; ssid=NetBSD
+---
+&gt; ssid=hola
+90c90
+&lt; auth_algs=3
+---
+&gt; auth_algs=1
+268c268
+&lt; #wpa=1
+---
+&gt; wpa=1
+276c276
+&lt; #wpa_psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+---
+&gt;wpa_psk=75eb38988c5bb4499517c319934c845f6575f0456fa693666e0a90da3b92b740
+</pre></div>
+</div>
+<p>Si usted no quiere IPv6, suprima las líneas que lo relacionan, pero no
+lo eche en saco roto. <strong>IPv6 ya es inminente</strong>.</p>
+<p>Disfrute su nuevo Access Point con NetBSD</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, varios.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3b1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
