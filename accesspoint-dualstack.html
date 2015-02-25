@@ -29,15 +29,22 @@
     <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
-    <link rel="next" title="Usando pkgsrc e instalando paquetes binarios" href="pkgsrc-binarios.html" />
-    <link rel="prev" title="Instalación de NetBSD con Arranque desde Red (PXE)" href="instalacion-red.html" />
+    <link rel="next" title="Perl Dancer y NetBSD" href="dancer.html" />
+    <link rel="prev" title="bozohttpd - bozotic httpd" href="bozohttpd.html" />
+
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-13168762-4']);
+  _gaq.push(['_trackPageview']);
+</script>
+
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,10 +62,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
-            
-                <li><a href="examples.html">Examples</a></li>
-                <li><a href="http://example.com">Link</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -73,15 +76,6 @@
 <li class="toctree-l1"><a class="reference internal" href="instalacion-red.html">Instalación de NetBSD con Arranque desde Red (PXE)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#servidor-de-arranque">Servidor de Arranque</a></li>
 <li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#equipo-destino">Equipo Destino</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Access point con doble stack y seguridad WPA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#descripcion">Descripcion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#definiciones">Definiciones:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#requisitos">Requisitos:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#procedimiento">Procedimiento:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cliente">Cliente:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#comentarios-y-explicaciones">Comentarios y explicaciones:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pkgsrc-binarios.html">Usando pkgsrc e instalando paquetes binarios</a><ul>
@@ -99,6 +93,15 @@
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Access point con doble stack y seguridad WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#descripcion">Descripcion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#definiciones">Definiciones:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requisitos">Requisitos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#procedimiento">Procedimiento:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cliente">Cliente:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comentarios-y-explicaciones">Comentarios y explicaciones:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dancer.html">Perl Dancer y NetBSD</a><ul>
@@ -139,6 +142,21 @@
 <li class="toctree-l2"><a class="reference internal" href="pppoe.html#configuracion">Configuracion:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pppoe.html#haciendo-nat">Haciendo NAT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pppoe.html#consideraciones">Consideraciones:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modular-xorg-pkgsrc.html">Instalando modular-xorg desde pkgsrc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#antes-de-empezar">Antes de empezar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#id1">Instalando modular-xorg desde <em>pkgsrc</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#configurar-xorg">Configurar <em>Xorg</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#configurando-lo-basico-en-xinitrc">Configurando lo básico en .xinitrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#iniciando-xorg">Iniciando <em>Xorg</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#referencias">Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nginx-php.html">NEMP - NetBSD - nginx - PHP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nginx-php.html#introduccion">Introduccion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nginx-php.html#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nginx-php.html#configuracion">Configuracion</a></li>
 </ul>
 </li>
 </ul>
@@ -200,24 +218,6 @@
       
   <div class="section" id="access-point-con-doble-stack-y-seguridad-wpa">
 <h1><a class="toc-backref" href="#id1">Access point con doble stack y seguridad WPA</a><a class="headerlink" href="#access-point-con-doble-stack-y-seguridad-wpa" title="Permalink to this headline">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">date:</th><td class="field-body">2013-07-02 16:40</td>
-</tr>
-<tr class="field-even field"><th class="field-name">tags:</th><td class="field-body">netbsd,redes, wireless</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">category:</th><td class="field-body">NetBSD</td>
-</tr>
-<tr class="field-even field"><th class="field-name">author:</th><td class="field-body">Heron Gallegos</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">slug:</th><td class="field-body">accesspoint-dualstack</td>
-</tr>
-<tr class="field-even field"><th class="field-name">lang:</th><td class="field-body">es</td>
-</tr>
-</tbody>
-</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -275,7 +275,7 @@ dispositivo de tipo random</li>
 de IPv6</p>
 </li>
 <li><p class="first">Elabore el archivo de configuración de la tarjeta inalámbrica</p>
-<p><code class="docutils literal"><span class="pre">/etc/ifconfig.ral0</span></code></p>
+<p><tt class="docutils literal"><span class="pre">/etc/ifconfig.ral0</span></tt></p>
 </li>
 </ul>
 <div class="highlight-python"><div class="highlight"><pre>nwid hola mediaopt hostap chan 4
@@ -289,8 +289,8 @@ up
 de direcciones de IPv6</li>
 </ul>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">ral0:\</span></code>
-<code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:addr=&quot;3ffe:8240:8016:aff::&quot;:prefixlen#64:</span></code></div></blockquote>
+<div><tt class="docutils literal"><span class="pre">ral0:\</span></tt>
+<tt class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:addr=&quot;3ffe:8240:8016:aff::&quot;:prefixlen#64:</span></tt></div></blockquote>
 <ul class="simple">
 <li>Haga el archivo <strong>/etc/hostapd.conf</strong> para la configuración de la
 seguridad</li>
@@ -336,7 +336,7 @@ operacional. Disfrute su nuevo access point :)</p>
 <div class="section" id="comentarios-y-explicaciones">
 <h2><a class="toc-backref" href="#id7">Comentarios y explicaciones:</a><a class="headerlink" href="#comentarios-y-explicaciones" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">/etc/ifconfig.ral0</span></code></div></blockquote>
+<div><tt class="docutils literal"><span class="pre">/etc/ifconfig.ral0</span></tt></div></blockquote>
 <ul class="simple">
 <li>hostap es el modo para trabajar como &#8220;Access Point&#8221;. Otras
 opciones son ibss para conexiones peer to peer, <strong>monitor</strong>
@@ -351,7 +351,7 @@ de red para comprobar el soporte de otras velocidades así como sus
 alcances y limitaciones.</li>
 </ul>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">/etc/rtadvd.conf</span></code></div></blockquote>
+<div><tt class="docutils literal"><span class="pre">/etc/rtadvd.conf</span></tt></div></blockquote>
 <ul class="simple">
 <li>Con ral0:addr=&#8221;3ffe:8240:8018:7fa::&#8221;:prefixlen#64: es posible
 definirlo en una sola línea acorde a la sintáxis de termcap(5)</li>
@@ -360,21 +360,21 @@ cliente que solicita una IPv6 le asignará una dirección utilizando el
 formato eui64</li>
 </ul>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">/etc/rc.conf</span></code></div></blockquote>
+<div><tt class="docutils literal"><span class="pre">/etc/rc.conf</span></tt></div></blockquote>
 <ul class="simple">
 <li>Ponemos nuestra máquina con NetBSD en modo de ruteo IPv6</li>
 <li>Declaramos que los cuatro servicios arrancarán en automático. Las
 flags con ral0 indican que el servicio solo correrá en esa interfase.</li>
 </ul>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">/etc/hostapd.conf</span></code></div></blockquote>
+<div><tt class="docutils literal"><span class="pre">/etc/hostapd.conf</span></tt></div></blockquote>
 <ul class="simple">
 <li>El archivo proporcionado está a su mínima expresión, con valores por
 default y sin comentarios.</li>
 <li>Si usted desea tener este archivo completo y con sus comentarios,
 haga lo siguiente:</li>
 </ul>
-<p><code class="docutils literal"><span class="pre">cp&nbsp;/usr/share/examples/hostapd/hostapd.conf&nbsp;/etc/hostapd.conf</span></code></p>
+<p><tt class="docutils literal"><span class="pre">cp&nbsp;/usr/share/examples/hostapd/hostapd.conf&nbsp;/etc/hostapd.conf</span></tt></p>
 <p>Edite su archivo y haga los siguientes reemplazos</p>
 <div class="highlight-python"><div class="highlight"><pre>diff /usr/share/examples/hostapd/hostapd.conf /etc/hostapd.conf
 1c1
@@ -414,6 +414,7 @@ lo eche en saco roto. <strong>IPv6 ya es inminente</strong>.</p>
       
   </div>
 </div>
+
 <footer class="footer">
   <div class="container">
     <p class="pull-right">
@@ -422,9 +423,23 @@ lo eche en saco roto. <strong>IPv6 ya es inminente</strong>.</p>
     </p>
     <p>
         &copy; Copyright 2014, varios.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3b1.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
     </p>
   </div>
 </footer>
+<div class="footer">This page uses <a href="http://analytics.google.com/">
+Google Analytics</a> to collect statistics. You can disable it by blocking
+the JavaScript coming from www.google-analytics.com.
+<script type="text/javascript">
+  (function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ?
+              'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+  })();
+</script>
+</div>
+
   </body>
 </html>

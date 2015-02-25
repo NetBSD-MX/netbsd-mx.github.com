@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Instalando modular-xorg desde pkgsrc &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    <title>NEMP - NetBSD - nginx - PHP &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -29,8 +29,7 @@
     <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
-    <link rel="next" title="NEMP - NetBSD - nginx - PHP" href="nginx-php.html" />
-    <link rel="prev" title="PPPoE" href="pppoe.html" />
+    <link rel="prev" title="Instalando modular-xorg desde pkgsrc" href="modular-xorg-pkgsrc.html" />
 
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -144,19 +143,19 @@
 <li class="toctree-l2"><a class="reference internal" href="pppoe.html#consideraciones">Consideraciones:</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Instalando modular-xorg desde pkgsrc</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#antes-de-empezar">Antes de empezar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Instalando modular-xorg desde <em>pkgsrc</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configurar-xorg">Configurar <em>Xorg</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configurando-lo-basico-en-xinitrc">Configurando lo básico en .xinitrc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#iniciando-xorg">Iniciando <em>Xorg</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#referencias">Referencias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modular-xorg-pkgsrc.html">Instalando modular-xorg desde pkgsrc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#antes-de-empezar">Antes de empezar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#id1">Instalando modular-xorg desde <em>pkgsrc</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#configurar-xorg">Configurar <em>Xorg</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#configurando-lo-basico-en-xinitrc">Configurando lo básico en .xinitrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#iniciando-xorg">Iniciando <em>Xorg</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#referencias">Referencias</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="nginx-php.html">NEMP - NetBSD - nginx - PHP</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nginx-php.html#introduccion">Introduccion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nginx-php.html#requerimientos">Requerimientos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nginx-php.html#configuracion">Configuracion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">NEMP - NetBSD - nginx - PHP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduccion">Introduccion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion">Configuracion</a></li>
 </ul>
 </li>
 </ul>
@@ -172,13 +171,10 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Instalando modular-xorg desde pkgsrc</a><ul>
-<li><a class="reference internal" href="#antes-de-empezar">Antes de empezar</a></li>
-<li><a class="reference internal" href="#id1">Instalando modular-xorg desde <em>pkgsrc</em></a></li>
-<li><a class="reference internal" href="#configurar-xorg">Configurar <em>Xorg</em></a></li>
-<li><a class="reference internal" href="#configurando-lo-basico-en-xinitrc">Configurando lo básico en .xinitrc</a></li>
-<li><a class="reference internal" href="#iniciando-xorg">Iniciando <em>Xorg</em></a></li>
-<li><a class="reference internal" href="#referencias">Referencias</a></li>
+<li><a class="reference internal" href="#">NEMP - NetBSD - nginx - PHP</a><ul>
+<li><a class="reference internal" href="#introduccion">Introduccion</a></li>
+<li><a class="reference internal" href="#requerimientos">Requerimientos</a></li>
+<li><a class="reference internal" href="#configuracion">Configuracion</a></li>
 </ul>
 </li>
 </ul>
@@ -192,7 +188,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="_sources/modular-xorg-pkgsrc.txt"
+  <a href="_sources/nginx-php.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -216,69 +212,93 @@
   <div class="row">
     <div class="col-md-12">
       
-  <div class="section" id="instalando-modular-xorg-desde-pkgsrc">
-<h1>Instalando modular-xorg desde pkgsrc<a class="headerlink" href="#instalando-modular-xorg-desde-pkgsrc" title="Permalink to this headline">¶</a></h1>
-<p>Recientemente tuve la necesidad de configurar <em>X</em> en mi <em>IBM Thinpad
-T43p</em>, la cual incluye una tarjeta gráfica <em>ATI Fire Gl</em> con 128MB.</p>
-<p>Descargué <a class="reference external" href="http://www.netbsd.org/">NetBSD</a> <strong>-current</strong>(4.99.45) desde ftp y proseguí a
-realizar unn a instalación completa, no fue hasta que traté de
-configurar X para poder usarr mi <em>laptop</em> como <em>desktop</em> para hacer
-tareas comunes, y no conseguí hacer funcc ionar X correctamente,
-<a class="reference external" href="http://www.xfree86.org/">XFree86</a> simplemente no trabajó para mí.</p>
-<div class="section" id="antes-de-empezar">
-<h2>Antes de empezar<a class="headerlink" href="#antes-de-empezar" title="Permalink to this headline">¶</a></h2>
-<p>No instalar <a class="reference external" href="http://www.xfree86.org/">XFree86</a> que viene en base, de-seleccionar en el programa
-de instalación.</p>
-</div>
-<div class="section" id="id1">
-<h2>Instalando modular-xorg desde <em>pkgsrc</em><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Estoy usando <a class="reference external" href="http://www.pkgsrc.org/">pkgsrc</a> <strong>-current</strong> para aprovechar algunas novedades,
-las instrucciones para compilar <tt class="docutils literal"><span class="pre">modular-xorg</span></tt> desde <a class="reference external" href="http://www.pkgsrc.org/">pkgsrc</a> son las
-siguientes:</p>
+  <div class="section" id="nemp-netbsd-nginx-php">
+<h1><a class="toc-backref" href="#id1">NEMP - NetBSD - nginx - PHP</a><a class="headerlink" href="#nemp-netbsd-nginx-php" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
-<li>Editar <tt class="docutils literal"><span class="pre">/etc/mk.conf</span></tt> e incluir: <tt class="docutils literal"><span class="pre">X11_TYPE=modular</span></tt></li>
-<li>Los paquetes necesarios son los siguientes:</li>
+<li><a class="reference internal" href="#nemp-netbsd-nginx-php" id="id1">NEMP - NetBSD - nginx - PHP</a><ul>
+<li><a class="reference internal" href="#introduccion" id="id2">Introduccion</a></li>
+<li><a class="reference internal" href="#requerimientos" id="id3">Requerimientos</a></li>
+<li><a class="reference internal" href="#configuracion" id="id4">Configuracion</a></li>
 </ul>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cd</span> <span class="pre">/usr/pkgsrc/x11/modular-xorg-server</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">make</span> <span class="pre">install</span> <span class="pre">clean</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cd</span> <span class="pre">/usr/pkgsrc/meta-pkgs/modular-xorg-apps</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">make</span> <span class="pre">install</span> <span class="pre">clean</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cd</span> <span class="pre">/usr/pkgsrc/meta-pkgs/modular-xorg-fonts</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">make</span> <span class="pre">install</span> <span class="pre">clean</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cd</span> <span class="pre">/usr/pkgsrc/x11/xf86-input-keyboard</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">make</span> <span class="pre">install</span> <span class="pre">clean</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cd</span> <span class="pre">/usr/pkgsrc/x11/xf86-input-mouse</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">make</span> <span class="pre">install</span> <span class="pre">clean</span></tt></p>
+</li>
+</ul>
+</div>
+<div class="section" id="introduccion">
+<h2><a class="toc-backref" href="#id2">Introduccion</a><a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.netbsd.org">NetBSD</a> es un sistema operativo completo y puede usarse para ejecutar aplicaciones en servidores web. Apache fue por mucho
+tiempo el servidor web favorito y ampliamente soportado.
+Con la introduccion de servicios web dinamicos y stream, asi como las redes sociales con un amplio flujo de datos, se repeenso
+la idea de un servidor web moderno, ligero y con soporte para las necesidades actuales, aqui entra <a class="reference external" href="http://www.nginx.org">nginx</a></p>
+</div>
+<div class="section" id="requerimientos">
+<h2><a class="toc-backref" href="#id3">Requerimientos</a><a class="headerlink" href="#requerimientos" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Esta es la parte interesante, elegir el controlador de video (<em>video
-driver</em>) que estés usando en tu computadora o <em>laptop</em>, en mi caso
-estoy usando ATI, parr a ello:</li>
+<li>NetBSD 6 o superior</li>
+<li>pkgsrc (2014-Q4) o binarios para 6.0 +</li>
+<li>pkgin (si va a usar binarios)</li>
+<li>Muchas ganas.</li>
 </ul>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cd</span> <span class="pre">/usr/pkgsrc/x11/xf86-video-ati</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">make</span> <span class="pre">install</span> <span class="pre">clean</span></tt></p>
 </div>
-<div class="section" id="configurar-xorg">
-<h2>Configurar <em>Xorg</em><a class="headerlink" href="#configurar-xorg" title="Permalink to this headline">¶</a></h2>
-<p>Si todo va bien, proseguimos a configurar <a class="reference external" href="http://www.x.org/">Xorg</a> de dos formas.</p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">xorgcfg</span></tt></p>
-<p>El comando anterior inicia el programa de configuración de <a class="reference external" href="http://www.x.org/">Xorg</a> en
-modo grr áfico y el siguiente en modo texto.</p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">xorgconfig</span></tt></p>
+<div class="section" id="configuracion">
+<h2><a class="toc-backref" href="#id4">Configuracion</a><a class="headerlink" href="#configuracion" title="Permalink to this headline">¶</a></h2>
+<p>Primeramente debemos instalar <a class="reference external" href="http://www.nginx.org">nginx</a> desde <a class="reference external" href="http://www.pkgsrc.org">pkgsrc</a> o binarios, usaremos <a class="reference external" href="http://www.netbsd.mx/pkgsrc-binarios.html">binarios</a> por comodidad.</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo pkgin install nginx
+</pre></div>
 </div>
-<div class="section" id="configurando-lo-basico-en-xinitrc">
-<h2>Configurando lo básico en .xinitrc<a class="headerlink" href="#configurando-lo-basico-en-xinitrc" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">xclock</span> <span class="pre">-geometry</span> <span class="pre">50x50-1-1</span> <span class="pre">&amp;</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">xterm</span> <span class="pre">-geometry</span> <span class="pre">80x34-1+1</span> <span class="pre">-bg</span> <span class="pre">OldLace</span> <span class="pre">&amp;</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">xsetroot</span> <span class="pre">-solid</span> <span class="pre">Bisque4</span> <span class="pre">&amp;</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">xterm</span> <span class="pre">-geometry</span> <span class="pre">80x44+0+0</span> <span class="pre">-bg</span> <span class="pre">AntiqueWhite</span> <span class="pre">-name</span> <span class="pre">login</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">twm</span></tt></p>
+<p>Posteriormente, instalar <em>php-fpm</em></p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo pkgin install php53-fpm
+</pre></div>
 </div>
-<div class="section" id="iniciando-xorg">
-<h2>Iniciando <em>Xorg</em><a class="headerlink" href="#iniciando-xorg" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">xinit</span></tt></p>
+<p>Editamos la seccion basica de <em>/usr/pkg/etc/nginx.conf</em> para agregar soporte PHP a <a class="reference external" href="http://www.nginx.org">nginx</a>, la directiva location
+se coloca dentro de la seccion <em>server</em> del archivo de configuracion.</p>
+<div class="code highlight-python"><div class="highlight"><pre>location ~ \.php$ {
+  root         /var/www/site/html;
+  # for a TCP stream
+  fastcgi_pass   127.0.0.1:9000;
+  fastcgi_index  index.php;
+  fastcgi_param  SCRIPT_FILENAME  /var/www/site/html$fastcgi_script_name;
+  include        /usr/pkg/etc/nginx/fastcgi_params;
+}
+</pre></div>
 </div>
-<div class="section" id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<p>El archivo <em>/usr/pkg/etc/php-fpm.conf</em> debe contener al menos lo siguiente:</p>
+<div class="highlight-python"><div class="highlight"><pre>; Unix user/group of processes
+; Note: The user is mandatory. If the group is not set, the default user&#39;s group
+;       will be used.
+user = nginx
+group = nginx
+
+; The address on which to accept FastCGI requests.
+; Valid syntaxes are:
+;   &#39;ip.add.re.ss:port&#39;    - to listen on a TCP socket to a specific address on
+;                            a specific port;
+;   &#39;port&#39;                 - to listen on a TCP socket to all addresses on a
+;                            specific port;
+;   &#39;/path/to/unix/socket&#39; - to listen on a unix socket.
+; Note: This value is mandatory.
+listen = 127.0.0.1:9000
+</pre></div>
+</div>
+<p>Es importante agregar las lineas siguientes al archivo <em>/etc/rc.conf</em> para iniciar los servicios automaticamente.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">nginx</span><span class="o">=</span><span class="n">YES</span>
+<span class="n">php</span><span class="o">-</span><span class="n">fpm</span><span class="o">=</span><span class="n">YES</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://www.pkgsrc.org">pkgsrc</a> coloca los scripts de inicio en <em>/usr/pkg/share/examples/rc.d/</em>, es tarea sencilla copiar los scripts
+al directorio /etc/rc.d para mayor comodidad e iniciar <a class="reference external" href="http://www.nginx.org">nginx</a> y php-fpm.</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo /etc/rc.d/nginx start
+$ sudo /etc/rc.d/php-fpm start
+</pre></div>
+</div>
+<p>Pruebe el servidor editando un simple archivo php y colocandolo en la ruta publica de su servidor, en nuestro caso <em>/var/www/site/html</em></p>
+<div class="code highlight-python"><div class="highlight"><pre>&lt;?php
+   phpinfo();
+?&gt;
+</pre></div>
+</div>
+<p>Es todo.</p>
 </div>
 </div>
 
