@@ -1,11 +1,5 @@
 Servidor DHCP
 #############
-:author: Francisco Valladolid
-:date: 2013-07-18 13:40
-:category: NetBSD
-:tags:  dhcp, redes
-:slug: dhcp-server
-:lang: es
 
 Configurando un servidor DHCP es simple. NetBSD incluye `ISC
 DHCP <http://www.isc.org/sw/dhcp/>`__ en el sistema base, asi que no es

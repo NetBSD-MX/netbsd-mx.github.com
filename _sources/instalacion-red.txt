@@ -1,11 +1,5 @@
 Instalación de NetBSD con Arranque desde Red (PXE)
 ##################################################
-:date: 2012-11-02 09:28
-:tags: Redes, PXE, DHCP, TFTP
-:category: NetBSD
-:author: César Yáñez Fernández
-:slug: instalacion-red
-:lang: es
 
 NetBSD_ es un Sistema Operativo bastante flexible; en algunos escenarios, tenemos la necesidad de instalar el Sistema Operativo desde red, dentro de un equipo destino que no cuenta con disquetera ni puede arrancar por USB. El CD-ROM de NetBSD_ cuenta con los archivos necesarios para poder instalarse desde red. En éste artículo explicaremos lo necesario para un arranque usando PXE_ (Preboot eXecution Environment); el cual es muy usado en la actualidad.
 

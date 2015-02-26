@@ -1,11 +1,5 @@
 PPPoE
 #####
-:date: 2013-07-14 2:30
-:author: Francisco Valladolid
-:tags: pppoe, redes, nat, firewall, ipf, ipnat
-:category: redes
-:slug: pppoe
-:lang: es
 
 Introducccion:
 --------------

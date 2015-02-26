@@ -1,11 +1,5 @@
 Perl Dancer y NetBSD
 ####################
-:date: 2013-07-13 22:40
-:author: asarch
-:tags: perl, web, lighttpd, dancer, cpan
-:category: programacion 
-:slug: dancer 
-:lang: es
 
 .. contents::
 

@@ -1,11 +1,5 @@
 bozohttpd - bozotic httpd 
 ##########################
-:date: 2013-07-01 20:40
-:tags: netbsd, httpd, servidor, web, cgi, html
-:category: NetBSD
-:author: Francisco Valladolid
-:slug: bozohttpd
-:lang: es
 
 ::
 

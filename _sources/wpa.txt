@@ -1,11 +1,5 @@
 WPA
 ###
-:author: Francisco Valladolid
-:date: 2013-07-22 16:15
-:category: Redes
-:tags: wifi, redes, wpa 
-:slug: wpa
-:lang: es
 
 Requisitos
 ----------
