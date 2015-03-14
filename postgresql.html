@@ -162,10 +162,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#introduccion">Introduccion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#requerimientos">Requerimientos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuracion">Configuracion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iniciando-postgresql">Iniciando PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autenticacion">Autenticacion</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#iniciando-postgresql">Iniciando PostgreSQL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#autenticacion">Autenticacion</a></li>
 </ul>
 </ul>
 </li>
@@ -183,10 +183,10 @@
 <li><a class="reference internal" href="#introduccion">Introduccion</a></li>
 <li><a class="reference internal" href="#requerimientos">Requerimientos</a></li>
 <li><a class="reference internal" href="#configuracion">Configuracion</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#iniciando-postgresql">Iniciando PostgreSQL</a></li>
 <li><a class="reference internal" href="#autenticacion">Autenticacion</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -231,10 +231,10 @@
 <li><a class="reference internal" href="#introduccion" id="id3">Introduccion</a></li>
 <li><a class="reference internal" href="#requerimientos" id="id4">Requerimientos</a></li>
 <li><a class="reference internal" href="#configuracion" id="id5">Configuracion</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#iniciando-postgresql" id="id6">Iniciando PostgreSQL</a></li>
 <li><a class="reference internal" href="#autenticacion" id="id7">Autenticacion</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="introduccion">
@@ -270,9 +270,8 @@ los servicios automaticamente.</p>
 <p><a class="reference external" href="http://www.pkgsrc.org">pkgsrc</a> coloca los scripts de inicio en <em>/usr/pkg/share/examples/rc.d/</em>, de ahi que tenemos que copiar
 <em>/usr/pkg/share/examples/rc.d/pgsql a /etc/rc.d/</em></p>
 </div>
-</div>
 <div class="section" id="iniciando-postgresql">
-<h1><a class="toc-backref" href="#id6">Iniciando PostgreSQL</a><a class="headerlink" href="#iniciando-postgresql" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id6">Iniciando PostgreSQL</a><a class="headerlink" href="#iniciando-postgresql" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre>$ sudo /etc/rc.d/pgsql start
 </pre></div>
 </div>
@@ -287,11 +286,12 @@ postgres=#
 </div>
 </div>
 <div class="section" id="autenticacion">
-<h1><a class="toc-backref" href="#id7">Autenticacion</a><a class="headerlink" href="#autenticacion" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id7">Autenticacion</a><a class="headerlink" href="#autenticacion" title="Permalink to this headline">¶</a></h2>
 <p>El archivo <em>/usr/pkg/pgsql/data/pg_hba.conf</em> contiene la configuracion para establecer la conexion
 al motor de base de datos y es el archivo de configuracion del cliente, el cual nos permite elegir
 un metodo de autenticacion y permitir o denegar la conexion remota a nuestro sistema de base de datos.</p>
 <p>Mas informacion puede encontrarse en el sitio oficial de <a class="reference external" href="http://www.postgresql.org">PostgreSQL</a></p>
+</div>
 </div>
 
 
