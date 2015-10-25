@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.2.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
     <link rel="next" title="Access point con doble stack y seguridad WPA" href="accesspoint-dualstack.html" />
@@ -44,7 +44,7 @@
 </script>
 
   </head>
-  <body>
+  <body role="document">
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -167,6 +167,12 @@
 <li class="toctree-l2"><a class="reference internal" href="postgresql.html#autenticacion">Autenticacion</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="pkgsrc-macosx.html">pkgsrc en MacOSX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-macosx.html#introduccion">Introduccion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-macosx.html#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-macosx.html#pasos">Pasos</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -257,18 +263,18 @@ ejecutarlo bajo <a class="reference external" href="http://netbsd.gw.com/cgi-bin
 <div class="section" id="configuracion">
 <h2>Configuración<a class="headerlink" href="#configuracion" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a>(8) se inicia via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?inetd++NetBSD-current">inetd</a>(8), para ello editamos lo siguiente:</p>
-<p><tt class="docutils literal"><span class="pre">#&nbsp;vi&nbsp;/etc/inetd.conf</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;vi&nbsp;/etc/inetd.conf</span></code></p>
 <p>Descomentar la linea;</p>
-<p><tt class="docutils literal"><span class="pre">http&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stream&nbsp;&nbsp;tcp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nowait:600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_httpd&nbsp;&nbsp;/usr/libexec/httpd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httpd&nbsp;/var/www&nbsp;</span></tt></p>
+<p><code class="docutils literal"><span class="pre">http&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stream&nbsp;&nbsp;tcp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nowait:600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_httpd&nbsp;&nbsp;/usr/libexec/httpd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httpd&nbsp;/var/www&nbsp;</span></code></p>
 <p>La linea anterior habilita el inicio de <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> via inetd, el
 directorio /var/www es la ubicacion de nuestros archivos html o cgi,
 este directorio ya existe en nuestro sistema, lo que procede es poner
 documentos ahi para que <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> los lea.</p>
 <p>Ahora tambien es posible ejecutar httpd desde el shell, via <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?rc.d++NetBSD-current">rc</a> de la
 siguiente forma:</p>
-<p><tt class="docutils literal"><span class="pre">#&nbsp;/etc/rc.d/httpd&nbsp;start</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;/etc/rc.d/httpd&nbsp;start</span></code></p>
 <p>A continuacion ponemos algo dentro del directorio por defecto de httpd :</p>
-<p><tt class="docutils literal"><span class="pre">#&nbsp;vi&nbsp;/var/www/index.html</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;vi&nbsp;/var/www/index.html</span></code></p>
 <p>Escribimos una linea html en el archivo y guardamos los cambios,
 ejemplo:</p>
 <div class="highlight-python"><div class="highlight"><pre>&lt;h1&gt; It work&#39;s &lt;/h1&gt;
@@ -276,7 +282,7 @@ ejemplo:</p>
 </div>
 <p>A continuacion, iniciamos httpd(8), para ello basta ejecutar desde la
 linea de comandos:</p>
-<p><tt class="docutils literal"><span class="pre">#&nbsp;/etc/rc.d/inetd&nbsp;restart</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;/etc/rc.d/inetd&nbsp;restart</span></code></p>
 <p>Apuntamos nuestro browser hacia <strong>http://localhost</strong> para probar nuestra
 configuracion.</p>
 </div>
@@ -318,7 +324,7 @@ Inicia httpd(8) con soporte php dentro de /var/www/
     </p>
     <p>
         &copy; Copyright 2014, varios.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

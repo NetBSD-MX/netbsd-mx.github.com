@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.2.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
     <link rel="next" title="WPA" href="wpa.html" />
@@ -44,7 +44,7 @@
 </script>
 
   </head>
-  <body>
+  <body role="document">
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -167,6 +167,12 @@
 <li class="toctree-l2"><a class="reference internal" href="postgresql.html#autenticacion">Autenticacion</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="pkgsrc-macosx.html">pkgsrc en MacOSX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-macosx.html#introduccion">Introduccion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-macosx.html#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-macosx.html#pasos">Pasos</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -240,45 +246,45 @@
 </div>
 <div class="section" id="grabando-dvd-s">
 <h2>Grabando DVD&#8217;s<a class="headerlink" href="#grabando-dvd-s" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">#&nbsp;growisofs&nbsp;&nbsp;-dvd-compat&nbsp;-Z&nbsp;/dev/rcd0d=imagen.iso</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;growisofs&nbsp;&nbsp;-dvd-compat&nbsp;-Z&nbsp;/dev/rcd0d=imagen.iso</span></code></p>
 </div>
 <div class="section" id="almacenando-archivos-en-un-dvd">
 <h2>Almacenando archivos en un DVD<a class="headerlink" href="#almacenando-archivos-en-un-dvd" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">#&nbsp;growisofs&nbsp;-dvd-compat&nbsp;-Z&nbsp;/dev/rcd0d&nbsp;-J&nbsp;-R&nbsp;/path/to/files</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;growisofs&nbsp;-dvd-compat&nbsp;-Z&nbsp;/dev/rcd0d&nbsp;-J&nbsp;-R&nbsp;/path/to/files</span></code></p>
 </div>
 <div class="section" id="creando-un-dvd-video">
 <h2>Creando un DVD Video<a class="headerlink" href="#creando-un-dvd-video" title="Permalink to this headline">¶</a></h2>
 <p>Para crear un DVD-Video desde una ruta especifica conteniendo VIDEO_TS
 y AUDIO_TS hacemos:</p>
-<p><tt class="docutils literal"><span class="pre">#&nbsp;growisofs&nbsp;-Z&nbsp;/dev/rcd0d&nbsp;-dvd-video&nbsp;/path/to/video/files</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;growisofs&nbsp;-Z&nbsp;/dev/rcd0d&nbsp;-dvd-video&nbsp;/path/to/video/files</span></code></p>
 </div>
 <div class="section" id="generando-una-imagen-desde-un-dvd">
 <h2>Generando una imagen desde un DVD<a class="headerlink" href="#generando-una-imagen-desde-un-dvd" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">#&nbsp;readcd&nbsp;dev=/dev/rcd0d&nbsp;f=image.img</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;readcd&nbsp;dev=/dev/rcd0d&nbsp;f=image.img</span></code></p>
 </div>
 <div class="section" id="formateando-dvd-s">
 <h2>Formateando DVD&#8217;s<a class="headerlink" href="#formateando-dvd-s" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">#&nbsp;dvd+rw-format&nbsp;-blank&nbsp;/dev/rcd0d</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;dvd+rw-format&nbsp;-blank&nbsp;/dev/rcd0d</span></code></p>
 </div>
 <div class="section" id="generando-una-imagen-iso-desde-un-cd">
 <h2>Generando una imagen .ISO desde un CD<a class="headerlink" href="#generando-una-imagen-iso-desde-un-cd" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">#&nbsp;&nbsp;readcd&nbsp;dev=/dev/rcd0d&nbsp;&nbsp;f=imagen.iso</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;&nbsp;readcd&nbsp;dev=/dev/rcd0d&nbsp;&nbsp;f=imagen.iso</span></code></p>
 </div>
 <div class="section" id="grabando-una-imagen-iso-a-un-cd">
 <h2>Grabando una imagen ISO a un CD<a class="headerlink" href="#grabando-una-imagen-iso-a-un-cd" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">#&nbsp;cdrecord&nbsp;-v&nbsp;dev=/dev/rcd0d&nbsp;imagen.iso</span></tt></div>
+<div class="line"><code class="docutils literal"><span class="pre">#&nbsp;cdrecord&nbsp;-v&nbsp;dev=/dev/rcd0d&nbsp;imagen.iso</span></code></div>
 </div>
 </div>
 <div class="section" id="formateando-cd-s">
 <h2>Formateando CD&#8217;s<a class="headerlink" href="#formateando-cd-s" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">#&nbsp;cdrdao&nbsp;blank&nbsp;--device&nbsp;/dev/rcd0d&nbsp;--driver&nbsp;generic-mmc</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#&nbsp;cdrdao&nbsp;blank&nbsp;--device&nbsp;/dev/rcd0d&nbsp;--driver&nbsp;generic-mmc</span></code></p>
 </div>
 <div class="section" id="trabajando-con-cd-de-audio">
 <h2>Trabajando con CD de Audio<a class="headerlink" href="#trabajando-con-cd-de-audio" title="Permalink to this headline">¶</a></h2>
 <p>El comando siguiente lee las pistas de audio en formato WAV y genera una
 tabla de contenidos en el archivo cdtracks.toc</p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cdrdao</span> <span class="pre">read-cd</span> <span class="pre">--device</span> <span class="pre">/dev/rcd0d</span> <span class="pre">cdtracks.toc</span></tt></p>
+<p><code class="docutils literal"><span class="pre">#</span> <span class="pre">cdrdao</span> <span class="pre">read-cd</span> <span class="pre">--device</span> <span class="pre">/dev/rcd0d</span> <span class="pre">cdtracks.toc</span></code></p>
 <p>A continuacion escribimos el contenido del CD de audio originado a
 partir de la tabla de contenidos del paso anterior en un CD-R blanco. #
 cdrdao write &#8211;device /dev/rcd0d cdtracks.toc</p>
@@ -308,7 +314,7 @@ automatizar tus copias.</p>
     </p>
     <p>
         &copy; Copyright 2014, varios.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.2.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
     <link rel="next" title="Usando pkgsrc e instalando paquetes binarios" href="pkgsrc-binarios.html" />
@@ -44,7 +44,7 @@
 </script>
 
   </head>
-  <body>
+  <body role="document">
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -167,6 +167,12 @@
 <li class="toctree-l2"><a class="reference internal" href="postgresql.html#autenticacion">Autenticacion</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="pkgsrc-macosx.html">pkgsrc en MacOSX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-macosx.html#introduccion">Introduccion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-macosx.html#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-macosx.html#pasos">Pasos</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -233,7 +239,7 @@
 <p>El servidor de arranque necesita tener activado los servicios de <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a>, <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a> y de manera opcional el servicio de HTTP o FTP donde contendrá los componentes para su instalación.</p>
 <div class="section" id="servicio-de-dhcp">
 <h3>Servicio de DHCP<a class="headerlink" href="#servicio-de-dhcp" title="Permalink to this headline">¶</a></h3>
-<p>En el servicio de <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a>, se deberá de dar de alta una dirección IP fija que será asignada al equipo destino y se indicará la dirección IP del Servidor que tenga el servicio de TFTP en la variable <tt class="docutils literal"><span class="pre">next-server</span></tt>. Si se usa el servidor <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a> de ISC la configuración sería similar a la que sigue:</p>
+<p>En el servicio de <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a>, se deberá de dar de alta una dirección IP fija que será asignada al equipo destino y se indicará la dirección IP del Servidor que tenga el servicio de TFTP en la variable <code class="docutils literal"><span class="pre">next-server</span></code>. Si se usa el servidor <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a> de ISC la configuración sería similar a la que sigue:</p>
 <div class="highlight-python"><div class="highlight"><pre>host MiServidor {
   hardware ethernet 00:AA:11:BB:22:CC;
   fixed-address 192.168.1.105;
@@ -249,10 +255,10 @@
 <h3>Servicio de TFTP<a class="headerlink" href="#servicio-de-tftp" title="Permalink to this headline">¶</a></h3>
 <p>Para el servidor <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a> se puede usar la opción que les sea más cómoda, y no requiere de una configuración especial, lo importante aqui es obtener los siguientes archivos del CD-ROM de <a class="reference external" href="http://www.netbsd.org">NetBSD</a> y colocarlos en el directorio raíz que provee el servicio de <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a>:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">amd64/installation/misc/pxeboot_ia32.bin</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">amd64/binary/kernel/netbsd-INSTALL.gz</span></tt></li>
+<li><code class="docutils literal"><span class="pre">amd64/installation/misc/pxeboot_ia32.bin</span></code></li>
+<li><code class="docutils literal"><span class="pre">amd64/binary/kernel/netbsd-INSTALL.gz</span></code></li>
 </ul>
-<p>En el caso del kernel de instalación llamado <tt class="docutils literal"><span class="pre">netbsd-INSTALL.gz</span></tt>; hay que descomprimirlo usando <tt class="docutils literal"><span class="pre">gunzip</span></tt> o  <tt class="docutils literal"><span class="pre">zcat</span></tt> y nombrarlo como <tt class="docutils literal"><span class="pre">netbsd</span></tt>, aunque el nombre de <tt class="docutils literal"><span class="pre">netbsd-INSTALL</span></tt> puede quedarse si gustan.</p>
+<p>En el caso del kernel de instalación llamado <code class="docutils literal"><span class="pre">netbsd-INSTALL.gz</span></code>; hay que descomprimirlo usando <code class="docutils literal"><span class="pre">gunzip</span></code> o  <code class="docutils literal"><span class="pre">zcat</span></code> y nombrarlo como <code class="docutils literal"><span class="pre">netbsd</span></code>, aunque el nombre de <code class="docutils literal"><span class="pre">netbsd-INSTALL</span></code> puede quedarse si gustan.</p>
 </div>
 <div class="section" id="servicio-de-http-o-ftp">
 <h3>Servicio de HTTP o FTP<a class="headerlink" href="#servicio-de-http-o-ftp" title="Permalink to this headline">¶</a></h3>
@@ -261,7 +267,7 @@
 </div>
 <div class="section" id="equipo-destino">
 <h2>Equipo Destino<a class="headerlink" href="#equipo-destino" title="Permalink to this headline">¶</a></h2>
-<p>El equipo destino debe de tener en el ROM de su tarjeta de red el soporte para arranque por <a class="reference external" href="http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf">PXE</a>, ésto puede verse en la interfaz de la ROM de la terjeta de red o en el Firmware (BIOS) del equipo. Al equipo le indicaremos que el dispositivo de arranque será la tarjeta de red. Una vez que obtenga los datos del servidor <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a>, le indicamos que el kernel de <a class="reference external" href="http://www.netbsd.org">NetBSD</a> se encuentra en <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a>, tecleando <tt class="docutils literal"><span class="pre">boot</span> <span class="pre">tftp:netbsd</span></tt>:</p>
+<p>El equipo destino debe de tener en el ROM de su tarjeta de red el soporte para arranque por <a class="reference external" href="http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf">PXE</a>, ésto puede verse en la interfaz de la ROM de la terjeta de red o en el Firmware (BIOS) del equipo. Al equipo le indicaremos que el dispositivo de arranque será la tarjeta de red. Una vez que obtenga los datos del servidor <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a>, le indicamos que el kernel de <a class="reference external" href="http://www.netbsd.org">NetBSD</a> se encuentra en <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a>, tecleando <code class="docutils literal"><span class="pre">boot</span> <span class="pre">tftp:netbsd</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>CLIENT MAC ADDR: 00 AA 11 BB 22 CC  GUID: 564DAF7F-7E8A.0CDE-A2A6-FB54233D2014
 CLIENT IP: 192.168.1.105  MASK: 255.255.255.0  DHCP IP: 192.168.1.101
 GATEWAY IP: 192.168.1.254;
@@ -293,7 +299,7 @@ type &quot;?&quot; or &quot;help&quot; for help.
     </p>
     <p>
         &copy; Copyright 2014, varios.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

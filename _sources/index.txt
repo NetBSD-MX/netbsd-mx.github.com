@@ -22,6 +22,8 @@ Contents:
    pppoe
    modular-xorg-pkgsrc
    nginx-php
+   postgresql
+   pkgsrc-macosx
 
 
 Indices and tables
