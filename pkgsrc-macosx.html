@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pkgsrc en MacOSX &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="prev" title="PostgreSQL" href="postgresql.html" />
+
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-13168762-4']);
+  _gaq.push(['_trackPageview']);
+</script>
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
+          Documentacion NetBSD Mexico </a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="instalacion-red.html">Instalación de NetBSD con Arranque desde Red (PXE)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#servidor-de-arranque">Servidor de Arranque</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#equipo-destino">Equipo Destino</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pkgsrc-binarios.html">Usando pkgsrc e instalando paquetes binarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#que-es-pkgsrc">¿Que es pkgsrc ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#inicializando-pkgsrc">Inicializando pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#instalando-paquetes-via-pkgsrc">Instalando paquetes via pkgsrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#introduccion-a-pkgin">Introduccion a pkgin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bozohttpd.html">bozohttpd - bozotic httpd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accesspoint-dualstack.html">Access point con doble stack y seguridad WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#descripcion">Descripcion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#definiciones">Definiciones:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#requisitos">Requisitos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#procedimiento">Procedimiento:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#cliente">Cliente:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accesspoint-dualstack.html#comentarios-y-explicaciones">Comentarios y explicaciones:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dancer.html">Perl Dancer y NetBSD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#instalacion">Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#contenido">Contenido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dancer.html#referencias">Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp-server.html">Servidor DHCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wpa.html">WPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#requisitos">Requisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#que-es">Que es ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#configuracion">Configuracion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#usando-wpa-supplicant">Usando wpa_supplicant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wpa.html#mas-informacion">Mas informacion:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pppoe.html">PPPoE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#introducccion">Introducccion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#requerimientos">Requerimientos:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#configuracion">Configuracion:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#haciendo-nat">Haciendo NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html#consideraciones">Consideraciones:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modular-xorg-pkgsrc.html">Instalando modular-xorg desde pkgsrc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#antes-de-empezar">Antes de empezar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#id1">Instalando modular-xorg desde <em>pkgsrc</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#configurar-xorg">Configurar <em>Xorg</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#configurando-lo-basico-en-xinitrc">Configurando lo básico en .xinitrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#iniciando-xorg">Iniciando <em>Xorg</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-xorg-pkgsrc.html#referencias">Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nginx-php.html">NEMP - NetBSD - nginx - PHP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nginx-php.html#introduccion">Introduccion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nginx-php.html#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nginx-php.html#configuracion">Configuracion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="postgresql.html#introduccion">Introduccion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postgresql.html#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postgresql.html#configuracion">Configuracion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postgresql.html#iniciando-postgresql">Iniciando PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postgresql.html#autenticacion">Autenticacion</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">pkgsrc en MacOSX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduccion">Introduccion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requerimientos">Requerimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pasos">Pasos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#captura-de-pantalla">Captura de pantalla.</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">pkgsrc en MacOSX</a><ul>
+<li><a class="reference internal" href="#introduccion">Introduccion</a></li>
+<li><a class="reference internal" href="#requerimientos">Requerimientos</a></li>
+<li><a class="reference internal" href="#pasos">Pasos</a></li>
+<li><a class="reference internal" href="#captura-de-pantalla">Captura de pantalla.</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/pkgsrc-macosx.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="pkgsrc-en-macosx">
+<h1><a class="toc-backref" href="#id1">pkgsrc en MacOSX</a><a class="headerlink" href="#pkgsrc-en-macosx" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#pkgsrc-en-macosx" id="id1">pkgsrc en MacOSX</a><ul>
+<li><a class="reference internal" href="#introduccion" id="id2">Introduccion</a></li>
+<li><a class="reference internal" href="#requerimientos" id="id3">Requerimientos</a></li>
+<li><a class="reference internal" href="#pasos" id="id4">Pasos</a></li>
+<li><a class="reference internal" href="#captura-de-pantalla" id="id5">Captura de pantalla.</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduccion">
+<h2><a class="toc-backref" href="#id2">Introduccion</a><a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.pkgsrc.org">pkgsrc</a> es un sistema de paquetes altamente portable, originalmennte creado para el sistema operativo <a class="reference external" href="http://www.netbsd.org">NetBSD</a>
+pero puede usarse ahora en una variad de sistemas, incluyendo Linux, Minix, FreeBSD y Mac OSX.</p>
+<p>En este articulo, detallaremos los pasos para usar paquetes binarios precompilados en un sistema OSX.</p>
+</div>
+<div class="section" id="requerimientos">
+<h2><a class="toc-backref" href="#id3">Requerimientos</a><a class="headerlink" href="#requerimientos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>OS X 64 bit</li>
+<li>culr</li>
+<li>iTerm.app o Terminal.app</li>
+</ul>
+</div>
+<div class="section" id="pasos">
+<h2><a class="toc-backref" href="#id4">Pasos</a><a class="headerlink" href="#pasos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>: Descargamos el kit bootstrap de 64-bit
+$ curl -Os http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-x86_64.tar.gz
+
+; Verificamos el checksum
+
+$ shasum bootstrap-2015Q1-x86_64.tar.gz
+2d2f8dda3743dcd323c306828e9dbdc63b09bff2  bootstrap-2015Q1-x86_64.tar.gz
+
+; Instalamos el bootstrap en el directorio /
+
+$ sudo tar -zxpf bootstrap-2015Q1-x86_64.tar.gz -C /
+
+;Agregamos las rutas para los directorios del bootstrap
+
+$ sudo tar -zxpf bootstrap-2015Q1-x86_64.tar.gz -C /
+
+$ PATH=/usr/pkg/sbin:/usr/pkg/bin:$PATH
+$ MANPATH=/usr/pkg/man:$MANPATH
+
+; Actualizar la base de datos de paquetes
+
+$ sudo pkgin -y update
+
+; total de paquetes disponibles.
+
+$ pkgin avail | wc -l
+</pre></div>
+</div>
+<p>Con estos sencillos pasos, estaras usando pkgsrc en tu sistema operativo OSX y sentirte en casa, instalar
+paquetes una vez actualizado la base de datos es muy sencillo, tenemos un tutorial sobre pkgin en este sitio.</p>
+</div>
+<div class="section" id="captura-de-pantalla">
+<h2><a class="toc-backref" href="#id5">Captura de pantalla.</a><a class="headerlink" href="#captura-de-pantalla" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/pkgsrc-osx.png" src="_images/pkgsrc-osx.png" />
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, varios.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+    </p>
+  </div>
+</footer>
+<div class="footer">This page uses <a href="http://analytics.google.com/">
+Google Analytics</a> to collect statistics. You can disable it by blocking
+the JavaScript coming from www.google-analytics.com.
+<script type="text/javascript">
+  (function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ?
+              'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+  })();
+</script>
+</div>
+
+  </body>
+</html>
