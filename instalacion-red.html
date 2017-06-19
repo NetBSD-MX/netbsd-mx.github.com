@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Instalación de NetBSD con Arranque desde Red (PXE) &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    <title>Instalación de NetBSD con Arranque desde Red (PXE) &#8212; Documentacion NetBSD.MX 1.0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -18,7 +15,8 @@
         VERSION:     '1.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,11 +24,12 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Usando pkgsrc e instalando paquetes binarios" href="pkgsrc-binarios.html" />
-    <link rel="prev" title="Proyecto de Documentacion para NetBSD Mexico" href="index.html" />
+    <link rel="prev" title="Documentacion NetBSD español." href="index.html" />
 
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -44,7 +43,7 @@
 </script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,8 +54,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
-          Documentacion NetBSD Mexico </a>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NetBSD.png"></span>
+          Documentacion NetBSD español</a>
         <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
       </div>
 
@@ -73,7 +72,7 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Instalación de NetBSD con Arranque desde Red (PXE)</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Instalación de NetBSD con Arranque desde Red (PXE)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#servidor-de-arranque">Servidor de Arranque</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#equipo-destino">Equipo Destino</a></li>
 </ul>
@@ -90,8 +89,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#soporte-virtualhosts">Soporte virtualhosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
 </ul>
 </li>
@@ -115,16 +114,16 @@
 <li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD’s and DVD-R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
 </ul>
 </li>
@@ -208,7 +207,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="_sources/instalacion-red.txt"
+  <a href="_sources/instalacion-red.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -230,7 +229,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="instalacion-de-netbsd-con-arranque-desde-red-pxe">
 <h1>Instalación de NetBSD con Arranque desde Red (PXE)<a class="headerlink" href="#instalacion-de-netbsd-con-arranque-desde-red-pxe" title="Permalink to this headline">¶</a></h1>
@@ -241,14 +240,14 @@
 <div class="section" id="servicio-de-dhcp">
 <h3>Servicio de DHCP<a class="headerlink" href="#servicio-de-dhcp" title="Permalink to this headline">¶</a></h3>
 <p>En el servicio de <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a>, se deberá de dar de alta una dirección IP fija que será asignada al equipo destino y se indicará la dirección IP del Servidor que tenga el servicio de TFTP en la variable <code class="docutils literal"><span class="pre">next-server</span></code>. Si se usa el servidor <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a> de ISC la configuración sería similar a la que sigue:</p>
-<div class="highlight-python"><div class="highlight"><pre>host MiServidor {
-  hardware ethernet 00:AA:11:BB:22:CC;
-  fixed-address 192.168.1.105;
-  filename &quot;pxeboot_ia32.bin&quot;;
-  next-server 192.168.1.101;
-  option host-name &quot;nbsd-server&quot;;
-  option routers 192.168.1.254;
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="n">MiServidor</span> <span class="p">{</span>
+  <span class="n">hardware</span> <span class="n">ethernet</span> <span class="mi">00</span><span class="p">:</span><span class="n">AA</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="n">BB</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="n">CC</span><span class="p">;</span>
+  <span class="n">fixed</span><span class="o">-</span><span class="n">address</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.105</span><span class="p">;</span>
+  <span class="n">filename</span> <span class="s2">&quot;pxeboot_ia32.bin&quot;</span><span class="p">;</span>
+  <span class="nb">next</span><span class="o">-</span><span class="n">server</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.101</span><span class="p">;</span>
+  <span class="n">option</span> <span class="n">host</span><span class="o">-</span><span class="n">name</span> <span class="s2">&quot;nbsd-server&quot;</span><span class="p">;</span>
+  <span class="n">option</span> <span class="n">routers</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.254</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -269,16 +268,16 @@
 <div class="section" id="equipo-destino">
 <h2>Equipo Destino<a class="headerlink" href="#equipo-destino" title="Permalink to this headline">¶</a></h2>
 <p>El equipo destino debe de tener en el ROM de su tarjeta de red el soporte para arranque por <a class="reference external" href="http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf">PXE</a>, ésto puede verse en la interfaz de la ROM de la terjeta de red o en el Firmware (BIOS) del equipo. Al equipo le indicaremos que el dispositivo de arranque será la tarjeta de red. Una vez que obtenga los datos del servidor <a class="reference external" href="http://www.isc.org/sw/dhcp">DHCP</a>, le indicamos que el kernel de <a class="reference external" href="http://www.netbsd.org">NetBSD</a> se encuentra en <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a>, tecleando <code class="docutils literal"><span class="pre">boot</span> <span class="pre">tftp:netbsd</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>CLIENT MAC ADDR: 00 AA 11 BB 22 CC  GUID: 564DAF7F-7E8A.0CDE-A2A6-FB54233D2014
-CLIENT IP: 192.168.1.105  MASK: 255.255.255.0  DHCP IP: 192.168.1.101
-GATEWAY IP: 192.168.1.254;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">CLIENT</span> <span class="n">MAC</span> <span class="n">ADDR</span><span class="p">:</span> <span class="mi">00</span> <span class="n">AA</span> <span class="mi">11</span> <span class="n">BB</span> <span class="mi">22</span> <span class="n">CC</span>  <span class="n">GUID</span><span class="p">:</span> <span class="mi">564</span><span class="n">DAF7F</span><span class="o">-</span><span class="mi">7</span><span class="n">E8A</span><span class="o">.</span><span class="mi">0</span><span class="n">CDE</span><span class="o">-</span><span class="n">A2A6</span><span class="o">-</span><span class="n">FB54233D2014</span>
+<span class="n">CLIENT</span> <span class="n">IP</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.105</span>  <span class="n">MASK</span><span class="p">:</span> <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span>  <span class="n">DHCP</span> <span class="n">IP</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.101</span>
+<span class="n">GATEWAY</span> <span class="n">IP</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.254</span><span class="p">;</span>
 
-&gt;&gt; NetBSD/x86 PXE boot, Revision 5.1 (from NetBSD 6.0)
-&gt;&gt; Memory: 572/260032 k
-Press return to boot now, any other key for boot menu
-booting netbsd - starting in 0 seconds.
-type &quot;?&quot; or &quot;help&quot; for help.
-&gt; boot tftp:netbsd
+<span class="o">&gt;&gt;</span> <span class="n">NetBSD</span><span class="o">/</span><span class="n">x86</span> <span class="n">PXE</span> <span class="n">boot</span><span class="p">,</span> <span class="n">Revision</span> <span class="mf">5.1</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">NetBSD</span> <span class="mf">6.0</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">Memory</span><span class="p">:</span> <span class="mi">572</span><span class="o">/</span><span class="mi">260032</span> <span class="n">k</span>
+<span class="n">Press</span> <span class="k">return</span> <span class="n">to</span> <span class="n">boot</span> <span class="n">now</span><span class="p">,</span> <span class="nb">any</span> <span class="n">other</span> <span class="n">key</span> <span class="k">for</span> <span class="n">boot</span> <span class="n">menu</span>
+<span class="n">booting</span> <span class="n">netbsd</span> <span class="o">-</span> <span class="n">starting</span> <span class="ow">in</span> <span class="mi">0</span> <span class="n">seconds</span><span class="o">.</span>
+<span class="nb">type</span> <span class="s2">&quot;?&quot;</span> <span class="ow">or</span> <span class="s2">&quot;help&quot;</span> <span class="k">for</span> <span class="n">help</span><span class="o">.</span>
+<span class="o">&gt;</span> <span class="n">boot</span> <span class="n">tftp</span><span class="p">:</span><span class="n">netbsd</span>
 </pre></div>
 </div>
 <p>Descargará el kernel del servidor <a class="reference external" href="https://tools.ietf.org/html/rfc1350">TFTP</a>, y una vez arrancado llegará al asistente de instalación.</p>
@@ -299,8 +298,8 @@ type &quot;?&quot; or &quot;help&quot; for help.
       
     </p>
     <p>
-        &copy; Copyright 2015, varios.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+        &copy; Copyright 2017, Varios amigos, amantes de NetBSD.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.<br/>
     </p>
   </div>
 </footer>

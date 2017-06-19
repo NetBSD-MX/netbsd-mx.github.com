@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Proyecto de Documentacion para NetBSD Mexico &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    <title>Documentacion NetBSD español. &#8212; Documentacion NetBSD.MX 1.0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -18,7 +15,8 @@
         VERSION:     '1.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,9 +24,10 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Instalación de NetBSD con Arranque desde Red (PXE)" href="instalacion-red.html" />
 
 <meta charset='utf-8'>
@@ -43,7 +42,7 @@
 </script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -54,8 +53,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="_static/NetBSD.png">
-          Documentacion NetBSD Mexico </a>
+        <a class="navbar-brand" href="#"><span><img src="_static/NetBSD.png"></span>
+          Documentacion NetBSD español</a>
         <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
       </div>
 
@@ -89,8 +88,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#soporte-virtualhosts">Soporte virtualhosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
 </ul>
 </li>
@@ -114,16 +113,16 @@
 <li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD’s and DVD-R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
 </ul>
 </li>
@@ -186,7 +185,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Proyecto de Documentacion para NetBSD Mexico</a></li>
+<li><a class="reference internal" href="#">Documentacion NetBSD español.</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </ul>
@@ -199,7 +198,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="_sources/index.txt"
+  <a href="_sources/index.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -221,10 +220,10 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
-  <div class="section" id="proyecto-de-documentacion-para-netbsd-mexico">
-<h1>Proyecto de Documentacion para NetBSD Mexico<a class="headerlink" href="#proyecto-de-documentacion-para-netbsd-mexico" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="documentacion-netbsd-espanol">
+<h1>Documentacion NetBSD español.<a class="headerlink" href="#documentacion-netbsd-espanol" title="Permalink to this headline">¶</a></h1>
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -245,8 +244,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#soporte-virtualhosts">Soporte virtualhosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
 </ul>
 </li>
@@ -270,16 +269,16 @@
 <li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD’s and DVD-R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
 </ul>
 </li>
@@ -335,9 +334,9 @@
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
 </ul>
 </div>
 
@@ -354,8 +353,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2015, varios.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+        &copy; Copyright 2017, Varios amigos, amantes de NetBSD.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.<br/>
     </p>
   </div>
 </footer>

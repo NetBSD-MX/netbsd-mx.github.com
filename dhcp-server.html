@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Servidor DHCP &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    <title>Servidor DHCP &#8212; Documentacion NetBSD.MX 1.0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -18,7 +15,8 @@
         VERSION:     '1.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,9 +24,10 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Grabando CD’s and DVD-R" href="media.html" />
     <link rel="prev" title="Perl Dancer y NetBSD" href="dancer.html" />
 
@@ -44,7 +43,7 @@
 </script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,8 +54,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
-          Documentacion NetBSD Mexico </a>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NetBSD.png"></span>
+          Documentacion NetBSD español</a>
         <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
       </div>
 
@@ -90,8 +89,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#soporte-virtualhosts">Soporte virtualhosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
 </ul>
 </li>
@@ -111,20 +110,20 @@
 <li class="toctree-l2"><a class="reference internal" href="dancer.html#referencias">Referencias</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Servidor DHCP</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Servidor DHCP</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#referencias">Referencias:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD’s and DVD-R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
 </ul>
 </li>
@@ -202,7 +201,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="_sources/dhcp-server.txt"
+  <a href="_sources/dhcp-server.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -224,7 +223,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="servidor-dhcp">
 <h1>Servidor DHCP<a class="headerlink" href="#servidor-dhcp" title="Permalink to this headline">¶</a></h1>
@@ -233,21 +232,21 @@ DHCP</a> en el sistema base, asi que no es
 necesario instalar software adicional.</p>
 <p>La configuracion de <strong>dhcpd</strong> radica en el archivo <em>/etc/dhcpd.conf</em>, la
 forma basica:</p>
-<div class="highlight-python"><div class="highlight"><pre>deny unknown-clients;
-ddns-update-style none;
-subnet 192.168.1.0 netmask 255.255.255.0 {
-       range 192.168.1.50 192.168.1.100;
-       default-lease-time 28800;
-       max-lease-time 86400;
-       option broadcast-address 192.168.1.255;
-       option domain-name &quot;mi-dominio.com&quot;;
-       option domain-name-servers 200.33.146.241, 200.33.146.249;
-       option routers 192.168.1.1;
-       host www-server {
-               hardware ethernet 00:00:00:00:00:00;
-               fixed-address 192.168.1.3;
-               }
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">deny</span> <span class="n">unknown</span><span class="o">-</span><span class="n">clients</span><span class="p">;</span>
+<span class="n">ddns</span><span class="o">-</span><span class="n">update</span><span class="o">-</span><span class="n">style</span> <span class="n">none</span><span class="p">;</span>
+<span class="n">subnet</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.0</span> <span class="n">netmask</span> <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span> <span class="p">{</span>
+       <span class="nb">range</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.50</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.100</span><span class="p">;</span>
+       <span class="n">default</span><span class="o">-</span><span class="n">lease</span><span class="o">-</span><span class="n">time</span> <span class="mi">28800</span><span class="p">;</span>
+       <span class="nb">max</span><span class="o">-</span><span class="n">lease</span><span class="o">-</span><span class="n">time</span> <span class="mi">86400</span><span class="p">;</span>
+       <span class="n">option</span> <span class="n">broadcast</span><span class="o">-</span><span class="n">address</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.255</span><span class="p">;</span>
+       <span class="n">option</span> <span class="n">domain</span><span class="o">-</span><span class="n">name</span> <span class="s2">&quot;mi-dominio.com&quot;</span><span class="p">;</span>
+       <span class="n">option</span> <span class="n">domain</span><span class="o">-</span><span class="n">name</span><span class="o">-</span><span class="n">servers</span> <span class="mf">200.33</span><span class="o">.</span><span class="mf">146.241</span><span class="p">,</span> <span class="mf">200.33</span><span class="o">.</span><span class="mf">146.249</span><span class="p">;</span>
+       <span class="n">option</span> <span class="n">routers</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.1</span><span class="p">;</span>
+       <span class="n">host</span> <span class="n">www</span><span class="o">-</span><span class="n">server</span> <span class="p">{</span>
+               <span class="n">hardware</span> <span class="n">ethernet</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">;</span>
+               <span class="n">fixed</span><span class="o">-</span><span class="n">address</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.3</span><span class="p">;</span>
+               <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>En la configuracion anterior, tenemos direcciones IP asignadas pr DHCP
@@ -256,8 +255,8 @@ y una direccion fija para el host www-server 192.168.1.3 identificada
 por su MAC (00:00 es supuesto)</p>
 <p>Editamos <em>/etc/rc.conf</em> para activar <strong>dhcpd</strong> al momento del arranque,
 asi como <em>dhcpd_flags</em></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">dhcpd</span><span class="o">=</span><span class="n">YES</span>
-<span class="n">dhcpd_flags</span><span class="o">=</span><span class="s">&quot;-q fxp0&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dhcpd</span><span class="o">=</span><span class="n">YES</span>
+<span class="n">dhcpd_flags</span><span class="o">=</span><span class="s2">&quot;-q fxp0&quot;</span>
 </pre></div>
 </div>
 <p><em>dhcpd_flags</em> pasa el parametro al servidor <strong>dhcpd</strong> para definir la
@@ -265,11 +264,11 @@ interfaz que escuchara las solicitudes de IP, en nuestro caso es una
 intel 10/100 (fxp0)</p>
 <p>Antes de iniciar el servidor dhcpd, es necesario crear el archivo
 <em>/var/db/dhcpd.leases</em></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># touch /var/db/dhcpd.leases</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># touch /var/db/dhcpd.leases</span>
 </pre></div>
 </div>
 <p>Iniciamos el servidor:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># /etc/rc.d/dhcpd start</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># /etc/rc.d/dhcpd start</span>
 </pre></div>
 </div>
 <p>Si todo va bien, en este momento NetBSD esta actuando como servidor DHCP
@@ -296,8 +295,8 @@ a la red interna.</p>
       
     </p>
     <p>
-        &copy; Copyright 2015, varios.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+        &copy; Copyright 2017, Varios amigos, amantes de NetBSD.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.<br/>
     </p>
   </div>
 </footer>

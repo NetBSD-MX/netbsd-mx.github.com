@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>WPA &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    <title>WPA &#8212; Documentacion NetBSD.MX 1.0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -18,7 +15,8 @@
         VERSION:     '1.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,9 +24,10 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="PPPoE" href="pppoe.html" />
     <link rel="prev" title="Grabando CD’s and DVD-R" href="media.html" />
 
@@ -44,7 +43,7 @@
 </script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,8 +54,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
-          Documentacion NetBSD Mexico </a>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NetBSD.png"></span>
+          Documentacion NetBSD español</a>
         <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
       </div>
 
@@ -90,8 +89,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#soporte-virtualhosts">Soporte virtualhosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
 </ul>
 </li>
@@ -115,20 +114,20 @@
 <li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD’s and DVD-R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">WPA</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WPA</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requisitos">Requisitos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#que-es">Que es ?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuracion">Configuracion</a></li>
@@ -206,7 +205,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="_sources/wpa.txt"
+  <a href="_sources/wpa.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -228,7 +227,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="wpa">
 <h1>WPA<a class="headerlink" href="#wpa" title="Permalink to this headline">¶</a></h1>
@@ -246,23 +245,23 @@ inalambricas. NetBSD soporta WPA a traves de
 <div class="section" id="configuracion">
 <h2>Configuracion<a class="headerlink" href="#configuracion" title="Permalink to this headline">¶</a></h2>
 <p>Para conectarnos a un AP usando WPA-Personal necesitamos <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_supplicant+8+NetBSD-current">wpa_supplicant</a>(8) que contenga al menos:</p>
-<div class="highlight-python"><div class="highlight"><pre>/etc/wpa_supplicant.conf
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">wpa_supplicant</span><span class="o">.</span><span class="n">conf</span>
 
-network = {
-    ssid=&quot;MYWLAN&quot;
-    scan_ssid=1
-    key_mgmt=WPA-PSK
-    psk=&quot;Mi_llave_psk&quot;
-}
+<span class="n">network</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">ssid</span><span class="o">=</span><span class="s2">&quot;MYWLAN&quot;</span>
+    <span class="n">scan_ssid</span><span class="o">=</span><span class="mi">1</span>
+    <span class="n">key_mgmt</span><span class="o">=</span><span class="n">WPA</span><span class="o">-</span><span class="n">PSK</span>
+    <span class="n">psk</span><span class="o">=</span><span class="s2">&quot;Mi_llave_psk&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Para crear llaves podemos usar <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?wpa_passphrase++NetBSD-current">wpa_passphrase</a>(8)</p>
-<div class="highlight-python"><div class="highlight"><pre># wpa_passphrase myap alguna_clave
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># wpa_passphrase myap alguna_clave</span>
 
-network={
-  ssid=&quot;myapp&quot;
-  psk=39db2863271f7a2ba6549e0941c95154ff339982a7849c71082561eb570e6708
-}
+<span class="n">network</span><span class="o">=</span><span class="p">{</span>
+  <span class="n">ssid</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span>
+  <span class="n">psk</span><span class="o">=</span><span class="mi">39</span><span class="n">db2863271f7a2ba6549e0941c95154ff339982a7849c71082561eb570e6708</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Por citar un ejemplo, es importante notar que psk= debe ir sin comillas
@@ -270,14 +269,14 @@ ni apostrofes.</p>
 <p>Siempre podremos agregar mas redes a nuestro archivo de configuración
 wpa_supplicant.conf, ademas wpa_supplicant soporta muchos protocolos
 (WPA, WPA2,IEEE 802.1x) y varios métodos para autentificar (EAP,
-PEAP,etc), podremos tener también una red &#8220;genérica&#8221; para redes abiertas
+PEAP,etc), podremos tener también una red “genérica” para redes abiertas
 al publico (En algunos restaurantes, hoteles y aeropuertos) que puede
 describirse como sigue:</p>
-<div class="highlight-python"><div class="highlight"><pre>network={
-    ssid=&quot;any&quot;
-    key_mgmt=NONE
-    priority=2
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">network</span><span class="o">=</span><span class="p">{</span>
+    <span class="n">ssid</span><span class="o">=</span><span class="s2">&quot;any&quot;</span>
+    <span class="n">key_mgmt</span><span class="o">=</span><span class="n">NONE</span>
+    <span class="n">priority</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Al final solo debemos solicitar una IP y navegaremos sin problemas.</p>
@@ -285,15 +284,15 @@ describirse como sigue:</p>
 <div class="section" id="usando-wpa-supplicant">
 <h2>Usando wpa_supplicant<a class="headerlink" href="#usando-wpa-supplicant" title="Permalink to this headline">¶</a></h2>
 <p>Agrega lo siguiente a tu <em>/etc/ifconfig.ral0</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">up</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">up</span>
 <span class="n">dhcp</span>
 </pre></div>
 </div>
 <p>y mediante las siguientes lineas en /etc/rc.conf, inmediatamente despues
 de <em>wpa_supplicant=YES</em></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">dhcpcd_flags</span><span class="o">=</span><span class="s">&quot;-q -b&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dhcpcd_flags</span><span class="o">=</span><span class="s2">&quot;-q -b&quot;</span>
 <span class="n">wpa_supplicant</span><span class="o">=</span><span class="n">YES</span>
-<span class="n">wpa_supplicant_flags</span><span class="o">=</span><span class="s">&quot;-B -i ral0 -c /etc/wpa_supplicant.conf&quot;</span>
+<span class="n">wpa_supplicant_flags</span><span class="o">=</span><span class="s2">&quot;-B -i ral0 -c /etc/wpa_supplicant.conf&quot;</span>
 </pre></div>
 </div>
 <p>La opcion -B permite correr wpa_supplicant en modo background.</p>
@@ -317,8 +316,8 @@ de <em>wpa_supplicant=YES</em></p>
       
     </p>
     <p>
-        &copy; Copyright 2015, varios.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+        &copy; Copyright 2017, Varios amigos, amantes de NetBSD.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.<br/>
     </p>
   </div>
 </footer>

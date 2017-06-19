@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Access point con doble stack y seguridad WPA &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    <title>Access point con doble stack y seguridad WPA &#8212; Documentacion NetBSD.MX 1.0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -18,7 +15,8 @@
         VERSION:     '1.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,9 +24,10 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Perl Dancer y NetBSD" href="dancer.html" />
     <link rel="prev" title="bozohttpd - bozotic httpd" href="bozohttpd.html" />
 
@@ -44,7 +43,7 @@
 </script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,8 +54,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
-          Documentacion NetBSD Mexico </a>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NetBSD.png"></span>
+          Documentacion NetBSD español</a>
         <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
       </div>
 
@@ -90,12 +89,12 @@
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#soporte-virtualhosts">Soporte virtualhosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Access point con doble stack y seguridad WPA</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Access point con doble stack y seguridad WPA</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#descripcion">Descripcion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#definiciones">Definiciones:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#requisitos">Requisitos:</a></li>
@@ -115,16 +114,16 @@
 <li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD’s and DVD-R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
 </ul>
 </li>
@@ -207,7 +206,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="_sources/accesspoint-dualstack.txt"
+  <a href="_sources/accesspoint-dualstack.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -229,7 +228,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="access-point-con-doble-stack-y-seguridad-wpa">
 <h1><a class="toc-backref" href="#id1">Access point con doble stack y seguridad WPA</a><a class="headerlink" href="#access-point-con-doble-stack-y-seguridad-wpa" title="Permalink to this headline">¶</a></h1>
@@ -251,7 +250,7 @@
 <h2><a class="toc-backref" href="#id2">Descripcion</a><a class="headerlink" href="#descripcion" title="Permalink to this headline">¶</a></h2>
 <p>Este Access Point operando bajo NetBSD con llaves dinámicas WPA es
 extremadamente seguro. Las razones de ello no podría explicarlas porque
-esa no es mi área de conocimiento... tendrá qué buscarlas usted por su
+esa no es mi área de conocimiento… tendrá qué buscarlas usted por su
 cuenta. Si usted es un paranoico de la seguridad, esta configuración de
 Access Point es para usted.</p>
 </div>
@@ -293,10 +292,10 @@ de IPv6</p>
 <p><code class="docutils literal"><span class="pre">/etc/ifconfig.ral0</span></code></p>
 </li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre>nwid hola mediaopt hostap chan 4
-inet  192.168.64.1 netmask 0xffffff00 media auto
-inet6 3ffe:8240:8018:7fa::1 prefixlen 64 alias
-up
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">nwid</span> <span class="n">hola</span> <span class="n">mediaopt</span> <span class="n">hostap</span> <span class="n">chan</span> <span class="mi">4</span>
+<span class="n">inet</span>  <span class="mf">192.168</span><span class="o">.</span><span class="mf">64.1</span> <span class="n">netmask</span> <span class="mh">0xffffff00</span> <span class="n">media</span> <span class="n">auto</span>
+<span class="n">inet6</span> <span class="mi">3</span><span class="n">ffe</span><span class="p">:</span><span class="mi">8240</span><span class="p">:</span><span class="mi">8018</span><span class="p">:</span><span class="mi">7</span><span class="n">fa</span><span class="p">::</span><span class="mi">1</span> <span class="n">prefixlen</span> <span class="mi">64</span> <span class="n">alias</span>
+<span class="n">up</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -310,30 +309,30 @@ de direcciones de IPv6</li>
 <li>Haga el archivo <strong>/etc/hostapd.conf</strong> para la configuración de la
 seguridad</li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre>interface=ral0
-logger_syslog=-1
-logger_syslog_level=2
-logger_stdout=-1
-logger_stdout_level=2
-debug=0
-dump_file=/tmp/hostapd.dump
-ctrl_interface=/var/run/hostapd
-ctrl_interface_group=wheel
-ssid=hola
-macaddr_acl=0
-auth_algs=1
-wpa=1
-wpa_psk=75eb38988c5bb4499517c319934c845f6575f0456fa693666e0a90da3b92b740
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">interface</span><span class="o">=</span><span class="n">ral0</span>
+<span class="n">logger_syslog</span><span class="o">=-</span><span class="mi">1</span>
+<span class="n">logger_syslog_level</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">logger_stdout</span><span class="o">=-</span><span class="mi">1</span>
+<span class="n">logger_stdout_level</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">debug</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">dump_file</span><span class="o">=/</span><span class="n">tmp</span><span class="o">/</span><span class="n">hostapd</span><span class="o">.</span><span class="n">dump</span>
+<span class="n">ctrl_interface</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">hostapd</span>
+<span class="n">ctrl_interface_group</span><span class="o">=</span><span class="n">wheel</span>
+<span class="n">ssid</span><span class="o">=</span><span class="n">hola</span>
+<span class="n">macaddr_acl</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">auth_algs</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">wpa</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">wpa_psk</span><span class="o">=</span><span class="mi">75</span><span class="n">eb38988c5bb4499517c319934c845f6575f0456fa693666e0a90da3b92b740</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>Configure el arranque de los servicios en <strong>/etc/rc.conf</strong></li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre>ip6mode=router
-hostapd=YES
-rtadvd=YES      rtadvd_flags=&quot;ral0&quot;
-named=YES       named_flags=&quot;&quot;
-dhcpd=YES       dhcpd_flags=&quot;-q ral0&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ip6mode</span><span class="o">=</span><span class="n">router</span>
+<span class="n">hostapd</span><span class="o">=</span><span class="n">YES</span>
+<span class="n">rtadvd</span><span class="o">=</span><span class="n">YES</span>      <span class="n">rtadvd_flags</span><span class="o">=</span><span class="s2">&quot;ral0&quot;</span>
+<span class="n">named</span><span class="o">=</span><span class="n">YES</span>       <span class="n">named_flags</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="n">dhcpd</span><span class="o">=</span><span class="n">YES</span>       <span class="n">dhcpd_flags</span><span class="o">=</span><span class="s2">&quot;-q ral0&quot;</span>
 </pre></div>
 </div>
 <p>Reinicie su máquina, la parte de Access Point ha quedado lista.</p>
@@ -353,7 +352,7 @@ operacional. Disfrute su nuevo access point :)</p>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">/etc/ifconfig.ral0</span></code></div></blockquote>
 <ul class="simple">
-<li>hostap es el modo para trabajar como &#8220;Access Point&#8221;. Otras
+<li>hostap es el modo para trabajar como “Access Point”. Otras
 opciones son ibss para conexiones peer to peer, <strong>monitor</strong>
 (autoexplicativo) y bss (default) para ser cliente de un access
 point. Consulte el manual del driver de su tarjeta de red para
@@ -368,7 +367,7 @@ alcances y limitaciones.</li>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">/etc/rtadvd.conf</span></code></div></blockquote>
 <ul class="simple">
-<li>Con ral0:addr=&#8221;3ffe:8240:8018:7fa::&#8221;:prefixlen#64: es posible
+<li>Con ral0:addr=”3ffe:8240:8018:7fa::”:prefixlen#64: es posible
 definirlo en una sola línea acorde a la sintáxis de termcap(5)</li>
 <li>El servicio rtadvd con la dirección base addr/64 y la mac address del
 cliente que solicita una IPv6 le asignará una dirección utilizando el
@@ -391,31 +390,31 @@ haga lo siguiente:</li>
 </ul>
 <p><code class="docutils literal"><span class="pre">cp&nbsp;/usr/share/examples/hostapd/hostapd.conf&nbsp;/etc/hostapd.conf</span></code></p>
 <p>Edite su archivo y haga los siguientes reemplazos</p>
-<div class="highlight-python"><div class="highlight"><pre>diff /usr/share/examples/hostapd/hostapd.conf /etc/hostapd.conf
-1c1
-&lt; #     $NetBSD: hostapd.conf,v 1.1 2006/04/30 13:52:35 rpaulo Exp $
----
-&gt; #     $NetBSD: hostapd.conf 1.1 2006/04/30 13:52:35 rpaulo Exp $
-8c8
-&lt; interface=if0
----
-&gt; interface=ral0
-70c70
-&lt; ssid=NetBSD
----
-&gt; ssid=hola
-90c90
-&lt; auth_algs=3
----
-&gt; auth_algs=1
-268c268
-&lt; #wpa=1
----
-&gt; wpa=1
-276c276
-&lt; #wpa_psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
----
-&gt;wpa_psk=75eb38988c5bb4499517c319934c845f6575f0456fa693666e0a90da3b92b740
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">diff</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">hostapd</span><span class="o">/</span><span class="n">hostapd</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hostapd</span><span class="o">.</span><span class="n">conf</span>
+<span class="mi">1</span><span class="n">c1</span>
+<span class="o">&lt;</span> <span class="c1">#     $NetBSD: hostapd.conf,v 1.1 2006/04/30 13:52:35 rpaulo Exp $</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="c1">#     $NetBSD: hostapd.conf 1.1 2006/04/30 13:52:35 rpaulo Exp $</span>
+<span class="mi">8</span><span class="n">c8</span>
+<span class="o">&lt;</span> <span class="n">interface</span><span class="o">=</span><span class="n">if0</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="n">interface</span><span class="o">=</span><span class="n">ral0</span>
+<span class="mi">70</span><span class="n">c70</span>
+<span class="o">&lt;</span> <span class="n">ssid</span><span class="o">=</span><span class="n">NetBSD</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="n">ssid</span><span class="o">=</span><span class="n">hola</span>
+<span class="mi">90</span><span class="n">c90</span>
+<span class="o">&lt;</span> <span class="n">auth_algs</span><span class="o">=</span><span class="mi">3</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="n">auth_algs</span><span class="o">=</span><span class="mi">1</span>
+<span class="mi">268</span><span class="n">c268</span>
+<span class="o">&lt;</span> <span class="c1">#wpa=1</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="n">wpa</span><span class="o">=</span><span class="mi">1</span>
+<span class="mi">276</span><span class="n">c276</span>
+<span class="o">&lt;</span> <span class="c1">#wpa_psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef</span>
+<span class="o">---</span>
+<span class="o">&gt;</span><span class="n">wpa_psk</span><span class="o">=</span><span class="mi">75</span><span class="n">eb38988c5bb4499517c319934c845f6575f0456fa693666e0a90da3b92b740</span>
 </pre></div>
 </div>
 <p>Si usted no quiere IPv6, suprima las líneas que lo relacionan, pero no
@@ -437,8 +436,8 @@ lo eche en saco roto. <strong>IPv6 ya es inminente</strong>.</p>
       
     </p>
     <p>
-        &copy; Copyright 2015, varios.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+        &copy; Copyright 2017, Varios amigos, amantes de NetBSD.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.<br/>
     </p>
   </div>
 </footer>

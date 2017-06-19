@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Grabando CD’s and DVD-R &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    <title>Grabando CD’s and DVD-R &#8212; Documentacion NetBSD.MX 1.0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -18,7 +15,8 @@
         VERSION:     '1.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,9 +24,10 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="WPA" href="wpa.html" />
     <link rel="prev" title="Servidor DHCP" href="dhcp-server.html" />
 
@@ -44,7 +43,7 @@
 </script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,8 +54,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
-          Documentacion NetBSD Mexico </a>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NetBSD.png"></span>
+          Documentacion NetBSD español</a>
         <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
       </div>
 
@@ -90,8 +89,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#soporte-virtualhosts">Soporte virtualhosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
 </ul>
 </li>
@@ -115,16 +114,16 @@
 <li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Grabando CD’s and DVD-R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#instalando-lo-necesario">Instalando lo necesario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grabando-dvd-s">Grabando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creando-un-dvd-video">Creando un DVD Video</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formateando-dvd-s">Formateando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formateando-cd-s">Formateando CD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
 </ul>
 </li>
@@ -187,16 +186,16 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Grabando CD&#8217;s and DVD-R</a><ul>
+<li><a class="reference internal" href="#">Grabando CD’s and DVD-R</a><ul>
 <li><a class="reference internal" href="#instalando-lo-necesario">Instalando lo necesario</a></li>
-<li><a class="reference internal" href="#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li><a class="reference internal" href="#grabando-dvd-s">Grabando DVD’s</a></li>
 <li><a class="reference internal" href="#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
 <li><a class="reference internal" href="#creando-un-dvd-video">Creando un DVD Video</a></li>
 <li><a class="reference internal" href="#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
-<li><a class="reference internal" href="#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li><a class="reference internal" href="#formateando-dvd-s">Formateando DVD’s</a></li>
 <li><a class="reference internal" href="#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
 <li><a class="reference internal" href="#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
-<li><a class="reference internal" href="#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li><a class="reference internal" href="#formateando-cd-s">Formateando CD’s</a></li>
 <li><a class="reference internal" href="#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
 </ul>
 </li>
@@ -211,7 +210,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="_sources/media.txt"
+  <a href="_sources/media.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -233,10 +232,10 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="grabando-cd-s-and-dvd-r">
-<h1>Grabando CD&#8217;s and DVD-R<a class="headerlink" href="#grabando-cd-s-and-dvd-r" title="Permalink to this headline">¶</a></h1>
+<h1>Grabando CD’s and DVD-R<a class="headerlink" href="#grabando-cd-s-and-dvd-r" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="instalando-lo-necesario">
 <h2>Instalando lo necesario<a class="headerlink" href="#instalando-lo-necesario" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -246,7 +245,7 @@
 </ul>
 </div>
 <div class="section" id="grabando-dvd-s">
-<h2>Grabando DVD&#8217;s<a class="headerlink" href="#grabando-dvd-s" title="Permalink to this headline">¶</a></h2>
+<h2>Grabando DVD’s<a class="headerlink" href="#grabando-dvd-s" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">#&nbsp;growisofs&nbsp;&nbsp;-dvd-compat&nbsp;-Z&nbsp;/dev/rcd0d=imagen.iso</span></code></p>
 </div>
 <div class="section" id="almacenando-archivos-en-un-dvd">
@@ -264,7 +263,7 @@ y AUDIO_TS hacemos:</p>
 <p><code class="docutils literal"><span class="pre">#&nbsp;readcd&nbsp;dev=/dev/rcd0d&nbsp;f=image.img</span></code></p>
 </div>
 <div class="section" id="formateando-dvd-s">
-<h2>Formateando DVD&#8217;s<a class="headerlink" href="#formateando-dvd-s" title="Permalink to this headline">¶</a></h2>
+<h2>Formateando DVD’s<a class="headerlink" href="#formateando-dvd-s" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">#&nbsp;dvd+rw-format&nbsp;-blank&nbsp;/dev/rcd0d</span></code></p>
 </div>
 <div class="section" id="generando-una-imagen-iso-desde-un-cd">
@@ -278,7 +277,7 @@ y AUDIO_TS hacemos:</p>
 </div>
 </div>
 <div class="section" id="formateando-cd-s">
-<h2>Formateando CD&#8217;s<a class="headerlink" href="#formateando-cd-s" title="Permalink to this headline">¶</a></h2>
+<h2>Formateando CD’s<a class="headerlink" href="#formateando-cd-s" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">#&nbsp;cdrdao&nbsp;blank&nbsp;--device&nbsp;/dev/rcd0d&nbsp;--driver&nbsp;generic-mmc</span></code></p>
 </div>
 <div class="section" id="trabajando-con-cd-de-audio">
@@ -288,9 +287,9 @@ tabla de contenidos en el archivo cdtracks.toc</p>
 <p><code class="docutils literal"><span class="pre">#</span> <span class="pre">cdrdao</span> <span class="pre">read-cd</span> <span class="pre">--device</span> <span class="pre">/dev/rcd0d</span> <span class="pre">cdtracks.toc</span></code></p>
 <p>A continuacion escribimos el contenido del CD de audio originado a
 partir de la tabla de contenidos del paso anterior en un CD-R blanco. #
-cdrdao write &#8211;device /dev/rcd0d cdtracks.toc</p>
-<p>Como puedes leer, NetBSD incluye todo lo necesario para generar tus CD&#8217;s
-y DVD&#8217;s desde el shell, tu eres libre de programar tus scripts y
+cdrdao write –device /dev/rcd0d cdtracks.toc</p>
+<p>Como puedes leer, NetBSD incluye todo lo necesario para generar tus CD’s
+y DVD’s desde el shell, tu eres libre de programar tus scripts y
 automatizar tus copias.</p>
 <p>Links:</p>
 <ul class="simple">
@@ -314,8 +313,8 @@ automatizar tus copias.</p>
       
     </p>
     <p>
-        &copy; Copyright 2015, varios.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+        &copy; Copyright 2017, Varios amigos, amantes de NetBSD.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.<br/>
     </p>
   </div>
 </footer>

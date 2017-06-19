@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Usando pkgsrc e instalando paquetes binarios &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    <title>Usando pkgsrc e instalando paquetes binarios &#8212; Documentacion NetBSD.MX 1.0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -18,7 +15,8 @@
         VERSION:     '1.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,9 +24,10 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="bozohttpd - bozotic httpd" href="bozohttpd.html" />
     <link rel="prev" title="Instalación de NetBSD con Arranque desde Red (PXE)" href="instalacion-red.html" />
 
@@ -44,7 +43,7 @@
 </script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,8 +54,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
-          Documentacion NetBSD Mexico </a>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NetBSD.png"></span>
+          Documentacion NetBSD español</a>
         <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
       </div>
 
@@ -78,7 +77,7 @@
 <li class="toctree-l2"><a class="reference internal" href="instalacion-red.html#equipo-destino">Equipo Destino</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Usando pkgsrc e instalando paquetes binarios</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usando pkgsrc e instalando paquetes binarios</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#que-es-pkgsrc">¿Que es pkgsrc ?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#inicializando-pkgsrc">Inicializando pkgsrc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#instalando-paquetes-via-pkgsrc">Instalando paquetes via pkgsrc</a></li>
@@ -90,8 +89,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#introduccion">Introducción</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#usos">Usos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#soporte-virtualhosts">Soporte virtualhosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#parametros-adicionales">Parametros adicionales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#ejemplos">Ejemplos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bozohttpd.html#autenticacion">Autenticación</a></li>
 </ul>
 </li>
@@ -115,16 +114,16 @@
 <li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD’s and DVD-R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
 </ul>
 </li>
@@ -217,7 +216,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="_sources/pkgsrc-binarios.txt"
+  <a href="_sources/pkgsrc-binarios.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -239,7 +238,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="usando-pkgsrc-e-instalando-paquetes-binarios">
 <h1>Usando pkgsrc e instalando paquetes binarios<a class="headerlink" href="#usando-pkgsrc-e-instalando-paquetes-binarios" title="Permalink to this headline">¶</a></h1>
@@ -256,17 +255,17 @@ eficiente. A continuacion se detalla su uso.</p>
 <h2>Inicializando pkgsrc<a class="headerlink" href="#inicializando-pkgsrc" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="establecemos-las-variables-usadas-por-cvs">
 <h3>Establecemos las variables usadas por cvs<a class="headerlink" href="#establecemos-las-variables-usadas-por-cvs" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># export CVSROOT=:pserver:anoncvs@anoncvs.netbsd.org:/cvsroot</span>
-<span class="c"># export CVS_RSH=ssh</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># export CVSROOT=:pserver:anoncvs@anoncvs.netbsd.org:/cvsroot</span>
+<span class="c1"># export CVS_RSH=ssh</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="descargamos-pkgsrc-a-traves-de-cvs-por-unica-vez">
 <h3>Descargamos pkgsrc a traves de CVS por unica vez<a class="headerlink" href="#descargamos-pkgsrc-a-traves-de-cvs-por-unica-vez" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># cd /usr</span>
-<span class="c"># cvs -d$CVSROOT login</span>
-<span class="c"># cvs -d$CVSROOT co -P pkgsrc</span>
-<span class="c"># cvs -d$CVSROOT logout</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cd /usr</span>
+<span class="c1"># cvs -d$CVSROOT login</span>
+<span class="c1"># cvs -d$CVSROOT co -P pkgsrc</span>
+<span class="c1"># cvs -d$CVSROOT logout</span>
 </pre></div>
 </div>
 <p>Con estas simples instrucciones tenemos instalado y actualizado el arbol
@@ -277,15 +276,15 @@ de paquetes de NetBSD.</p>
 <h2>Instalando paquetes via pkgsrc<a class="headerlink" href="#instalando-paquetes-via-pkgsrc" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="para-instalar-imagemagick-desde-pkgsrc">
 <h3>Para instalar ImageMagick desde pkgsrc:<a class="headerlink" href="#para-instalar-imagemagick-desde-pkgsrc" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># cd /usr/pkgsrc/graphics/ImageMagick</span>
-<span class="c"># make install clean</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cd /usr/pkgsrc/graphics/ImageMagick</span>
+<span class="c1"># make install clean</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="para-crear-un-paquete-precompilado-de-imagemagick-desde-pkgsrc">
 <h3>Para crear un paquete precompilado de ImageMagick desde pkgsrc:<a class="headerlink" href="#para-crear-un-paquete-precompilado-de-imagemagick-desde-pkgsrc" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># cd /usr/pkgsrc/graphics/ImageMagick</span>
-<span class="c"># make package</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cd /usr/pkgsrc/graphics/ImageMagick</span>
+<span class="c1"># make package</span>
 </pre></div>
 </div>
 <p>el paquete se creara en /usr/pkgsrc/packages/All/ImageMagick-VERSION.tgz</p>
@@ -307,7 +306,7 @@ precompilados para una plataforma especifica, veamos como trabaja.</p>
 automaticamente, si lo omitiste, entonces ve al sitio ftp
 <code class="docutils literal"><span class="pre">ftp://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/amd64/6.1/All/</span></code> y
 descarga <code class="docutils literal"><span class="pre">pkgin-0.6.3.1.1.tgz</span></code> e instalalo manualmente via pkg_add</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># pkg_add -v pkgin-0.6.3.1.1.tgz</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># pkg_add -v pkgin-0.6.3.1.1.tgz</span>
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">pkgin</span></code> usa un archivo de configuracion en
@@ -320,7 +319,7 @@ para que apunte a tu ftp actual de paquetes binarios, en nuestro caso;
 <h3>Usando pkgin<a class="headerlink" href="#usando-pkgin" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt>Ejecutando pkgin sin argumentos, obtenemos:</dt>
-<dd><div class="first last highlight-python"><div class="highlight"><pre>$ pkgin
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span>$ pkgin
   Usage: pkgin [-cdfFhlnPtvVy] command [package ...]
   Commands and shortcuts:
   list                (ls  ) -  List installed packages.
@@ -361,15 +360,15 @@ para que apunte a tu ftp actual de paquetes binarios, en nuestro caso;
 </div>
 <div class="section" id="ejemplos">
 <h3>Ejemplos:<a class="headerlink" href="#ejemplos" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># pkgin se sudo             ;Busca sudo en el arbol local de paquetes</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># pkgin se sudo             ;Busca sudo en el arbol local de paquetes</span>
 
-<span class="c"># pkgin install sudo        ;Instala sudo y sus dependencias</span>
+<span class="c1"># pkgin install sudo        ;Instala sudo y sus dependencias</span>
 
-<span class="c"># pkgin remove sudo         ;quita  sudo del sistema</span>
+<span class="c1"># pkgin remove sudo         ;quita  sudo del sistema</span>
 
-<span class="c"># pkgin list                ;Muestra los paquetes instalados</span>
+<span class="c1"># pkgin list                ;Muestra los paquetes instalados</span>
 
-<span class="c"># pkgin                     ;Ayuda</span>
+<span class="c1"># pkgin                     ;Ayuda</span>
 </pre></div>
 </div>
 </div>
@@ -389,8 +388,8 @@ para que apunte a tu ftp actual de paquetes binarios, en nuestro caso;
       
     </p>
     <p>
-        &copy; Copyright 2015, varios.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+        &copy; Copyright 2017, Varios amigos, amantes de NetBSD.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.<br/>
     </p>
   </div>
 </footer>

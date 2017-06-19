@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bozohttpd - bozotic httpd &mdash; Documentacion NetBSD.MX 1.0.1 documentation</title>
+    <title>bozohttpd - bozotic httpd &#8212; Documentacion NetBSD.MX 1.0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -18,7 +15,8 @@
         VERSION:     '1.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,9 +24,10 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Documentacion NetBSD.MX 1.0.1 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Access point con doble stack y seguridad WPA" href="accesspoint-dualstack.html" />
     <link rel="prev" title="Usando pkgsrc e instalando paquetes binarios" href="pkgsrc-binarios.html" />
 
@@ -44,7 +43,7 @@
 </script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,8 +54,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img src="_static/NetBSD.png">
-          Documentacion NetBSD Mexico </a>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NetBSD.png"></span>
+          Documentacion NetBSD español</a>
         <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
       </div>
 
@@ -85,13 +84,13 @@
 <li class="toctree-l2"><a class="reference internal" href="pkgsrc-binarios.html#introduccion-a-pkgin">Introduccion a pkgin</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">bozohttpd - bozotic httpd</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">bozohttpd - bozotic httpd</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requerimientos">Requerimientos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#introduccion">Introducción</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#usos">Usos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#soporte-virtualhosts">Soporte virtualhosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#parametros-adicionales">Parametros adicionales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ejemplos">Ejemplos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#autenticacion">Autenticación</a></li>
 </ul>
 </li>
@@ -115,16 +114,16 @@
 <li class="toctree-l2"><a class="reference internal" href="dhcp-server.html#referencias">Referencias:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD&#8217;s and DVD-R</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="media.html">Grabando CD’s and DVD-R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="media.html#instalando-lo-necesario">Instalando lo necesario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#grabando-dvd-s">Grabando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#almacenando-archivos-en-un-dvd">Almacenando archivos en un DVD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#creando-un-dvd-video">Creando un DVD Video</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-desde-un-dvd">Generando una imagen desde un DVD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-dvd-s">Formateando DVD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#generando-una-imagen-iso-desde-un-cd">Generando una imagen .ISO desde un CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#grabando-una-imagen-iso-a-un-cd">Grabando una imagen ISO a un CD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html#formateando-cd-s">Formateando CD’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html#trabajando-con-cd-de-audio">Trabajando con CD de Audio</a></li>
 </ul>
 </li>
@@ -192,8 +191,8 @@
 <li><a class="reference internal" href="#introduccion">Introducción</a></li>
 <li><a class="reference internal" href="#usos">Usos</a></li>
 <li><a class="reference internal" href="#configuracion">Configuración</a></li>
+<li><a class="reference internal" href="#soporte-virtualhosts">Soporte virtualhosts</a></li>
 <li><a class="reference internal" href="#parametros-adicionales">Parametros adicionales</a></li>
-<li><a class="reference internal" href="#ejemplos">Ejemplos</a></li>
 <li><a class="reference internal" href="#autenticacion">Autenticación</a></li>
 </ul>
 </li>
@@ -208,7 +207,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="_sources/bozohttpd.txt"
+  <a href="_sources/bozohttpd.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -230,12 +229,12 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="bozohttpd-bozotic-httpd">
 <h1>bozohttpd - bozotic httpd<a class="headerlink" href="#bozohttpd-bozotic-httpd" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre>httpd - hyper text transfer protocol version 1.1 daemon  (via man httpd)
-        httpd(8) lee una peticion por medio del protocolo http y envia la respuesta a la salida standard.
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">httpd</span> <span class="o">-</span> <span class="n">hyper</span> <span class="n">text</span> <span class="n">transfer</span> <span class="n">protocol</span> <span class="n">version</span> <span class="mf">1.1</span> <span class="n">daemon</span>  <span class="p">(</span><span class="n">via</span> <span class="n">man</span> <span class="n">httpd</span><span class="p">)</span>
+        <span class="n">httpd</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="n">lee</span> <span class="n">una</span> <span class="n">peticion</span> <span class="n">por</span> <span class="n">medio</span> <span class="k">del</span> <span class="n">protocolo</span> <span class="n">http</span> <span class="n">y</span> <span class="n">envia</span> <span class="n">la</span> <span class="n">respuesta</span> <span class="n">a</span> <span class="n">la</span> <span class="n">salida</span> <span class="n">standard</span><span class="o">.</span>
 </pre></div>
 </div>
 <div class="section" id="requerimientos">
@@ -278,7 +277,7 @@ siguiente forma:</p>
 <p><code class="docutils literal"><span class="pre">#&nbsp;vi&nbsp;/var/www/index.html</span></code></p>
 <p>Escribimos una linea html en el archivo y guardamos los cambios,
 ejemplo:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;h1&gt; It work&#39;s &lt;/h1&gt;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span> <span class="n">It</span> <span class="n">work</span><span class="s1">&#39;s &lt;/h1&gt;</span>
 </pre></div>
 </div>
 <p>A continuacion, iniciamos httpd(8), para ello basta ejecutar desde la
@@ -287,21 +286,27 @@ linea de comandos:</p>
 <p>Apuntamos nuestro browser hacia <strong>http://localhost</strong> para probar nuestra
 configuracion.</p>
 </div>
-<div class="section" id="parametros-adicionales">
-<h2>Parametros adicionales<a class="headerlink" href="#parametros-adicionales" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>-c habilita el uso de scripts cgi, bajo el directorio /var/www/cgi-bin
--x Permite el indizado de directorios dentro de un directorio particular dentro del DocumentRoot (/var/www en este caso)
--v Habilita el uso de VirtualHost o servidores virtuales dentro de nuestro DocumentRoot.
+<div class="section" id="soporte-virtualhosts">
+<h2>Soporte virtualhosts<a class="headerlink" href="#soporte-virtualhosts" title="Permalink to this headline">¶</a></h2>
+<p>Para usar un servidor <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> con soporte para hosts virtuales, es necesario modificar
+la siguiente linea en <em>/etc/inetd.conf</em>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">http</span> <span class="n">stream</span> <span class="n">tcp</span>  <span class="n">nowait</span><span class="p">:</span><span class="mi">600</span> <span class="n">_httpd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">libexec</span><span class="o">/</span><span class="n">httpd</span> <span class="n">httpd</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">vroot</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span>
 </pre></div>
 </div>
+<p>Esta linea indica <a class="reference external" href="http://netbsd.gw.com/cgi-bin/man-cgi?httpd++NetBSD-current">httpd</a> que lea en el directorio /var/vroot en busca de hosts virtuales
+Ejemplo:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ mkdir /var/vroot/netbsd.mx
+$ ln -s /var/vroot/netbsd.mx /var/vroot/netbsd.org.mx
+$ mkdir /var/vroot/docs.netbsd.mx
+</pre></div>
 </div>
-<div class="section" id="ejemplos">
-<h2>Ejemplos<a class="headerlink" href="#ejemplos" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>http stream tcp  nowait:600 _httpd /usr/libexec/httpd httpd -v /var/vroot /var/www
-Inicia httpd(8) via inetd con Vhosts dentro de /var/vroot
-
-httpd -C .php /usr/pkg/bin/php /var/www
-Inicia httpd(8) con soporte php dentro de /var/www/
+<p>Ambos netbsd.mx y netbsd.org.mx apuntaran al mismo directorio.</p>
+</div>
+<div class="section" id="parametros-adicionales">
+<h2>Parametros adicionales<a class="headerlink" href="#parametros-adicionales" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">c</span> <span class="n">habilita</span> <span class="n">el</span> <span class="n">uso</span> <span class="n">de</span> <span class="n">scripts</span> <span class="n">cgi</span><span class="p">,</span> <span class="n">bajo</span> <span class="n">el</span> <span class="n">directorio</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">cgi</span><span class="o">-</span><span class="nb">bin</span>
+<span class="o">-</span><span class="n">x</span> <span class="n">Permite</span> <span class="n">el</span> <span class="n">indizado</span> <span class="n">de</span> <span class="n">directorios</span> <span class="n">dentro</span> <span class="n">de</span> <span class="n">un</span> <span class="n">directorio</span> <span class="n">particular</span> <span class="n">dentro</span> <span class="k">del</span> <span class="n">DocumentRoot</span> <span class="p">(</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span> <span class="n">en</span> <span class="n">este</span> <span class="n">caso</span><span class="p">)</span>
+<span class="o">-</span><span class="n">v</span> <span class="n">Habilita</span> <span class="n">el</span> <span class="n">uso</span> <span class="n">de</span> <span class="n">VirtualHost</span> <span class="n">o</span> <span class="n">servidores</span> <span class="n">virtuales</span> <span class="n">dentro</span> <span class="n">de</span> <span class="n">nuestro</span> <span class="n">DocumentRoot</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -324,8 +329,8 @@ Inicia httpd(8) con soporte php dentro de /var/www/
       
     </p>
     <p>
-        &copy; Copyright 2015, varios.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+        &copy; Copyright 2017, Varios amigos, amantes de NetBSD.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.<br/>
     </p>
   </div>
 </footer>
